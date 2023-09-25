@@ -78,7 +78,7 @@ const ProfileHero = () => {
               altro
             </Button>
           </Container>
-          <Container className="d-flex justifi-content-between">
+          <Container className="d-flex justify-content-between">
             <Container className="d-flex" style={{ backgroundColor: "#DDE7F1" }}>
               <Container fluid className="p-0">
                 <p className="m-0 fw-bold">Disponibile a lavorare</p>
