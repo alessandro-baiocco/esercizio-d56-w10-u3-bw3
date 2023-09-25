@@ -51,7 +51,7 @@ const Aside = () => {
             <p>italiano</p>
           </div>
           <Link to={"#"}>
-            <i class="bi bi-pencil fs-3"></i>
+            <i className="bi bi-pencil fs-3"></i>
           </Link>
         </div>
         <hr />
@@ -61,7 +61,7 @@ const Aside = () => {
             <p>www.linkedin.com</p>
           </div>
           <Link to={"#"}>
-            <i class="bi bi-pencil fs-3"></i>
+            <i className="bi bi-pencil fs-3"></i>
           </Link>
         </div>
       </div>
@@ -125,7 +125,7 @@ const Aside = () => {
                           viewBox="0 0 16 16"
                           data-supported-dps="16x16"
                           fill="currentColor"
-                          class="mercado-match"
+                          className="mercado-match"
                           width="16"
                           height="16"
                           focusable="false"
@@ -159,7 +159,7 @@ const Aside = () => {
                           viewBox="0 0 16 16"
                           data-supported-dps="16x16"
                           fill="currentColor"
-                          class="mercado-match"
+                          className="mercado-match"
                           width="16"
                           height="16"
                           focusable="false"
