@@ -8,12 +8,12 @@ const LinkedinFooter = () => {
         <Col className="col-2">
           <ul className="list-unstyled">
             <li>
-              <Link to="#" class="text-decoration-none text-secondary">
+              <Link to="#" className="text-decoration-none text-secondary">
                 Informazioni
               </Link>
             </li>
             <li>
-              <Link to="#" class="text-decoration-none text-secondary">
+              <Link to="#" className="text-decoration-none text-secondary">
                 Linee guida della community
               </Link>
             </li>
@@ -116,21 +116,21 @@ const LinkedinFooter = () => {
           <ul className="list-unstyled">
             <li>
               <QuestionCircleFill className="fs-6 me-2" />
-              <Link to="#" class="text-decoration-none text-secondary fs-6">
+              <Link to="#" className="text-decoration-none text-secondary fs-6">
                 Domande? <br />
               </Link>
               <span className="fw-light">Visita il nostro Centro assistenza.</span>
             </li>
             <li>
               <GearFill className="fs-6 me-2" />
-              <Link to="#" class="text-decoration-none text-secondary fs-6">
+              <Link to="#" className="text-decoration-none text-secondary fs-6">
                 Gestisci il tuo account e la tua privacy <br />
               </Link>
               <span className="fw-light">Vai alle impostazioni</span>
             </li>
             <li>
               <ShieldShaded className="fs-6 me-2" />
-              <Link to="#" class="text-decoration-none text-secondary fs-6">
+              <Link to="#" className="text-decoration-none text-secondary fs-6">
                 Trasparenza sui contenuti consigliati <br />
               </Link>
               <span className="fw-light">Scopri di più sui contenuti consigliati.</span>

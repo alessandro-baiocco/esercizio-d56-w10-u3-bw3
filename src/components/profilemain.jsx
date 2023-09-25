@@ -14,6 +14,7 @@ import Hobbies from "./Hobbies";
 import Lenguages from "./Lenguages";
 import Aside from "./Aside";
 import LinkedinFooter from "../components.jsx/LinkedinFooter";
+import { useEffect } from "react";
 
 const ProfileMain = () => {
   return (

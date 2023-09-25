@@ -1,7 +1,17 @@
+import { useEffect } from "react";
 import { Button, Card, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { myProfilePage } from "../redux/action";
 
 const ProfileHero = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(myProfilePage());
+  }, []);
+
+  const myProfile = useSelector((state) => state.profile.content);
+
   return (
     <Container>
       <Card>
@@ -13,7 +23,7 @@ const ProfileHero = () => {
         />
         <Card.Body>
           <img
-            src="https://images.unsplash.com/photo-1683009427619-a1a11b799e05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            src={myProfile && myProfile.image}
             alt=""
             style={{
               position: "absolute",
@@ -30,9 +40,12 @@ const ProfileHero = () => {
           </Container>
           <Container fluid className="d-flex justify-content-between mt-4">
             <Container className="flex-grow-1">
-              <Card.Title className="mt-4 fw-bold">Alessandro Baiocco</Card.Title>
+              <Card.Title className="mt-4 fw-bold">
+                {myProfile?.name}
+                {myProfile?.surname}
+              </Card.Title>
               <p className="mb-1">Diploma presso qualcosa</p>
-              <Card.Title className="fw-light fs-6">Ancona, Marche, Italia</Card.Title>
+              <Card.Title className="fw-light fs-6">{myProfile?.area}</Card.Title>
             </Container>
             <Container className="d-none d-md-flex flex-column align-items-end">
               <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
