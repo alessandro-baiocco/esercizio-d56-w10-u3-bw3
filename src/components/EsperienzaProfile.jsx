@@ -1,13 +1,14 @@
 import { Container } from "react-bootstrap";
+import { Plus } from "react-bootstrap-icons";
 
 const EsperienzaProfile = () => {
   return (
     <Container className="my-3">
       <Container className="p-0 rounded cardLinkedln">
-        <Container className="d-flex">
-          <h2 className="me-auto">Esperienza</h2>
-          <i className="mx-2 bi bi-plus-lg fs-3"></i>
-          <i className="mx-2 bi bi-pencil fs-5"></i>
+        <Container className="d-flex my-2">
+          <h2 className="me-auto fs-5">Esperienza</h2>
+          <Plus className="fs-3" />
+          <i className="mx-2 bi bi-pencil mt-1 "></i>
         </Container>
         <Container className="d-flex">
           <Container style={{ width: "fit-content" }} className="p-0">

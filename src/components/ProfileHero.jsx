@@ -25,14 +25,14 @@ const ProfileHero = () => {
             }}
           />
           <Container className="my-1 d-flex justify-content-end">
-            <i className="bi bi-arrow-90deg-right fs-3 mx-3   d-md-none"></i>
-            <i className="bi bi-pencil fs-3"></i>
+            <i className="bi bi-arrow-90deg-right fs-3 mx-3 d-md-none"></i>
+            <i className="bi bi-pencil fs-5"></i>
           </Container>
-          <Container fluid className="d-flex justify-content-between">
+          <Container fluid className="d-flex justify-content-between mt-4">
             <Container className="flex-grow-1">
-              <Card.Title className="mt-4 fw-bold">alessandro baiocco</Card.Title>
-              <Card.Title>diploma presso qualcosa</Card.Title>
-              <Card.Title className="fw-light">Ancona , marche , Italia</Card.Title>
+              <Card.Title className="mt-4 fw-bold">Alessandro Baiocco</Card.Title>
+              <p className="mb-1">Diploma presso qualcosa</p>
+              <Card.Title className="fw-light fs-6">Ancona, Marche, Italia</Card.Title>
             </Container>
             <Container className="d-none d-md-flex flex-column align-items-end">
               <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
@@ -55,42 +55,43 @@ const ProfileHero = () => {
               </Container>
             </Container>
           </Container>
-          <Link to="/profile/" className="d-block">
+          <Link to="/profile/" className="d-block ps-4">
             1 collegamento
           </Link>
           <Container>
-            <Button
-              style={{ borderRadius: "12% 12% 12% 12% / 50% 50% 50% 50% " }}
-              className="mx-1 my-2 fw-bold  d-none d-md-inline  px-3"
-            >
-              disponibile per
+            <Button style={{ fontWeight: "600" }} className="mx-1 my-3 py-1 rounded-pill d-none d-md-inline px-3">
+              Disponibile per
             </Button>
             <Button
-              style={{ borderRadius: "12% 12% 12% 12% / 50% 50% 50% 50% " }}
-              className="mx-1 my-2 fw-bold btn-light border border-primary  d-none d-md-inline  px-3"
+              style={{ fontWeight: "600" }}
+              className="mx-1 my-3 py-1 btn-light border border-primary rounded-pill d-none d-md-inline text-primary px-3"
             >
-              aggiungi sezione profilo
+              Aggiungi sezione profilo
             </Button>
             <Button
-              style={{ borderRadius: "12% 12% 12% 12% / 50% 50% 50% 50% " }}
-              className="mx-1 my-2 fw-bold btn-secondary px-3 d-none d-md-inline "
+              style={{ fontWeight: "600" }}
+              className="mx-1 my-3 text-secondary py-1 btn-secondary bg-transparent d-none d-md-inline rounded-pill "
             >
-              altro
+              Altro
             </Button>
           </Container>
           <Container className="d-flex justify-content-between">
-            <Container className="d-flex" style={{ backgroundColor: "#DDE7F1" }}>
-              <Container fluid className="p-0">
+            <Container className="d-flex rounded" style={{ backgroundColor: "#DDE7F1" }}>
+              <Container fluid className="p-2">
                 <p className="m-0 fw-bold">Disponibile a lavorare</p>
                 <p className="m-0">Ruoli di Operaio generico. Ufficio incaricato. tecn...</p>
-                <Link>Mostra dettagli</Link>
+                <Link style={{ textDecoration: "none" }}>
+                  <span>Mostra dettagli</span>
+                </Link>
               </Container>
-              <i className="bi bi-pencil"></i>
+              <i className="bi bi-pencil mt-2"></i>
             </Container>
-            <Container className="d-none d-md-flex  flex-column">
+            <Container className="d-none d-md-flex flex-column p-2">
               <p className="m-0 fw-bold">Fai sapere che stai facendo selezione e attrai</p>
               <p className="m-0">candidati qualificati</p>
-              <Link>inizia</Link>
+              <Link style={{ textDecoration: "none" }}>
+                <span>Inizia</span>
+              </Link>
             </Container>
           </Container>
           <Container className="d-md-none d-flex  ">

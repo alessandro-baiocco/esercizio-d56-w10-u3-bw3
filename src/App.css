@@ -3,6 +3,13 @@
   background-color: white;
 }
 
+.clampedP {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
 .infoPro::after {
   content: "...";
   position: absolute;

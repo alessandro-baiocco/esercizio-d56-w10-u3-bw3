@@ -12,8 +12,8 @@ const Skills = () => {
         <Button style={{ paddingBlock: "3px" }} className="me-3 rounded-pill bg-transparent text-primary">
           Quiz valutazione competenze
         </Button>
-        <Plus className="fs-3 me-3 ms-auto" />
-        <Pencil className="my-1" />
+        <Plus className="fs-3 me-2 ms-auto" />
+        <Pencil className="my-1 me-1" />
       </div>
       <ListGroup>
         <ListGroup.Item style={{ borderTop: "none", borderInline: "none", paddingInline: "0" }}>
