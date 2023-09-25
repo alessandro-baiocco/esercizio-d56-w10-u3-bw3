@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
-import CardAside from "./CardAside";
 
 const Aside = () => {
   const [people, setPeople] = useState([]);
