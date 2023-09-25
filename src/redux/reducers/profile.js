@@ -1,15 +1,15 @@
-import { GET_PROFILE } from "../action";
+import { GET_MY_PROFILE } from "../action";
 
 const initialState = {
   content: null,
 };
 
-const profileResult = (state = initialState, action) => {
+const myProfileResult = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PROFILE:
+    case GET_MY_PROFILE:
       return {
         ...state,
-        content: [action.payload],
+        content: action.payload,
       };
 
     default:
@@ -17,4 +17,4 @@ const profileResult = (state = initialState, action) => {
   }
 };
 
-export default profileResult;
+export default myProfileResult;
