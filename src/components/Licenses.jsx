@@ -3,10 +3,7 @@ import { ArrowRight, BoxArrowUpRight, Pencil, Plus } from "react-bootstrap-icons
 
 const Licenses = () => {
   return (
-    <Container
-      style={{ backgroundColor: "white", border: "1.5px solid lightgrey", padding: "15px" }}
-      className="rounded my-3"
-    >
+    <Container style={{ padding: "15px" }} className="rounded my-3 cardLinkedln">
       <div className="d-flex align-items-center">
         <h5 className="mb-0">Licenze e certificazioni</h5>
         <Plus className="fs-3 me-3 ms-auto" />

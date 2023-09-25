@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 const Informazioni = () => {
   return (
     <Container>
-      <Container className="my-3" style={{ backgroundColor: "white", border: "1.5px solid lightgrey" }}>
+      <Container className="my-3 cardLinkedln rounded">
         <h2>Informazioni</h2>
         <p className="" height={"150px"} style={{ wordBreak: "keep-all", overflowY: "hidden" }}>
           un saluto a chi sta leggendo, mi chiamo Alessandro Baiocco e vi faccio un breve riassunto della mia vita

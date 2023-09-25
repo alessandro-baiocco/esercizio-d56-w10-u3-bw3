@@ -93,9 +93,9 @@ const ProfileHero = () => {
               <Link>inizia</Link>
             </Container>
           </Container>
-          <Container className="d-none d-md-flex  ">
+          <Container className="d-md-none d-flex  ">
             <i className="bi bi-eye-fill"></i>
-            <p className="d-inline mx-2">disponibile solo per i recluiter</p>
+            <p className=" mx-2">disponibile solo per i recluiter</p>
           </Container>
         </Card.Body>
       </Card>

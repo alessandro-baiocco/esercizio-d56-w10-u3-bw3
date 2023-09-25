@@ -10,6 +10,8 @@ import EsperienzaProfile from "./EsperienzaProfile";
 import Skills from "./Skills";
 import Licenses from "./Licenses";
 import FormazioneProfile from "./FormazioneProfile";
+import Hobbies from "./Hobbies";
+import Lenguages from "./Lenguages";
 
 const ProfileMain = () => {
   return (
@@ -27,6 +29,8 @@ const ProfileMain = () => {
       <Container>
         <Licenses />
         <Skills />
+        <Lenguages />
+        <Hobbies />
       </Container>
     </>
   );

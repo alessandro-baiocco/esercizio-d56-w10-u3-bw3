@@ -5,7 +5,7 @@ const ProfileAttivita = () => {
   return (
     <>
       <Container>
-        <Container style={{ backgroundColor: "white", border: "1.5px solid lightgrey" }} className="py-3">
+        <Container className="py-3 cardLinkedln rounded">
           <Container className="d-flex align-items-center ps-0">
             <Container className="me-auto">
               <h2>Attivita</h2>

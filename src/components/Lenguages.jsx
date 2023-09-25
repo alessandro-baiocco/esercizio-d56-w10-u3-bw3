@@ -5,7 +5,7 @@ const Lenguages = () => {
   return (
     <Container
       style={{ backgroundColor: "white", border: "1.5px solid lightgrey", padding: "15px" }}
-      className="rounded"
+      className="rounded my-3 cardLinkedln"
     >
       <div className="d-flex align-items-center mb-2">
         <h5 className="mb-0 flex-grow-1">Lingue</h5>
