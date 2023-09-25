@@ -5,7 +5,7 @@ import ProfileMain from "./components/profilemain";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "#F4F2EE" }}>
       <BrowserRouter>
         <Routes>
           <Route path="/profile/me" element={<ProfileMain />} />
