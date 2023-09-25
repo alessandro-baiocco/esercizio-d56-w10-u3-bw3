@@ -2,3 +2,20 @@
   border: 1.5px solid lightgrey;
   background-color: white;
 }
+
+.borderAside {
+  border-bottom: 1px solid #ebe8e8;
+}
+.textNoneLi {
+  list-style: none;
+}
+.buttonAside {
+  background: transparent;
+  color: rgb(55, 54, 54);
+  width: 110px;
+}
+.textNone {
+  text-decoration: none;
+  color: black;
+  opacity: 75%;
+}
