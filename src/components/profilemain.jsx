@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 import SuggestedForYou from "./SuggestedForYou";
 import Analyses from "./Analyses";
@@ -12,26 +12,38 @@ import Licenses from "./Licenses";
 import FormazioneProfile from "./FormazioneProfile";
 import Hobbies from "./Hobbies";
 import Lenguages from "./Lenguages";
+import Aside from "./Aside";
+import LinkedinFooter from "../components.jsx/LinkedinFooter";
 
 const ProfileMain = () => {
   return (
     <>
-      <ProfileHero />
-      <Container className="my-2">
-        <SuggestedForYou />
-        <Analyses />
-        <Resouce />
-      </Container>
-      <Informazioni />
-      <ProfileAttivita />
-      <EsperienzaProfile />
-      <FormazioneProfile />
       <Container>
-        <Licenses />
-        <Skills />
-        <Lenguages />
-        <Hobbies />
+        <Row className="justify-content-center">
+          <Col xs={12} md={6}>
+            <ProfileHero />
+            <Container className="my-2">
+              <SuggestedForYou />
+              <Analyses />
+              <Resouce />
+            </Container>
+            <Informazioni />
+            <ProfileAttivita />
+            <EsperienzaProfile />
+            <FormazioneProfile />
+            <Container>
+              <Licenses />
+              <Skills />
+              <Lenguages />
+              <Hobbies />
+            </Container>
+          </Col>
+          <Col xs={12} md={3}>
+            <Aside />
+          </Col>
+        </Row>
       </Container>
+      <LinkedinFooter />
     </>
   );
 };
