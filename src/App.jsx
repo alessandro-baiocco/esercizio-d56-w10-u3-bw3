@@ -4,6 +4,7 @@ import Aside from "./components/Aside";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProfileMain from "./components/profilemain";
 import { Col, Container, Row } from "react-bootstrap";
+import LinkedinFooter from "./components.jsx/LinkedinFooter";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/profile/me" element={<ProfileMain />} />
+          <Route path="/profile/me" element={<LinkedinFooter />} />
         </Routes>
       </BrowserRouter>
     </div>

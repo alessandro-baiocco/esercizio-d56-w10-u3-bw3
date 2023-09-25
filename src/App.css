@@ -9,3 +9,37 @@
   -webkit-line-clamp: 4;
   overflow: hidden;
 }
+
+.infoPro::after {
+  content: "...";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+}
+/* Footer section  */
+
+#FootElem {
+  font-size: 0.8rem;
+  line-height: 30px;
+}
+
+#dropdown-item-button {
+  font-size: 0.8rem;
+  color: gray;
+  padding: 0%;
+  background: none;
+}
+
+#dropItem {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.form-select {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+#purpleLink {
+  color: #8443ce;
+}
