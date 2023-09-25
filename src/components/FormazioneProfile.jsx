@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 
 const FormazioneProfile = () => {
   return (
-    <Container>
+    <Container className="my-3">
       <Container style={{ backgroundColor: "white" }} className="p-0">
         <Container className="d-flex">
           <h2 className="me-auto">Formazione</h2>
