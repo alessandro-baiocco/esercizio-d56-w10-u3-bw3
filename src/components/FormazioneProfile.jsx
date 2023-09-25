@@ -1,11 +1,11 @@
 import { Container } from "react-bootstrap";
 
-const EsperienzaProfile = () => {
+const FormazioneProfile = () => {
   return (
     <Container>
       <Container style={{ backgroundColor: "white" }} className="p-0">
         <Container className="d-flex">
-          <h2 className="me-auto">Esperienza</h2>
+          <h2 className="me-auto">Formazione</h2>
           <i className="mx-2 bi bi-plus-lg fs-3"></i>
           <i className="mx-2 bi bi-pencil fs-5"></i>
         </Container>
@@ -19,13 +19,11 @@ const EsperienzaProfile = () => {
             />
           </Container>
           <Container>
-            <p className="mb-0 fw-bold">Operaio generico</p>
-            <p className="mb-0">Dussman service italia - Part-time</p>
-            <p className="mb-0 fw-light">mar-2020 - Presente - 3 anni 7 mesi</p>
-            <p className="mb-0 fw-light">Ancona, marche, italia</p>
-            <p className="my-3">
-              <span className="fw-bold">competenze</span>: microsoft Word - Comunicazione
+            <p className="mb-0 fw-bold">Einstein-nebbia</p>
+            <p className="mb-0">
+              Diploma istituto tecnico e professionale. studi su alimenti. alimentazione e benessere: generale
             </p>
+            <p className="mb-0 fw-light">2011-2016</p>
           </Container>
         </Container>
       </Container>
@@ -33,4 +31,4 @@ const EsperienzaProfile = () => {
   );
 };
 
-export default EsperienzaProfile;
+export default FormazioneProfile;
