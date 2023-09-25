@@ -23,7 +23,7 @@ const ProfileHero = () => {
         />
         <Card.Body>
           <img
-            src={myProfile.image}
+            src={myProfile && myProfile.image}
             alt=""
             style={{
               position: "absolute",

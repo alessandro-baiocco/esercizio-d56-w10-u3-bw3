@@ -82,7 +82,7 @@ const Aside = () => {
         <div>
           <ul>
             {people.slice(0, 2).map((person) => (
-              <CardAside card={person} />
+              <CardAside card={person} key={person._id} />
             ))}
           </ul>
         </div>
@@ -95,7 +95,7 @@ const Aside = () => {
         <div>
           <ul>
             {people.slice(0, 5).map((person) => (
-              <CardAside card={person} />
+              <CardAside card={person} key={person._id} />
             ))}
 
             <div>Mostra tutto</div>
