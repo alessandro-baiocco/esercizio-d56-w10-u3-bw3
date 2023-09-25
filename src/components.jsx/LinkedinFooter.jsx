@@ -3,7 +3,7 @@ import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icon
 import { Link } from "react-router-dom";
 const LinkedinFooter = () => {
   return (
-    <Container>
+    <Container className="mt-3 d-none d-md-block">
       <Row id="FootElem" className="text-secondary">
         <Col className="col-2">
           <ul className="list-unstyled">

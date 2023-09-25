@@ -13,6 +13,7 @@ import FormazioneProfile from "./FormazioneProfile";
 import Hobbies from "./Hobbies";
 import Lenguages from "./Lenguages";
 import Aside from "./Aside";
+import LinkedinFooter from "../components.jsx/LinkedinFooter";
 
 const ProfileMain = () => {
   return (
@@ -42,6 +43,7 @@ const ProfileMain = () => {
           </Col>
         </Row>
       </Container>
+      <LinkedinFooter />
     </>
   );
 };
