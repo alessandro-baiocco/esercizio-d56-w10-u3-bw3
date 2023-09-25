@@ -5,7 +5,7 @@ const SuggestedForYou = () => {
   return (
     <Container
       style={{ backgroundColor: "white", border: "1.5px solid lightgrey", padding: "20px" }}
-      className="rounded"
+      className="rounded my-2"
     >
       <div>
         <h5>Consigliato per te</h5>
