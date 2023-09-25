@@ -5,7 +5,7 @@ const Resouce = () => {
   return (
     <Container
       style={{ backgroundColor: "white", border: "1.5px solid lightgrey", padding: "15px" }}
-      className="rounded"
+      className="rounded my-2"
     >
       <div className="lh-1">
         <h5>Risorse</h5>
