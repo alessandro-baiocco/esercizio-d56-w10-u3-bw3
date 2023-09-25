@@ -14,9 +14,7 @@ const Aside = () => {
     try {
       const response = await fetch(url, {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNGU0YzM3NTJhODAwMTQ1Njg3NmQiLCJpYXQiOjE2OTU2MzI5NzIsImV4cCI6MTY5Njg0MjU3Mn0.aUvjIzLRzi_SVt6ngJ9FtFNCNWcrDyY59f0TkzZ9esg",
-          //   Authorization: process.env.REACT_APP_AUTHORIZATION,
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
       });
       if (response.ok) {
@@ -111,7 +109,7 @@ const Aside = () => {
                   <div>
                     <Image src={people[17].image} roundedCircle width={"50px"} />
                   </div>
-                  <div className="d-flex flex-column">
+                  <div className="d-flex flex-column ms-3">
                     <div className="fw-bold">
                       <div>{people[17].name}</div>
                       <span>3+</span>
@@ -145,7 +143,7 @@ const Aside = () => {
                   <div>
                     <Image src={people[38].image} roundedCircle width={"50px"} />
                   </div>
-                  <div className="d-flex flex-column">
+                  <div className="d-flex flex-column ms-3">
                     <div className="fw-bold">
                       <div>{people[38].name}</div>
                       <span>3+</span>

@@ -9,7 +9,7 @@ const CardAside = ({ card }) => {
           <div>
             <Image src={card.image} roundedCircle width={"50px"} />
           </div>
-          <div className="d-flex flex-column ms-2">
+          <div className="d-flex flex-column ms-3">
             <div className="fw-bold">{card.name}</div>
             <div>{card.title}</div>
             <Button className="buttonAside rounded-pill">
