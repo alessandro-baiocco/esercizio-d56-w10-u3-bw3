@@ -2,18 +2,27 @@ import { useEffect, useState } from "react";
 import { Button, Card, Container, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { EDIT_MY_PROFILE, myProfilePage } from "../redux/action";
+import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../redux/action";
 
 const ProfileHero = (props) => {
   const [show, setShow] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    setStatus(myProfile);
+  };
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(myProfilePage());
   }, []);
+
+  const handleChange = (propertyName, propertyValue) => {
+    setStatus({ ...status, [propertyName]: propertyValue });
+    console.log(status, propertyName, propertyValue);
+  };
 
   const myProfile = useSelector((state) => state.profile.content);
 
@@ -123,68 +132,75 @@ const ProfileHero = (props) => {
           <Modal.Title>Modifica Presentazione</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Nome*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Inserisci il tuo nome"
-                autoFocus
-                value={myProfile?.name}
-                onChange={(e) => dispatch({ type: EDIT_MY_PROFILE, payload: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Cognome*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Inserisci il tuo cognome"
-                autoFocus
-                value={myProfile?.surname}
-                onChange={(e) => dispatch({ type: EDIT_MY_PROFILE, payload: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email*</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Inserisci la tua Email"
-                autoFocus
-                value={myProfile?.email}
-                onChange={(e) => dispatch({ type: EDIT_MY_PROFILE, payload: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Titolo*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Inserisci la tua professione"
-                autoFocus
-                value={myProfile?.title}
-                onChange={(e) => dispatch({ type: EDIT_MY_PROFILE, payload: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Paese*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Inserisci il tuo paese"
-                autoFocus
-                value={myProfile?.area}
-                onChange={(e) => dispatch({ type: EDIT_MY_PROFILE, payload: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Descriviti</Form.Label>
-              <Form.Control as="textarea" rows={3} value={myProfile?.bio} />
-            </Form.Group>
-          </Form>
+          {myProfile?.name && (
+            <Form>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Nome*</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Inserisci il tuo nome"
+                  autoFocus
+                  value={status?.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Cognome*</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Inserisci il tuo cognome"
+                  autoFocus
+                  value={status?.surname}
+                  onChange={(e) => handleChange("surname", e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Email*</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Inserisci la tua Email"
+                  autoFocus
+                  value={status?.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Titolo*</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Inserisci la tua professione"
+                  autoFocus
+                  value={status?.title}
+                  onChange={(e) => handleChange("title", e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Paese*</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Inserisci il tuo paese"
+                  autoFocus
+                  value={status?.area}
+                  onChange={(e) => handleChange("area", e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Descriviti</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={status?.bio}
+                  onChange={(e) => handleChange("bio", e.target.value)}
+                />
+              </Form.Group>
+            </Form>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Chiudi
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={(e) => dispatch(myProfilePageMod(e, status))}>
             Salva Modifiche
           </Button>
         </Modal.Footer>
