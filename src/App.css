@@ -2,3 +2,10 @@
   border: 1.5px solid lightgrey;
   background-color: white;
 }
+
+.infoPro::after {
+  content: "...";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+}

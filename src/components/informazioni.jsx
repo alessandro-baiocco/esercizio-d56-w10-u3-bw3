@@ -5,7 +5,10 @@ const Informazioni = () => {
     <Container>
       <Container className="my-3 cardLinkedln rounded">
         <h2>Informazioni</h2>
-        <p className="" height={"150px"} style={{ wordBreak: "keep-all", overflowY: "hidden" }}>
+        <p
+          className="infoPro"
+          style={{ wordBreak: "keep-all", overflowY: "hidden", maxHeight: "100px", position: "relative" }}
+        >
           un saluto a chi sta leggendo, mi chiamo Alessandro Baiocco e vi faccio un breve riassunto della mia vita
           lavorativa. una volta uscito dalla scuola superiore sono riuscito solo a trovare lavoro come operaio nella
           stazione di Ancona, grazie ai risparmi che ho racimolato mi sono potuto permettere vari investimenti per poter
