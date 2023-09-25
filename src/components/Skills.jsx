@@ -7,7 +7,7 @@ const Skills = () => {
       style={{ backgroundColor: "white", border: "1.5px solid lightgrey", padding: "15px" }}
       className="rounded"
     >
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center mb-2">
         <h5 className="mb-0 flex-grow-1">Competenze</h5>
         <Button style={{ paddingBlock: "3px" }} className="me-3 rounded-pill bg-transparent text-primary">
           Quiz valutazione competenze
