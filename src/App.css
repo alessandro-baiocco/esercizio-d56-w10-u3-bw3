@@ -2,3 +2,10 @@
   border: 1.5px solid lightgrey;
   background-color: white;
 }
+
+.clampedP {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}

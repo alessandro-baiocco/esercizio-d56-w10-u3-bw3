@@ -3,10 +3,10 @@ import { Container } from "react-bootstrap";
 const Informazioni = () => {
   return (
     <Container>
-      <Container className="my-3 cardLinkedln rounded">
-        <h2>Informazioni</h2>
-        <p className="" height={"150px"} style={{ wordBreak: "keep-all", overflowY: "hidden" }}>
-          un saluto a chi sta leggendo, mi chiamo Alessandro Baiocco e vi faccio un breve riassunto della mia vita
+      <Container className="my-3 cardLinkedln rounded" style={{ padding: "15px" }}>
+        <h2 className="fs-5">Informazioni</h2>
+        <p className="clampedP" height={"150px"}>
+          Un saluto a chi sta leggendo, mi chiamo Alessandro Baiocco e vi faccio un breve riassunto della mia vita
           lavorativa. una volta uscito dalla scuola superiore sono riuscito solo a trovare lavoro come operaio nella
           stazione di Ancona, grazie ai risparmi che ho racimolato mi sono potuto permettere vari investimenti per poter
           lavorare alla mia passione cioè l'informatica. Posseggo un computer (assemblato da me) con degli ottimi

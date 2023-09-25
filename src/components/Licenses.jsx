@@ -6,8 +6,8 @@ const Licenses = () => {
     <Container style={{ padding: "15px" }} className="rounded my-3 cardLinkedln">
       <div className="d-flex align-items-center">
         <h5 className="mb-0">Licenze e certificazioni</h5>
-        <Plus className="fs-3 me-3 ms-auto" />
-        <Pencil className="my-1" />
+        <Plus className="fs-3 me-2 ms-auto" />
+        <Pencil className="my-1 me-1" />
       </div>
       <ListGroup>
         <ListGroup.Item style={{ borderTop: "none", borderInline: "none", paddingInline: "0" }}>
