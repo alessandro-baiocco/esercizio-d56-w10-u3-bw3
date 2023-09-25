@@ -5,6 +5,8 @@ import Analyses from "./Analyses";
 import Resouce from "./Resource";
 import Informazioni from "./informazioni";
 import ProfileHero from "./ProfileHero";
+import ProfileAttivita from "./ProfileAttitvita";
+import EsperienzaProfile from "./EsperienzaProfile";
 
 const ProfileMain = () => {
   return (
@@ -16,6 +18,8 @@ const ProfileMain = () => {
         <Resouce />
       </Container>
       <Informazioni />
+      <ProfileAttivita />
+      <EsperienzaProfile />
     </>
   );
 };
