@@ -32,7 +32,7 @@ const MyNav = () => {
   );
   return (
     <Navbar expand="lg" className="bg-body-tertiary ">
-      <Container className="container-fluid w-md-75">
+      <Container className="w-100 w-md-75">
         <div className="d-flex align-items-center me-5">
           <Navbar.Brand href="#home" className=" me-2">
             <svg
