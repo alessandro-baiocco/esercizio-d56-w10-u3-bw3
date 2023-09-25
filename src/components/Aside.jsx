@@ -81,7 +81,10 @@ const Aside = () => {
         <div>Altri profili consultati</div>
         <div>
           <ul>
-            <li>
+            {people.slice(0, 2).map((person) => (
+              <CardAside card={person} />
+            ))}
+            {/* <li>
               <div>
                 <div className="d-flex">
                   <div>
@@ -114,7 +117,7 @@ const Aside = () => {
                 </div>
               </div>
               <div>Mostra tutto</div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </section>
@@ -125,7 +128,10 @@ const Aside = () => {
         </div>
         <div>
           <ul>
-            {isLoading
+            {people.slice(0, 5).map((person) => (
+              <CardAside card={person} />
+            ))}
+            {/* {isLoading
               ? spinner
               : people.slice(0, 5).map((person, index) => (
                   <li key={index}>
@@ -143,7 +149,7 @@ const Aside = () => {
                       </div>
                     </div>
                   </li>
-                ))}
+                ))} */}
             <div>Mostra tutto</div>
           </ul>
         </div>
