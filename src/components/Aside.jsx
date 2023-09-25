@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
+import CardAside from "./CardAside";
 
 const Aside = () => {
   const [people, setPeople] = useState([]);
@@ -41,7 +42,7 @@ const Aside = () => {
   console.log(people);
   return (
     <>
-      <div className="p-4 mb-2 rounded">
+      <div className="p-4 mb-2 rounded cardLinkedln ">
         <div>
           <span>Lingua del profilo</span>
           <p>italiano</p>
@@ -76,51 +77,17 @@ const Aside = () => {
           </svg>
         </Link>
       </div>
-      <section>
+      <section className=" cardLinkedln ">
         <div>Altri profili consultati</div>
         <div>
           <ul>
             {people.slice(0, 2).map((person) => (
               <CardAside card={person} />
             ))}
-            {/* <li>
-              <div>
-                <div className="d-flex">
-                  <div>
-                    <Image src={people[0].image} roundedCircle width={"50px"} />
-                  </div>
-                  <div className="d-flex flex-column">
-                    <div>
-                      {people[0].name}
-                      <span>3+</span>
-                    </div>
-                    <div>{people[0].title}</div>
-                    <Button>Collegati</Button>
-                  </div>
-                </div>
-                <div></div>
-              </div>
-            </li>
-            <li>
-              <div className="d-flex">
-                <div>
-                  <Image src={people[1].image} roundedCircle width={"50px"} />
-                </div>
-                <div className="d-flex flex-column">
-                  <div>
-                    {people[1].name}
-                    <span>3+</span>
-                  </div>
-                  <div>{people[1].title}</div>
-                  <Button>Collegati</Button>
-                </div>
-              </div>
-              <div>Mostra tutto</div>
-            </li> */}
           </ul>
         </div>
       </section>
-      <section>
+      <section className=" cardLinkedln my-2 ">
         <div>
           <h4>Persone che potresti conoscere</h4>
           <p>Dalla tua azienda</p>
@@ -130,30 +97,12 @@ const Aside = () => {
             {people.slice(0, 5).map((person) => (
               <CardAside card={person} />
             ))}
-            {/* {isLoading
-              ? spinner
-              : people.slice(0, 5).map((person, index) => (
-                  <li key={index}>
-                    <div className="d-flex">
-                      <div>
-                        <Image src={person.image} roundedCircle width={"50px"} />
-                      </div>
-                      <div className="d-flex flex-column">
-                        <div>
-                          {person.name}
-                          <span>3+</span>
-                        </div>
-                        <div>{person.title}</div>
-                        <Button>Collegati</Button>
-                      </div>
-                    </div>
-                  </li>
-                ))} */}
+
             <div>Mostra tutto</div>
           </ul>
         </div>
       </section>
-      <section>
+      <section className=" cardLinkedln ">
         <div>
           <h4>Potebbero interessarti</h4>
           <p>Pagine per te</p>
