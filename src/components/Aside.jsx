@@ -3,6 +3,7 @@ import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import CardAside from "./CardAside";
+import REACT_APP_AUTHORIZATION from "../";
 
 const Aside = () => {
   const [people, setPeople] = useState([]);
@@ -15,6 +16,7 @@ const Aside = () => {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNGU0YzM3NTJhODAwMTQ1Njg3NmQiLCJpYXQiOjE2OTU2MzI5NzIsImV4cCI6MTY5Njg0MjU3Mn0.aUvjIzLRzi_SVt6ngJ9FtFNCNWcrDyY59f0TkzZ9esg",
+          //   Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
       });
       if (response.ok) {
@@ -43,107 +45,139 @@ const Aside = () => {
   return (
     <>
       <div className="p-4 mb-2 rounded cardLinkedln ">
-        <div>
-          <span>Lingua del profilo</span>
-          <p>italiano</p>
+        <div className="d-flex justify-content-between">
+          <div>
+            <span className="fs-4">Lingua del profilo</span>
+            <p>italiano</p>
+          </div>
+          <Link to={"#"}>
+            <i class="bi bi-pencil fs-3"></i>
+          </Link>
         </div>
-        <Link to={"#"}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-pen"
-            viewBox="0 0 16 16"
-          >
-            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
-          </svg>
-        </Link>
         <hr />
-        <div>
-          <span>Public profile & URL</span>
-          <p>www.linkedin.com</p>
+        <div className="d-flex justify-content-between">
+          <div>
+            <span className="fs-4">Public profile & URL</span>
+            <p>www.linkedin.com</p>
+          </div>
+          <Link to={"#"}>
+            <i class="bi bi-pencil fs-3"></i>
+          </Link>
         </div>
-        <Link to={"#"}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-pen"
-            viewBox="0 0 16 16"
-          >
-            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
-          </svg>
-        </Link>
       </div>
-      <section className=" cardLinkedln ">
-        <div>Altri profili consultati</div>
+      <section className=" cardLinkedln p-4">
+        <div className="fs-6 fw-bold">Altri profili consultati</div>
         <div>
-          <ul>
+          <ul className="ps-0">
             {people.slice(0, 2).map((person) => (
               <CardAside card={person} key={person._id} />
             ))}
+            <div className="text-center">
+              <Link to={"/"} className="textNone">
+                Mostra tutto
+              </Link>
+            </div>
           </ul>
         </div>
       </section>
-      <section className=" cardLinkedln my-2 ">
+      <section className=" cardLinkedln my-2 p-4">
         <div>
-          <h4>Persone che potresti conoscere</h4>
-          <p>Dalla tua azienda</p>
+          <h4 className="fs-6 fw-bold">Persone che potresti conoscere</h4>
+          <p className="mb-0">Dalla tua azienda</p>
         </div>
         <div>
-          <ul>
+          <ul className="ps-0">
             {people.slice(0, 5).map((person) => (
               <CardAside card={person} key={person._id} />
             ))}
-
-            <div>Mostra tutto</div>
+            <div className="text-center">
+              <Link to={"/"} className="textNone">
+                Mostra tutto
+              </Link>
+            </div>
           </ul>
         </div>
       </section>
-      <section className=" cardLinkedln ">
+      <section className=" cardLinkedln p-4">
         <div>
-          <h4>Potebbero interessarti</h4>
+          <h4 className="fs-6 fw-bold">Potebbero interessarti</h4>
           <p>Pagine per te</p>
         </div>
         <div>
-          <ul>
-            <li>
-              <div className="d-flex">
-                <div>
-                  <Image src={people[5].image} roundedCircle width={"50px"} />
-                </div>
-                <div className="d-flex flex-column">
+          <ul className="ps-0">
+            <div className="borderAside pb-4 pt-2">
+              <li className="textNoneLi">
+                <div className="d-flex">
                   <div>
-                    <div>{people[5].name}</div>
-                    <span>3+</span>
+                    <Image src={people[17].image} roundedCircle width={"50px"} />
                   </div>
-                  <div>{people[5].title}</div>
-                  <div>10000 follower</div>
-                  <div>
-                    <Button>Collegati</Button>
+                  <div className="d-flex flex-column">
+                    <div className="fw-bold">
+                      <div>{people[17].name}</div>
+                      <span>3+</span>
+                    </div>
+                    <div>{people[17].title}</div>
+                    <div className="opacity-50">10000 follower</div>
+                    <div>
+                      <Button className="buttonAside rounded-pill">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          data-supported-dps="16x16"
+                          fill="currentColor"
+                          class="mercado-match"
+                          width="16"
+                          height="16"
+                          focusable="false"
+                        >
+                          <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
+                        </svg>
+                        Segui
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="d-flex">
-                <div>
-                  <Image src={people[8].image} roundedCircle width={"50px"} />
-                </div>
-                <div className="d-flex flex-column">
+              </li>
+            </div>
+            <div className="borderAside pb-4 pt-2">
+              <li className="textNoneLi mt-4">
+                <div className="d-flex">
                   <div>
-                    <div>{people[8].name}</div>
-                    <span>3+</span>
+                    <Image src={people[38].image} roundedCircle width={"50px"} />
                   </div>
-                  <div>{people[8].title}</div>
-                  <div>10000 follower</div>
-                  <div>
-                    <Button>Collegati</Button>
+                  <div className="d-flex flex-column">
+                    <div className="fw-bold">
+                      <div>{people[38].name}</div>
+                      <span>3+</span>
+                    </div>
+                    <div>{people[38].title}</div>
+                    <div className="opacity-50">10000 follower</div>
+                    <div>
+                      <Button className="buttonAside rounded-pill">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          data-supported-dps="16x16"
+                          fill="currentColor"
+                          class="mercado-match"
+                          width="16"
+                          height="16"
+                          focusable="false"
+                        >
+                          <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
+                        </svg>
+                        Segui
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div>Mostra tutto</div>
-            </li>
+              </li>
+            </div>
+            <div className="text-center">
+              <Link to={"/"} className="textNone">
+                Mostra tutto
+              </Link>
+            </div>
           </ul>
         </div>
       </section>
