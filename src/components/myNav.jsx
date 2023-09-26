@@ -9,8 +9,8 @@ const MyNav = () => {
 
   return (
     <Navbar className="bg-body-tertiary ">
-      <Container id="nav-container" className="d-flex align-items-center ">
-        <div className="d-flex align-items-center me-sm-5 text-secondary ">
+      <Container id="nav-container" className="d-flex align-items-center me-sm-5 text-secondary ">
+        <div className="d-flex">
           <Navbar.Brand href="#home" className=" me-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,18 +54,18 @@ const MyNav = () => {
             </div>
             <Form.Control type="text" placeholder="cerca" className="mr-sm-2 me-auto d-block d-sm-none d-md-block" />
           </Form>
-          <div className=" ms-auto">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-chat-dots-fill d-block d-md-none  "
-              viewBox="0 0 16 16"
-            >
-              <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-            </svg>
-          </div>
+        </div>
+        <div className=" ms-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            className="bi bi-chat-dots-fill d-block d-md-none  "
+            viewBox="0 0 16 16"
+          >
+            <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+          </svg>
         </div>
 
         <Nav className="me-auto d-none d-sm-flex">
@@ -109,22 +109,35 @@ const MyNav = () => {
             </svg>
             <p className="mb-0 d-none d-md-block"> Lavoro </p>
           </Nav.Link>
-          <Container className="">
+          <Container className="py-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
               fill="currentColor"
-              className="bi bi-chat-dots-fill d-none d-md-block  "
+              className="bi bi-chat-dots-fill d-none d-md-block "
               viewBox="0 0 16 16"
             >
               <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
             </svg>
 
-            <p className=" mb-0 pt-1 d-none d-md-block">Messaggistica</p>
+            <p className=" mb-0 d-none d-md-block ">Messaggistica</p>
           </Container>
+          <Nav.Link href="#link" className="mx-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-bell-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+            </svg>
+            <p className="mb-0 d-none d-md-block"> Notifiche </p>
+          </Nav.Link>
 
-          <div className="d-flex flex-column ">
+          <div className="d-flex flex-column py-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -141,14 +154,14 @@ const MyNav = () => {
             </svg>
 
             <NavDropdown title="tu" id="basic-nav-dropdown" className="d-none d-md-block pt-0 pe-3 border-end">
-              <NavDropdown.Item href="#action/3.1" className="d-flex justify-content-between ps-0">
+              <NavDropdown.Item href="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
                     height="50"
                     fill="currentColor"
-                    className="bi bi-person-circle -none d-sm-block  pb-0 mb-0 ms-2 text-secondary"
+                    className="bi bi-person-circle -none d-sm-block pb-0 mb-0 ms-2 text-secondary pt-0"
                     viewBox="0 0 16 16"
                   >
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -196,7 +209,7 @@ const MyNav = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </div>
-          <div className="d-flex flex-column ">
+          <div className="d-flex flex-column py-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

@@ -59,6 +59,9 @@
   color: black;
   opacity: 75%;
 }
+#basic-nav-dropdown {
+  padding-top: 0px;
+}
 @media screen and (min-with: 991px) {
   #nav-container {
     width: 75%;
