@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
+import SideBarRight from "./SideBarRight";
 
 const SideBarLeft = () => {
   return (
@@ -27,7 +28,7 @@ const SideBarLeft = () => {
           </Link>
           <p>Developer</p>
         </div>
-        <div className="d-flex border-bottom">
+        <div className="d-flex border-bottom justify-content-between">
           <div>
             <div>Collegamenti</div>
             <div>Espandi la tua rete</div>
@@ -53,13 +54,37 @@ const SideBarLeft = () => {
         </div>
       </div>
       <div>
-        <div>Gruppi</div>
+        <Link to={""}>
+          <div>Gruppi</div>
+        </Link>
         <div className="d-flex justify-content-between">
-          <div>Eventi</div>
-          <div>+</div>
+          <Link to={""}>
+            <div>Eventi</div>
+          </Link>
+          <Link to={""}>
+            <div>
+              <li-icon aria-hidden="true" type="add" class="artdeco-button__icon" size="small">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  data-supported-dps="16x16"
+                  fill="currentColor"
+                  class="mercado-match"
+                  width="16"
+                  height="16"
+                  focusable="false"
+                >
+                  <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
+                </svg>
+              </li-icon>
+            </div>
+          </Link>
         </div>
-        <div>Hastag seguiti</div>
+        <Link to={""}>
+          <div>Hastag seguiti</div>
+        </Link>
       </div>
+      <SideBarRight />
     </div>
   );
 };

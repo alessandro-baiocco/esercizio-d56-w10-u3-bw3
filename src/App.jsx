@@ -6,6 +6,7 @@ import LinkedinFooter from "./components/footer/LinkedinFooter";
 import MyNav from "./components/myNav";
 import ProfileMain from "./components/profileMain/profilemain";
 import SideBarLeft from "./components/homePage/SideBarLeft";
+import SideBarRight from "./components/homePage/SideBarRight";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
         <MyNav />
         <Routes>
-          {/* <Route path="/" element={<SideBarLeft />} /> */}
+          <Route path="/" element={<SideBarLeft />} />
           <Route path="/profile/me" element={<ProfileMain />} />
           <Route path="/profile/me" element={<LinkedinFooter />} />
         </Routes>

@@ -72,6 +72,16 @@
 #basic-nav-dropdown {
   padding-top: 0px;
 }
+.miniFooter {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.marginMiniFooter {
+  margin: 0.4rem 0.8rem;
+}
 @media screen and (min-with: 991px) {
   #nav-container {
     width: 75%;
