@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <MyNav />
         <Routes>
-          <Route path="/" element={<SideBarLeft />} />
+          {/* <Route path="/" element={<SideBarLeft />} /> */}
           <Route path="/profile/me" element={<ProfileMain />} />
           <Route path="/profile/me" element={<LinkedinFooter />} />
         </Routes>
