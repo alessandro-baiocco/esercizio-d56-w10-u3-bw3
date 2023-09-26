@@ -3,12 +3,16 @@ import myProfileResult from "../reducers/profile";
 import myProfileEdit from "../reducers/EditProfile";
 import stopLoadingProfile from "../reducers/loadingProfileMain";
 import myExperiences from "../reducers/Experinces";
+import errorProfileMain from "../reducers/errorProfile";
+import myExperiencesEdit from "../reducers/EditExperiences";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
   editProfile: myProfileEdit,
   myExperiences: myExperiences,
   loadingProfile: stopLoadingProfile,
+  errorProfileMain: errorProfileMain,
+  editExperience: myExperiencesEdit,
 });
 
 export const profileResult = configureStore({

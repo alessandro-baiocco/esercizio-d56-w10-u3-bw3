@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Container, Form, Modal, Spinner } from "react-bootstrap";
+import { Alert, Button, Card, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../../redux/action";
@@ -7,6 +7,7 @@ import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../../redux/ac
 const ProfileHero = (props) => {
   const [show, setShow] = useState(false);
   const [status, setStatus] = useState(null);
+  const [alert, setAlert] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -26,6 +27,7 @@ const ProfileHero = (props) => {
 
   const myProfile = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
+  const error = useSelector((state) => state.errorProfileMain.content);
 
   return (
     <>
@@ -34,6 +36,15 @@ const ProfileHero = (props) => {
           <Container className="d-flex justify-content-center cardLinkedln py-5">
             <Spinner animation="grow" variant="info" />
           </Container>
+        </Container>
+      )}
+
+      {error && alert && (
+        <Container>
+          <Alert variant="danger" onClose={() => setAlert(false)} dismissible>
+            <Alert.Heading>oggi sei da solo</Alert.Heading>
+            <p>errore nel reperimento dei dati</p>
+          </Alert>
         </Container>
       )}
 

@@ -2,24 +2,38 @@ import { useSelector } from "react-redux";
 
 const URL = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
+const URLDIRISERVA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
 export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
 export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
+export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
 export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
+export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
+export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 
 //! Profile page fetch
 export const myProfilePage = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL + "me", {
-      headers: {
-        Authorization: process.env.REACT_APP_AUTHORIZATION,
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_MY_PROFILE, payload: data });
+    try {
+      const response = await fetch(URLDIRISERVA + "me", {
+        headers: {
+          team: "team-4",
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_MY_PROFILE, payload: data });
+      } else {
+        dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
+        throw new Error();
+      }
+    } catch (error) {
+      dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
+      console.log(error);
+    } finally {
       dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };
@@ -45,20 +59,51 @@ export const myProfilePageMod = (e, param) => {
 };
 
 //! Experiences profile page fetch
-export const myExperiencesFetch = () => {
+export const myExperiencesFetch = (myProfile) => {
   return async (dispatch, getState) => {
-    const myProfile = useSelector((state) => state.profile.content);
-    const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/" + myProfile._id + "/experiences",
-      {
-        headers: {
-          Authorization: process.env.REACT_APP_AUTHORIZATION,
-        },
-      }
-    );
+    const response = await fetch(URLDIRISERVA + myProfile + "/experiences", {
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: GET_MY_EXPERIENCES, payload: data });
+    }
+  };
+};
+
+export const myExperiencePageMod = (myProfile, experiences) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIRISERVA + myProfile + "/experiences/" + experiences._id, {
+      method: "PUT",
+      body: JSON.stringify(experiences),
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      dispatch({ type: EDIT_MY_EXPERIENCES, payload: experiences });
+    }
+  };
+};
+
+export const deleteMyExperiences = (myProfile, myExpId) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIRISERVA + myProfile._id + "/experiences/" + myExpId, {
+      method: "DELETE",
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
+      //! Experiences profile page method PUT
     }
   };
 };
