@@ -8,12 +8,16 @@ const EsperienzaProfile = () => {
   const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const myProfile = useSelector((state) => state.profile.content);
+  const [status, setStatus] = useState(null);
 
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    setStatus(experiences);
+  };
 
   useEffect(() => {
     if (myProfile) {
@@ -21,13 +25,18 @@ const EsperienzaProfile = () => {
     }
   }, [myProfile]);
 
+  const handleChange = (propertyName, propertyValue) => {
+    setStatus({ ...status, [propertyName]: propertyValue });
+    console.log(status, propertyName, propertyValue);
+  };
+
   return (
     <Container className="my-3">
       <Container className="p-0 rounded cardLinkedln">
         <Container className="d-flex my-2">
           <h2 className="me-auto fs-5">Esperienza</h2>
           <Plus className="fs-3" />
-          <i className="mx-2 bi bi-pencil mt-1 " onClick={handleShow}></i>
+          {/* <i className="mx-2 bi bi-pencil mt-1 " onClick={handleShow}></i> */}
         </Container>
         {loading ? (
           <Container className="my-4">
@@ -36,7 +45,7 @@ const EsperienzaProfile = () => {
             </Container>
           </Container>
         ) : (
-          experiences.map((experience) => (
+          experiences.map((experience, i) => (
             <Container className="d-flex">
               <Container style={{ width: "fit-content" }} className="p-0">
                 <img src={experience.image} alt="" width={"48px"} height={"48px"} />
@@ -48,6 +57,12 @@ const EsperienzaProfile = () => {
                 <p className="mb-0 fw-light">{experience.startDate}</p>
                 <p className="mb-0 fw-light">{experience.endDate}</p>
               </Container>
+              <i
+                className="mx-2 bi bi-pencil mt-1"
+                onClick={() => {
+                  handleShow(i);
+                }}
+              ></i>
             </Container>
           ))
         )}
@@ -56,41 +71,49 @@ const EsperienzaProfile = () => {
             <Modal.Title>Modifica Esperienze</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Titolo*</Form.Label>
-                <Form.Control required type="text" placeholder="Inserisci la tua professione" autoFocus />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Tempo di impiego</Form.Label>
-                <Form.Select required placeholder="Tempo di Impiego">
-                  <option value="1">Full-Time</option>
-                  <option value="2">Part-time</option>
-                  <option value="3">Autonomo</option>
-                  <option value="3">Free-Lance</option>
-                  <option value="3">A Contratto</option>
-                  <option value="3">Stage</option>
-                  <option value="3">Apprendistato</option>
-                  <option value="3">Stagionale</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Area*</Form.Label>
-                <Form.Control required type="text" placeholder="Inserisci la tua professione" autoFocus />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Descrizione</Form.Label>
-                <Form.Control required as="textarea" rows={3} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Data di inizio</Form.Label>
-                <Form.Control required type="date" placeholder="Inserisci la tua professione" autoFocus />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Data di fine</Form.Label>
-                <Form.Control type="date" placeholder="Inserisci la tua professione" autoFocus />
-              </Form.Group>
-            </Form>
+            {experiences && (
+              <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Titolo*</Form.Label>
+                  <Form.Control
+                    value={status?.role}
+                    required
+                    type="text"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Tempo di impiego</Form.Label>
+                  <Form.Select required placeholder="Tempo di Impiego">
+                    <option value="1">Full-Time</option>
+                    <option value="2">Part-time</option>
+                    <option value="3">Autonomo</option>
+                    <option value="3">Free-Lance</option>
+                    <option value="3">A Contratto</option>
+                    <option value="3">Stage</option>
+                    <option value="3">Apprendistato</option>
+                    <option value="3">Stagionale</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Area*</Form.Label>
+                  <Form.Control required type="text" placeholder="Inserisci la tua professione" autoFocus />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>Descrizione</Form.Label>
+                  <Form.Control required as="textarea" rows={3} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Data di inizio</Form.Label>
+                  <Form.Control required type="date" placeholder="Inserisci la tua professione" autoFocus />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Data di fine</Form.Label>
+                  <Form.Control type="date" placeholder="Inserisci la tua professione" autoFocus />
+                </Form.Group>
+              </Form>
+            )}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
