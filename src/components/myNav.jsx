@@ -8,7 +8,7 @@ const MyNav = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="bg-body-tertiary ">
+    <Navbar className="bg-body-tertiary">
       <Container id="nav-container">
         <div className="d-flex align-items-center me-5 text-secondary">
           <Navbar.Brand href="#home" className=" me-2">
