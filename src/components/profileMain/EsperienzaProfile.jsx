@@ -2,21 +2,36 @@ import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMyExperiences, myExperiencePageMod, myExperiencesFetch } from "../../redux/action";
+import { deleteMyExperiences, myExperiencePageMod, myExperiencesFetch, postMyNewExperience } from "../../redux/action";
 
 const EsperienzaProfile = () => {
   const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const myProfile = useSelector((state) => state.profile.content);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState({
+    area: "",
+    company: "",
+    description: "",
+    endDate: "",
+    role: "",
+    startDate: "",
+    image: "",
+  });
+  const [statusImg, setStatusImg] = useState(null);
 
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+
   const handleClose = () => setShow(false);
+  const handleClose2 = () => setShow2(false);
   const handleShow = (i) => {
     setShow(true);
     setStatus(experiences[i]);
+  };
+  const handleShow2 = (i) => {
+    setShow2(true);
   };
 
   useEffect(() => {
@@ -27,7 +42,6 @@ const EsperienzaProfile = () => {
 
   const handleChange = (propertyName, propertyValue) => {
     setStatus({ ...status, [propertyName]: propertyValue });
-    console.log(status, propertyName, propertyValue);
   };
 
   return (
@@ -35,8 +49,124 @@ const EsperienzaProfile = () => {
       <Container className="p-0 rounded cardLinkedln">
         <Container className="d-flex my-2">
           <h2 className="me-auto fs-5">Esperienza</h2>
-          <Plus className="fs-3" />
-          {/* <i className="mx-2 bi bi-pencil mt-1 " onClick={handleShow}></i> */}
+          <Plus
+            className="fs-3"
+            onClick={() => {
+              handleShow2();
+            }}
+          />
+          {/* --------------------------- */}
+          <Modal show={show2} onHide={handleClose2}>
+            <Modal.Header closeButton>
+              <Modal.Title>AGGIUNGI ESPERIENZA</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Titolo*</Form.Label>
+                  <Form.Control
+                    value={status?.role}
+                    onChange={(e) => handleChange("role", e.target.value)}
+                    required
+                    type="text"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Tempo di impiego</Form.Label>
+                  <Form.Select required placeholder="Tempo di Impiego">
+                    <option value="1">Full-Time</option>
+                    <option value="2">Part-time</option>
+                    <option value="3">Autonomo</option>
+                    <option value="3">Free-Lance</option>
+                    <option value="3">A Contratto</option>
+                    <option value="3">Stage</option>
+                    <option value="3">Apprendistato</option>
+                    <option value="3">Stagionale</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Area*</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.area}
+                    onChange={(e) => handleChange("area", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Azienda*</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Inserisci la tua azienda"
+                    autoFocus
+                    value={status?.company}
+                    onChange={(e) => handleChange("company", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>Descrizione</Form.Label>
+                  <Form.Control
+                    required
+                    as="textarea"
+                    rows={3}
+                    value={status?.description}
+                    onChange={(e) => handleChange("description", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Data di inizio</Form.Label>
+                  <Form.Control
+                    required
+                    type="date"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.startDate}
+                    onChange={(e) => handleChange("startDate", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Data di fine</Form.Label>
+                  <Form.Control
+                    type="date"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.endDate}
+                    onChange={(e) => handleChange("endDate", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Control
+                    type="file"
+                    autoFocus
+                    accept=".png, .jpg, .jpeg"
+                    value={""}
+                    onChange={(e) => handleChange("image", e.target.files[0])}
+                  />
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose2}>
+                Close
+              </Button>
+
+              <Button
+                variant="primary"
+                onClick={(e) => {
+                  dispatch(postMyNewExperience(myProfile._id, status));
+                  e.preventDefault();
+                }}
+              >
+                AGGIUNGI
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          {/* --------------------------- */}
         </Container>
         {loading ? (
           <Container className="my-4">

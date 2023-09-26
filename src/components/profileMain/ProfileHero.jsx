@@ -77,8 +77,7 @@ const ProfileHero = (props) => {
               <Container fluid className="d-flex justify-content-between mt-4">
                 <Container className="flex-grow-1">
                   <Card.Title className="mt-4 fw-bold">
-                    {myProfile?.name}
-                    {myProfile?.surname}
+                    {myProfile?.name} {myProfile?.surname}
                   </Card.Title>
                   <p className="mb-1">Diploma presso qualcosa</p>
                   <Card.Title className="fw-light fs-6">{myProfile?.area}</Card.Title>
