@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import CardAside from "./CardAside";
@@ -32,7 +32,13 @@ const Aside = () => {
     fetchAside();
   }, []);
 
-  const spinner = <Spinner animation="border" />;
+  const spinner = (
+    <Container style={{ marginTop: "48px" }}>
+      <Container className="d-flex justify-content-center cardLinkedln py-5">
+        <Spinner animation="grow" variant="info" />
+      </Container>
+    </Container>
+  );
 
   if (isLoading) {
     return spinner;
