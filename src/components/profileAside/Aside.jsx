@@ -12,7 +12,7 @@ const Aside = () => {
 
   const fetchAside = async () => {
     try {
-      const response = await fetch(URLDIRISERVA, {
+      const response = await fetch(url, {
         headers: {
           Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
