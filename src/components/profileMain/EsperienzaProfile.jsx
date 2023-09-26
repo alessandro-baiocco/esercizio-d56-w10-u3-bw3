@@ -15,7 +15,7 @@ const EsperienzaProfile = () => {
     endDate: "",
     role: "",
     startDate: "",
-    image: "",
+    image: null,
   });
   const [statusImg, setStatusImg] = useState(null);
 
@@ -41,7 +41,11 @@ const EsperienzaProfile = () => {
   }, [myProfile]);
 
   const handleChange = (propertyName, propertyValue) => {
-    setStatus({ ...status, [propertyName]: propertyValue });
+    if (propertyName !== "image") {
+      setStatus({ ...status, [propertyName]: propertyValue });
+    } else {
+      setStatusImg({ ...status, image: propertyValue });
+    }
   };
 
   return (
@@ -140,11 +144,10 @@ const EsperienzaProfile = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Control
+                  <input
                     type="file"
                     autoFocus
-                    accept=".png, .jpg, .jpeg"
-                    value={""}
+                    accept="image/*"
                     onChange={(e) => handleChange("image", e.target.files[0])}
                   />
                 </Form.Group>
@@ -158,7 +161,7 @@ const EsperienzaProfile = () => {
               <Button
                 variant="primary"
                 onClick={(e) => {
-                  dispatch(postMyNewExperience(myProfile._id, status));
+                  dispatch(postMyNewExperience(myProfile._id, status, statusImg));
                   e.preventDefault();
                 }}
               >

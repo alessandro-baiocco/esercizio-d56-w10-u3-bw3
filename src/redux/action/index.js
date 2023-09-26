@@ -89,7 +89,7 @@ export const myExperiencePageMod = (myProfile, experiences) => {
     }
   };
 };
-export const postMyNewExperience = (myProfile, status) => {
+export const postMyNewExperience = (myProfile, status, statusImage) => {
   return async (dispatch, getState) => {
     const response = await fetch(URL + myProfile + "/experiences", {
       method: "POST",
@@ -102,22 +102,20 @@ export const postMyNewExperience = (myProfile, status) => {
     if (response.ok) {
       dispatch({ type: POST_MY_EXPERIENCES, payload: status });
       const formData = new FormData();
-      formData.append(status.image);
+      formData.append("experience", statusImage.image);
 
       const data = await response.json();
       const imgresponse = await fetch(URL + myProfile + "/experiences/" + data._id + "/picture", {
         method: "POST",
-        // body: JSON.stringify(status.image),
+
         body: formData,
-        // body: new FormData(status.image),
+
         headers: {
           Authorization: process.env.REACT_APP_AUTHORIZATION,
-          "Content-Type": "application/json",
         },
       });
       if (imgresponse.ok) {
-        // dispatch({ type: POST_MY_EXPERIENCES, payload: status });
-        window.alert("andato a buon fine");
+        console.log("andato a buon fine");
       }
     }
   };
