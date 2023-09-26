@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { myExperiencesFetch } from "../../redux/action";
 
 const EsperienzaProfile = () => {
   const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
+  const myProfile = useSelector((state) => state.profile.content);
+
+  const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    if (myProfile) {
+      dispatch(myExperiencesFetch(myProfile?._id));
+    }
+  }, [myProfile]);
 
   return (
     <Container className="my-3">
@@ -29,21 +39,14 @@ const EsperienzaProfile = () => {
           experiences.map((experience) => (
             <Container className="d-flex">
               <Container style={{ width: "fit-content" }} className="p-0">
-                <img
-                  src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt=""
-                  width={"48px"}
-                  height={"48px"}
-                />
+                <img src={experience.image} alt="" width={"48px"} height={"48px"} />
               </Container>
-              <Container>
-                <p className="mb-0 fw-bold">Operaio generico</p>
-                <p className="mb-0">Dussman service italia - Part-time</p>
-                <p className="mb-0 fw-light">mar-2020 - Presente - 3 anni 7 mesi</p>
-                <p className="mb-0 fw-light">Ancona, marche, italia</p>
-                <p className="my-3">
-                  <span className="fw-bold">competenze</span>: microsoft Word - Comunicazione
-                </p>
+              <Container className="mb-3">
+                <p className="mb-0 fw-bold">{experience.role}</p>
+                <p className="mb-0">{experience.company}</p>
+                <p className="mb-0 fw-light">{experience.description}</p>
+                <p className="mb-0 fw-light">{experience.startDate}</p>
+                <p className="mb-0 fw-light">{experience.endDate}</p>
               </Container>
             </Container>
           ))

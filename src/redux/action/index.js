@@ -57,17 +57,14 @@ export const myProfilePageMod = (e, param) => {
 };
 
 //! Experiences profile page fetch
-export const myExperiencesFetch = () => {
+export const myExperiencesFetch = (myProfile) => {
   return async (dispatch, getState) => {
-    const myProfile = useSelector((state) => state.profile.content);
-    const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/" + myProfile._id + "/experiences",
-      {
-        headers: {
-          Authorization: process.env.REACT_APP_AUTHORIZATION,
-        },
-      }
-    );
+    const response = await fetch(URLDIRISERVA + myProfile + "/experiences", {
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: GET_MY_EXPERIENCES, payload: data });

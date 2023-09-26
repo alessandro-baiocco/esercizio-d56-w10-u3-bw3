@@ -9,7 +9,7 @@ const myExperiences = (state = initialState, action) => {
     case GET_MY_EXPERIENCES:
       return {
         ...state,
-        content: [...state.content, action.payload],
+        content: action.payload,
       };
 
     default:
