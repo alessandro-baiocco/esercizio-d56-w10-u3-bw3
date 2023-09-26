@@ -29,7 +29,13 @@ const ProfileHero = (props) => {
 
   return (
     <>
-      {loading && <Spinner animation="grow" variant="info" />}
+      {loading && (
+        <Container className="my-5">
+          <Container className="d-flex justify-content-center cardLinkedln py-5">
+            <Spinner animation="grow" variant="info" />
+          </Container>
+        </Container>
+      )}
 
       {myProfile?.name && (
         <Container>
