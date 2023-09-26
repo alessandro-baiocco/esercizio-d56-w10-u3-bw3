@@ -3,6 +3,7 @@ const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
 export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
+export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
 
 export const myProfilePage = () => {
   return async (dispatch, getState) => {
@@ -15,6 +16,7 @@ export const myProfilePage = () => {
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: GET_MY_PROFILE, payload: data });
+      dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };
 };
