@@ -10,6 +10,7 @@ export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
 export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
 export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
 export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
+export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 
 //! Profile page fetch
@@ -73,6 +74,23 @@ export const myExperiencesFetch = (myProfile) => {
   };
 };
 
+export const myExperiencePageMod = (myProfile, experiences) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIRISERVA + myProfile + "/experiences", {
+      method: "PUT",
+      body: JSON.stringify(experiences),
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      dispatch({ type: EDIT_MY_EXPERIENCES, payload: experiences });
+    }
+  };
+};
+
 export const deleteMyExperiences = (myProfile) => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIRISERVA + myProfile._id + "/experiences", {
@@ -85,6 +103,7 @@ export const deleteMyExperiences = (myProfile) => {
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: GET_MY_EXPERIENCES, payload: data });
+      //! Experiences profile page method PUT
     }
   };
 };
