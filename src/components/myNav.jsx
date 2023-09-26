@@ -139,7 +139,7 @@ const MyNav = () => {
           </Nav.Link>
 
           <div className="d-flex flex-column py-2">
-            <Link to={"/"}>
+            <Link to={"/profile/me"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -159,20 +159,22 @@ const MyNav = () => {
             <NavDropdown title="tu" id="basic-nav-dropdown" className="d-none d-md-block pt-0 pe-3 border-end">
               <NavDropdown.Item href="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
                 <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="50"
-                    height="50"
-                    fill="currentColor"
-                    className="bi bi-person-circle -none d-sm-block pb-0 mb-0 ms-2 text-secondary pt-0"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                    <path
-                      fillRule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                    />
-                  </svg>
+                  <Link to={"/profile/me"}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      className="bi bi-person-circle -none d-sm-block pb-0 mb-0 ms-2 text-secondary pt-0"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path
+                        fillRule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                      />
+                    </svg>
+                  </Link>
                 </div>
                 <div className="d-flex flex-column">
                   <h5>NOME COGNOME</h5>
