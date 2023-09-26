@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, Col, Container, Form, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Link } from "react-router-dom";
 const MyNav = () => {
   const [show, setShow] = useState(false);
 
@@ -11,7 +12,7 @@ const MyNav = () => {
     <Navbar className="bg-body-tertiary ">
       <Container id="nav-container" className="d-flex align-items-center me-sm-5 text-secondary ">
         <div className="d-flex">
-          <Navbar.Brand href="#home" className=" me-2">
+          <Navbar.Brand href="/" className=" me-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -69,7 +70,7 @@ const MyNav = () => {
         </div>
 
         <Nav className="me-auto d-none d-sm-flex">
-          <Nav.Link href="#home" className="mx-2">
+          <Nav.Link href="/" className="mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -109,7 +110,7 @@ const MyNav = () => {
             </svg>
             <p className="mb-0 d-none d-md-block"> Lavoro </p>
           </Nav.Link>
-          <Container className="py-2">
+          <Nav.Link href="#link" className="mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -122,7 +123,7 @@ const MyNav = () => {
             </svg>
 
             <p className=" mb-0 d-none d-md-block ">Messaggistica</p>
-          </Container>
+          </Nav.Link>
           <Nav.Link href="#link" className="mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,20 +139,22 @@ const MyNav = () => {
           </Nav.Link>
 
           <div className="d-flex flex-column py-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-person-circle d-none d-sm-block  pb-0 mb-0 ms-2 text-secondary"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path
-                fillRule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-              />
-            </svg>
+            <Link to={"/"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                className="bi bi-person-circle d-none d-sm-block  pb-0 mb-0 ms-2 text-secondary"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fillRule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+            </Link>
 
             <NavDropdown title="tu" id="basic-nav-dropdown" className="d-none d-md-block pt-0 pe-3 border-end">
               <NavDropdown.Item href="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
