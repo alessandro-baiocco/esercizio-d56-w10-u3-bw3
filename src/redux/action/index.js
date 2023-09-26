@@ -7,19 +7,28 @@ export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
 export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
 export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
+export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
 export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 
 //! Profile page fetch
 export const myProfilePage = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL + "me", {
-      headers: {
-        Authorization: process.env.REACT_APP_AUTHORIZATION,
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_MY_PROFILE, payload: data });
+    try {
+      const response = await fetch(URL + "me", {
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_MY_PROFILE, payload: data });
+      } else {
+        dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
+        throw new Error();
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };
