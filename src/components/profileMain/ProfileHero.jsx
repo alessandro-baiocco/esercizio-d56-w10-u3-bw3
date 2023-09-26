@@ -39,7 +39,7 @@ const ProfileHero = (props) => {
         </Container>
       )}
 
-      {error && (
+      {error && alert && (
         <Container>
           <Alert variant="danger" onClose={() => setAlert(false)} dismissible>
             <Alert.Heading>oggi sei da solo</Alert.Heading>

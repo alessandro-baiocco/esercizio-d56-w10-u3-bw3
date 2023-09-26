@@ -27,6 +27,7 @@ export const myProfilePage = () => {
         throw new Error();
       }
     } catch (error) {
+      dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
       console.log(error);
     } finally {
       dispatch({ type: STOP_LOADING_PROFILE, payload: false });
