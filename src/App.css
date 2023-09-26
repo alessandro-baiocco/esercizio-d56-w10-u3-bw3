@@ -16,6 +16,16 @@
   right: 0;
   bottom: 4px;
 }
+
+/* Home Page */
+
+.mtNegative {
+  margin-top: -30px;
+}
+.borderUser {
+  border: 2px solid white;
+}
+
 /* Footer section  */
 
 #FootElem {
