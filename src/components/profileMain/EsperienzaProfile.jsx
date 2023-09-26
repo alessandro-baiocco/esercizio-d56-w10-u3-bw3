@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { myExperiencesFetch } from "../../redux/action";
+import { deleteMyExperiences, myExperiencePageMod, myExperiencesFetch } from "../../redux/action";
 
 const EsperienzaProfile = () => {
   const experiences = useSelector((state) => state.myExperiences.content);
@@ -14,9 +14,9 @@ const EsperienzaProfile = () => {
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => {
+  const handleShow = (i) => {
     setShow(true);
-    setStatus(experiences);
+    setStatus(experiences[i]);
   };
 
   useEffect(() => {
@@ -77,6 +77,7 @@ const EsperienzaProfile = () => {
                   <Form.Label>Titolo*</Form.Label>
                   <Form.Control
                     value={status?.role}
+                    onChange={(e) => handleChange("role", e.target.value)}
                     required
                     type="text"
                     placeholder="Inserisci la tua professione"
@@ -98,19 +99,45 @@ const EsperienzaProfile = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label>Area*</Form.Label>
-                  <Form.Control required type="text" placeholder="Inserisci la tua professione" autoFocus />
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.area}
+                    onChange={(e) => handleChange("area", e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Descrizione</Form.Label>
-                  <Form.Control required as="textarea" rows={3} />
+                  <Form.Control
+                    required
+                    as="textarea"
+                    rows={3}
+                    value={status?.description}
+                    onChange={(e) => handleChange("description", e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label>Data di inizio</Form.Label>
-                  <Form.Control required type="date" placeholder="Inserisci la tua professione" autoFocus />
+                  <Form.Control
+                    required
+                    type="date"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.startDate}
+                    onChange={(e) => handleChange("startDate", e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label>Data di fine</Form.Label>
-                  <Form.Control type="date" placeholder="Inserisci la tua professione" autoFocus />
+                  <Form.Control
+                    type="date"
+                    placeholder="Inserisci la tua professione"
+                    autoFocus
+                    value={status?.endDate}
+                    onChange={(e) => handleChange("endDate", e.target.value)}
+                  />
                 </Form.Group>
               </Form>
             )}
@@ -119,7 +146,17 @@ const EsperienzaProfile = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="danger" onClick={(e) => dispatch(deleteMyExperiences(myProfile._id, status._id))}>
+              CANCELLA
+            </Button>
+            <Button
+              variant="primary"
+              onClick={(e) => {
+                dispatch(myExperiencePageMod(myProfile._id, status));
+                e.preventDefault();
+                myExperiencesFetch(myProfile?._id);
+              }}
+            >
               Save Changes
             </Button>
           </Modal.Footer>

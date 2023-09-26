@@ -76,7 +76,7 @@ export const myExperiencesFetch = (myProfile) => {
 
 export const myExperiencePageMod = (myProfile, experiences) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URLDIRISERVA + myProfile + "/experiences", {
+    const response = await fetch(URLDIRISERVA + myProfile + "/experiences/" + experiences._id, {
       method: "PUT",
       body: JSON.stringify(experiences),
       headers: {
@@ -91,9 +91,9 @@ export const myExperiencePageMod = (myProfile, experiences) => {
   };
 };
 
-export const deleteMyExperiences = (myProfile) => {
+export const deleteMyExperiences = (myProfile, myExpId) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URLDIRISERVA + myProfile._id + "/experiences", {
+    const response = await fetch(URLDIRISERVA + myProfile._id + "/experiences/" + myExpId, {
       method: "DELETE",
       headers: {
         team: "team-4",
@@ -102,7 +102,7 @@ export const deleteMyExperiences = (myProfile) => {
     });
     if (response.ok) {
       const data = await response.json();
-      dispatch({ type: GET_MY_EXPERIENCES, payload: data });
+      dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
       //! Experiences profile page method PUT
     }
   };
