@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 const URL = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
+const URLDIRISERVA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
@@ -14,8 +15,9 @@ export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 export const myProfilePage = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(URL + "me", {
+      const response = await fetch(URLDIRISERVA + "me", {
         headers: {
+          team: "team-4",
           Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
       });
