@@ -12,8 +12,8 @@ import Licenses from "./Licenses";
 import FormazioneProfile from "./FormazioneProfile";
 import Hobbies from "./Hobbies";
 import Lenguages from "./Lenguages";
-import Aside from "./Aside";
-import LinkedinFooter from "../components.jsx/LinkedinFooter";
+import Aside from "../profileAside/Aside";
+import LinkedinFooter from "../footer/LinkedinFooter";
 import { useEffect } from "react";
 
 const ProfileMain = () => {

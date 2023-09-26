@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Aside from "./components/Aside";
+import Aside from "./components/profileAside/Aside";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProfileMain from "./components/profilemain";
+import ProfileMain from "./components/profileMain/profilemain";
 import { Col, Container, Row } from "react-bootstrap";
-import LinkedinFooter from "./components.jsx/LinkedinFooter";
+import LinkedinFooter from "./components/footer/LinkedinFooter";
 
 function App() {
   return (
