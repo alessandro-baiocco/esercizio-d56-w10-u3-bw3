@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Container, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../redux/action";
+import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../../redux/action";
 
 const ProfileHero = (props) => {
   const [show, setShow] = useState(false);
