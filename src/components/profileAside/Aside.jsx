@@ -3,7 +3,6 @@ import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import CardAside from "./CardAside";
-import REACT_APP_AUTHORIZATION from "../..";
 
 const Aside = () => {
   const [people, setPeople] = useState([]);

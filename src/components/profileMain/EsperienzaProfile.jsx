@@ -1,7 +1,10 @@
 import { Container } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
+import { useSelector } from "react-redux";
 
 const EsperienzaProfile = () => {
+  const experiences = useSelector((state) => state.myExperiences.content);
+
   return (
     <Container className="my-3">
       <Container className="p-0 rounded cardLinkedln">

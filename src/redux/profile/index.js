@@ -2,11 +2,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import myProfileResult from "../reducers/profile";
 import myProfileEdit from "../reducers/EditProfile";
 import stopLoadingProfile from "../reducers/loadingProfileMain";
+import myExperiences from "../reducers/Experinces";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
   editProfile: myProfileEdit,
-  loadingProfile: stopLoadingProfile,
+  myExperiences: myExperiences,
 });
 
 export const profileResult = configureStore({
