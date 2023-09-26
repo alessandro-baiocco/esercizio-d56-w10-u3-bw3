@@ -1,15 +1,19 @@
+import { useSelector } from "react-redux";
+
 const URL = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
+
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
 export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
+export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 
+//! Profile page fetch
 export const myProfilePage = () => {
   return async (dispatch, getState) => {
     const response = await fetch(URL + "me", {
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNGU0YzM3NTJhODAwMTQ1Njg3NmQiLCJpYXQiOjE2OTU2MzI5NzIsImV4cCI6MTY5Njg0MjU3Mn0.aUvjIzLRzi_SVt6ngJ9FtFNCNWcrDyY59f0TkzZ9esg",
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
       },
     });
     if (response.ok) {
@@ -19,6 +23,7 @@ export const myProfilePage = () => {
   };
 };
 
+//! Profile page method PUT fetch
 export const myProfilePageMod = (e, param) => {
   e.preventDefault();
   return async (dispatch, getState) => {
@@ -27,13 +32,31 @@ export const myProfilePageMod = (e, param) => {
       method: "PUT",
       body: JSON.stringify(param),
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExNGU0YzM3NTJhODAwMTQ1Njg3NmQiLCJpYXQiOjE2OTU2MzI5NzIsImV4cCI6MTY5Njg0MjU3Mn0.aUvjIzLRzi_SVt6ngJ9FtFNCNWcrDyY59f0TkzZ9esg",
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
       dispatch({ type: EDIT_MY_PROFILE, payload: param });
+    }
+  };
+};
+
+//! Experiences profile page fetch
+export const myExperiencesFetch = () => {
+  return async (dispatch, getState) => {
+    const myProfile = useSelector((state) => state.profile.content);
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" + myProfile._id + "/experiences",
+      {
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: GET_MY_EXPERIENCES, payload: data });
     }
   };
 };
