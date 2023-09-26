@@ -25,7 +25,7 @@ const ProfileHero = (props) => {
   };
 
   const myProfile = useSelector((state) => state.profile.content);
-  const loading = useSelector((state) => state.loadingProfile.content);
+  const loading = useSelector((state) => state.loadingProfile?.content);
 
   return (
     <>
