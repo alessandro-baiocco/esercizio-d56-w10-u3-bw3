@@ -72,3 +72,19 @@ export const myExperiencesFetch = (myProfile) => {
     }
   };
 };
+
+export const deleteMyExperiences = (myProfile) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIRISERVA + myProfile._id + "/experiences", {
+      method: "DELETE",
+      headers: {
+        team: "team-4",
+        // Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: GET_MY_EXPERIENCES, payload: data });
+    }
+  };
+};
