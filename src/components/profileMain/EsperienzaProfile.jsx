@@ -34,6 +34,12 @@ const EsperienzaProfile = () => {
     setShow2(true);
   };
 
+  // useEffect(() => {
+  //   if (experiences) {
+  //     dispatch(myExperiencesFetch(myProfile?._id));
+  //   }
+  // }, [experiences]);
+
   useEffect(() => {
     if (myProfile) {
       dispatch(myExperiencesFetch(myProfile?._id));
@@ -163,6 +169,8 @@ const EsperienzaProfile = () => {
                 onClick={(e) => {
                   dispatch(postMyNewExperience(myProfile._id, status, statusImg));
                   e.preventDefault();
+                  myExperiencesFetch();
+                  handleClose2();
                 }}
               >
                 AGGIUNGI
@@ -187,8 +195,8 @@ const EsperienzaProfile = () => {
                 <p className="mb-0 fw-bold">{experience.role}</p>
                 <p className="mb-0">{experience.company}</p>
                 <p className="mb-0 fw-light">{experience.description}</p>
-                <p className="mb-0 fw-light">{experience.startDate}</p>
-                <p className="mb-0 fw-light">{experience.endDate}</p>
+                <p className="mb-0 fw-light">{experience.startDate.slice(0, 10)}</p>
+                <p className="mb-0 fw-light">{experience.endDate.slice(0, 10)}</p>
               </Container>
               <i
                 className="mx-2 bi bi-pencil mt-1"
@@ -279,7 +287,13 @@ const EsperienzaProfile = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="danger" onClick={(e) => dispatch(deleteMyExperiences(myProfile._id, status._id))}>
+            <Button
+              variant="danger"
+              onClick={(e) => {
+                dispatch(deleteMyExperiences(myProfile._id, status._id));
+                handleClose();
+              }}
+            >
               CANCELLA
             </Button>
             <Button

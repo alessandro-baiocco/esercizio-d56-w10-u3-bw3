@@ -6,6 +6,7 @@ const URLDILIDIA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
+export const IMAGE_MY_PROFILE = "IMAGE_MY_PROFILE";
 export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
 export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
 export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
@@ -89,6 +90,23 @@ export const myExperiencePageMod = (myProfile, experiences) => {
     }
   };
 };
+export const myProfileImage = (myProfileId, profileImg) => {
+  const formData = new FormData();
+  formData.append("profile", profileImg.image);
+  return async (dispatch, getState) => {
+    const response = await fetch(URL + myProfileId + "/picture", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
+    if (response.ok) {
+      dispatch({ type: IMAGE_MY_PROFILE, payload: profileImg });
+    }
+  };
+};
+
 export const postMyNewExperience = (myProfile, status, statusImage) => {
   return async (dispatch, getState) => {
     const response = await fetch(URL + myProfile + "/experiences", {
@@ -103,7 +121,6 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
       dispatch({ type: POST_MY_EXPERIENCES, payload: status });
       const formData = new FormData();
       formData.append("experience", statusImage.image);
-
       const data = await response.json();
       const imgresponse = await fetch(URL + myProfile + "/experiences/" + data._id + "/picture", {
         method: "POST",

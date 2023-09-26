@@ -2,17 +2,23 @@ import { useEffect, useState } from "react";
 import { Alert, Button, Card, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { EDIT_MY_PROFILE, myProfilePage, myProfilePageMod } from "../../redux/action";
+import { EDIT_MY_PROFILE, myProfileImage, myProfilePage, myProfilePageMod } from "../../redux/action";
 
 const ProfileHero = (props) => {
   const [show, setShow] = useState(false);
+  const [show3, setShow3] = useState(false);
   const [status, setStatus] = useState(null);
   const [alert, setAlert] = useState(true);
+  const [profileImg, setProfileImage] = useState(null);
 
   const handleClose = () => setShow(false);
+  const handleClose3 = () => setShow3(false);
   const handleShow = () => {
     setShow(true);
     setStatus(myProfile);
+  };
+  const handleShow3 = () => {
+    setShow3(true);
   };
 
   const dispatch = useDispatch();
@@ -21,8 +27,11 @@ const ProfileHero = (props) => {
   }, []);
 
   const handleChange = (propertyName, propertyValue) => {
-    setStatus({ ...status, [propertyName]: propertyValue });
-    console.log(status, propertyName, propertyValue);
+    if (propertyName !== "image") {
+      setStatus({ ...status, [propertyName]: propertyValue });
+    } else {
+      setProfileImage({ ...status, image: propertyValue });
+    }
   };
 
   const myProfile = useSelector((state) => state.profile.content);
@@ -69,7 +78,44 @@ const ProfileHero = (props) => {
                   left: "20px",
                   top: "100px",
                 }}
+                onClick={() => handleShow3()}
               />
+              {/* ----------------------- */}
+              <Modal show={show3} onHide={handleClose3}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Modifica Presentazione</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  {myProfile?.name && (
+                    <Form>
+                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <input
+                          type="file"
+                          autoFocus
+                          accept="image/*"
+                          onChange={(e) => handleChange("image", e.target.files[0])}
+                        />
+                      </Form.Group>
+                    </Form>
+                  )}
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose3}>
+                    Chiudi
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={(e) => {
+                      dispatch(myProfileImage(myProfile._id, profileImg));
+                      e.preventDefault();
+                    }}
+                  >
+                    Salva Modifiche
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
+              {/* ----------------------- */}
               <Container className="my-1 d-flex justify-content-end">
                 <i className="bi bi-arrow-90deg-right fs-3 mx-3 d-md-none"></i>
                 <i className="bi bi-pencil fs-5" onClick={handleShow}></i>
