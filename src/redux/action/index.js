@@ -11,6 +11,7 @@ export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
 export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
 export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
+export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 
 //! Profile page fetch
 export const myProfilePage = () => {
