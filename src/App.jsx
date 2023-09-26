@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProfileMain from "./components/profilemain";
-import LinkedinFooter from "./components.jsx/LinkedinFooter";
+
+import LinkedinFooter from "./components/footer/LinkedinFooter";
 import MyNav from "./components/myNav";
+import ProfileMain from "./components/profileMain/ProfileMain";
 
 function App() {
   return (
