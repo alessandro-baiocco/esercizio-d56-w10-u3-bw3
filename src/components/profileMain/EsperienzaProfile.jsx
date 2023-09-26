@@ -46,7 +46,7 @@ const EsperienzaProfile = () => {
           </Container>
         ) : (
           experiences.map((experience, i) => (
-            <Container className="d-flex">
+            <Container className="d-flex" key={`exp-${i}`}>
               <Container style={{ width: "fit-content" }} className="p-0">
                 <img src={experience.image} alt="" width={"48px"} height={"48px"} />
               </Container>
