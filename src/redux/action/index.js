@@ -18,6 +18,7 @@ export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
+export const GET_SINGLE_POST = "GET_SINGLE_POST";
 
 //! Profile page fetch
 export const myProfilePage = () => {
@@ -186,6 +187,23 @@ export const postMyNewBeatifulPost = (text) => {
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: MY_NEW_POST, payload: data });
+    }
+  };
+};
+
+export const putMyBeatifulPost = (postId, text) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIPOST + postId, {
+      method: "PUT",
+      body: JSON.stringify(text),
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      // const data = await response.json();
+      // dispatch({ type: GET_SINGLE_POST, payload: data });
     }
   };
 };

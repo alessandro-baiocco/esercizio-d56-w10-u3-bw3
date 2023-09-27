@@ -7,6 +7,7 @@ import errorProfileMain from "../reducers/errorProfile";
 import myExperiencesEdit from "../reducers/EditExperiences";
 import myProfileImage from "../reducers/profImage";
 import getPosts from "../reducers/GetPosts";
+import singlePostText from "../reducers/singlePostTesto";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   editExperience: myExperiencesEdit,
   profImage: myProfileImage,
   getPosts: getPosts,
+  getSinglePost: singlePostText,
 });
 
 export const profileResult = configureStore({

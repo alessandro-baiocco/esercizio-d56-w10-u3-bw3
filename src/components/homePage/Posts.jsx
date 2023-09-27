@@ -1,22 +1,27 @@
-import { useEffect } from "react";
-import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Card, Col, Container, Form, Modal, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsFetch, myProfilePage } from "../../redux/action";
-import { CaretDownFill, ChatText, HandThumbsUp, SendFill, Share } from "react-bootstrap-icons";
+import { getMyBeatifulPost, getPostsFetch, myProfilePage, putMyBeatifulPost } from "../../redux/action";
+import { CaretDownFill, ChatText, HandThumbsUp, PencilFill, SendFill, Share } from "react-bootstrap-icons";
 import SideBarLeft from "./SideBarLeft";
 import SideBarRight from "./SideBarRight";
 import PostaUnPost from "./PostaUnPost";
 
 const Posts = () => {
   const posts = useSelector((state) => state.getPosts.content);
+  const singlePostTesto = useSelector((state) => state.getSinglePost.content);
   const loading = useSelector((state) => state.loadingProfile.content);
   const dispatch = useDispatch();
   const postsSliced = posts.slice(-15);
   const postReversed = postsSliced.reverse();
   const myProfile = useSelector((state) => state.profile.content);
-  //   const postsForLoop = for(let i = 0; i<16; i++ ){
+  const [show, setShow] = useState(false);
+  const [testo, setTesto] = useState({ text: "" });
+  const [postaId, setPostaID] = useState("");
 
-  //   }
+  // useEffect(() => {
+  //   dispatch(getMyBeatifulPost());
+  // }, [singlePostTesto]);
 
   useEffect(() => {
     dispatch(getPostsFetch());
@@ -33,7 +38,7 @@ const Posts = () => {
         </Col>
 
         <Col xs="6">
-          {myProfile ? <PostaUnPost image={myProfile.image} /> : ""}
+          {myProfile ? <PostaUnPost image={myProfile.image} /> : <Spinner variant="success"></Spinner>}
           <div className="d-flex">
             <hr style={{ width: "40%" }} />
 
@@ -50,7 +55,6 @@ const Posts = () => {
             posts &&
             postReversed.map((post) => (
               <>
-                {console.log(post)}
                 <Card className="mb-2">
                   <Card.Body>
                     <div className="d-flex">
@@ -64,11 +68,23 @@ const Posts = () => {
                           style={{ objectFit: "cover" }}
                         />
                       </div>
-                      <Container>
-                        <Card.Title>
-                          {post.user.name} {post.user.surname}
-                        </Card.Title>
-                        <Card.Text>{post.user.title}</Card.Text>
+                      <Container className="d-flex">
+                        <Container className="d-flex flex-column">
+                          <Card.Title>
+                            {post.user.name} {post.user.surname}
+                          </Card.Title>
+                          <Card.Text>{post.user.title}</Card.Text>
+                        </Container>
+                        {myProfile._id === post.user._id && (
+                          <PencilFill
+                            onClick={() => {
+                              setShow(true);
+                              // dispatch(getMyBeatifulPost(post._id));
+                              setTesto({ text: post.text });
+                              setPostaID(post._id);
+                            }}
+                          />
+                        )}
                       </Container>
                     </div>
                   </Card.Body>
@@ -104,6 +120,43 @@ const Posts = () => {
           <SideBarRight />
         </Col>
       </Row>
+
+      <Modal show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>POST ZONE</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Control
+                required
+                as="textarea"
+                rows={3}
+                value={testo.text}
+                onChange={(e) => setTesto({ text: e.target.value })}
+                placeholder="di cosa vuoi parlare?"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShow(false)}>
+            Close
+          </Button>
+
+          <Button
+            variant="primary"
+            onClick={(e) => {
+              dispatch(putMyBeatifulPost(postaId, testo));
+
+              e.preventDefault();
+              setShow(false);
+            }}
+          >
+            MODIFICA IL POST
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
