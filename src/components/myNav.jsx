@@ -48,7 +48,7 @@ const MyNav = () => {
               viewBox="0 0 24 24"
               data-supported-dps="24x24"
               fill="currentColor"
-              class="mercado-match d-none"
+              className="mercado-match d-none"
               width="24"
               height="24"
               focusable="false"

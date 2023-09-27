@@ -32,13 +32,13 @@ const PostaUnPost = () => {
           </Container>
           <Row className="d-flex justify-content-center">
             <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-image"></i> contenuto multimediale
+              <i className="bi bi-image"></i> contenuto multimediale
             </Col>
             <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-calendar3"></i> Evento
+              <i className="bi bi-calendar3"></i> Evento
             </Col>
             <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-newspaper"></i> scrivi un'articolo
+              <i className="bi bi-newspaper"></i> scrivi un'articolo
             </Col>
           </Row>
         </Container>
