@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 const URL = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
+const URLDIPOST = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLDILIDIA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
 export const GET_PROFILE = "GET_PROFILE";
@@ -11,6 +12,7 @@ export const EDIT_MY_PROFILE = "EDIT_MY_PROFILE";
 export const STOP_LOADING_PROFILE = "STOP_LOADING_PROFILE";
 export const ERROR_PROFILE_MAIN = "ERROR_PROFILE_MAIN";
 export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
+export const MY_NEW_POST = "MY_NEW_POST";
 export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
@@ -151,6 +153,23 @@ export const deleteMyExperiences = (myProfile, myExpId) => {
       const data = await response.json();
       dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
       //! Experiences profile page method PUT
+    }
+  };
+};
+
+export const postMyNewBeatifulPost = () => {
+  return async (dispatch, getState, text) => {
+    const response = await fetch(URLDIPOST, {
+      method: "POST",
+      body: JSON.stringify(text),
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: MY_NEW_POST, payload: data });
     }
   };
 };
