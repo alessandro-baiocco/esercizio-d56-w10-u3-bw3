@@ -7,6 +7,7 @@ import MyNav from "./components/myNav";
 import ProfileMain from "./components/profileMain/ProfileMain";
 import SideBarLeft from "./components/homePage/SideBarLeft";
 import SideBarRight from "./components/homePage/SideBarRight";
+import PostaUnPost from "./components/PostaUnPost";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <MyNav />
         <Routes>
           <Route path="/" element={<SideBarLeft />} />
+          <Route path="/input" element={<PostaUnPost />} />
           <Route path="/profile/me" element={<ProfileMain />} />
           <Route path="/profile/me" element={<LinkedinFooter />} />
         </Routes>
