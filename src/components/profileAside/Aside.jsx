@@ -113,14 +113,14 @@ const Aside = () => {
               <li className="textNoneLi">
                 <div className="d-flex">
                   <div>
-                    <Image src={people?.image} roundedCircle width={"50px"} />
+                    <Image src={people[39]?.image} roundedCircle width={"50px"} />
                   </div>
                   <div className="d-flex flex-column ms-3">
                     <div className="fw-bold">
-                      <div>{people?.name}</div>
+                      <div>{people[39]?.name}</div>
                       <span>3+</span>
                     </div>
-                    <div>{people?.title}</div>
+                    <div>{people[39]?.title}</div>
                     <div className="opacity-50">10000 follower</div>
                     <div>
                       <Button className="buttonAside rounded-pill">
@@ -147,15 +147,15 @@ const Aside = () => {
               <li className="textNoneLi mt-4">
                 <div className="d-flex">
                   <div>
-                    <Image src={people?.image} roundedCircle width={"50px"} />
+                    <Image src={people[57]?.image} roundedCircle width={"50px"} />
                   </div>
                   <div className="d-flex flex-column ms-3">
                     <div className="fw-bold">
-                      <div>{people?.name}</div>
+                      <div>{people[57]?.name}</div>
                       <span>3+</span>
                     </div>
-                    <div>{people?.title}</div>
-                    <div className="opacity-50">10000 follower</div>
+                    <div>{people[57]?.title}</div>
+                    <div className="opacity-50">15000 follower</div>
                     <div>
                       <Button className="buttonAside rounded-pill">
                         <svg
