@@ -5,6 +5,7 @@ import { getPostsFetch } from "../../redux/action";
 import { ChatText, HandThumbsUp, SendFill, Share } from "react-bootstrap-icons";
 import SideBarLeft from "./SideBarLeft";
 import SideBarRight from "./SideBarRight";
+import PostaUnPost from "./PostaUnPost";
 
 const Posts = () => {
   const posts = useSelector((state) => state.getPosts.content);
@@ -24,6 +25,7 @@ const Posts = () => {
         </Col>
 
         <Col xs="6">
+          <PostaUnPost />
           {loading ? (
             <Spinner variant="success"></Spinner>
           ) : (

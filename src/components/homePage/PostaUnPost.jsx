@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_MY_PROFILE, myProfilePage, postMyNewBeatifulPost } from "../redux/action";
+import { GET_MY_PROFILE, myProfilePage, postMyNewBeatifulPost } from "../../redux/action";
 
 const PostaUnPost = () => {
   const dispatch = useDispatch();
@@ -46,18 +46,18 @@ const PostaUnPost = () => {
 
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>DI COSA VUOI PARLARE?</Modal.Title>
+          <Modal.Title>POST ZONE</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 required
                 as="textarea"
                 rows={3}
                 value={testo?.text}
                 onChange={(e) => setTesto({ text: e.target.value })}
+                placeholder="di cosa vuoi parlare?"
               />
             </Form.Group>
           </Form>
@@ -73,11 +73,10 @@ const PostaUnPost = () => {
               //   dispatch(postMyNewPost(myProfile._id, status, statusImg));
               dispatch(postMyNewBeatifulPost(testo));
               e.preventDefault();
-
               setShow(false);
             }}
           >
-            AGGIUNGI
+            POSTA IL POST
           </Button>
         </Modal.Footer>
       </Modal>
