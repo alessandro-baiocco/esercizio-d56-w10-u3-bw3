@@ -54,64 +54,62 @@ const Posts = () => {
           ) : (
             posts &&
             postReversed.map((post, i) => (
-              <>
-                <Card className="mb-2" key={`post-${i}`}>
-                  <Card.Body>
-                    <div className="d-flex">
-                      <div>
-                        <img
-                          src={post.user.image}
-                          alt=""
-                          width={"70px"}
-                          height={"70px"}
-                          className="rounded-circle"
-                          style={{ objectFit: "cover" }}
-                        />
-                      </div>
-                      <Container className="d-flex">
-                        <Container className="d-flex flex-column">
-                          <Card.Title>
-                            {post.user.name} {post.user.surname}
-                          </Card.Title>
-                          <Card.Text>{post.user.title}</Card.Text>
-                        </Container>
-                        {myProfile._id === post.user._id && (
-                          <PencilFill
-                            onClick={() => {
-                              setShow(true);
-                              // dispatch(getMyBeatifulPost(post._id));
-                              setTesto({ text: post.text });
-                              setPostaID(post._id);
-                            }}
-                          />
-                        )}
-                      </Container>
+              <Card className="mb-2" key={`post-${i}`}>
+                <Card.Body>
+                  <div className="d-flex">
+                    <div>
+                      <img
+                        src={post.user.image}
+                        alt=""
+                        width={"70px"}
+                        height={"70px"}
+                        className="rounded-circle"
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
-                  </Card.Body>
-                  <Card.Body>
-                    <Card.Text>{post.text}</Card.Text>
-                    <hr />
                     <Container className="d-flex">
-                      <Button className="bg-transparent text-secondary border-0 me-2">
-                        <HandThumbsUp className="mb-1 fs-6 me-1" />
-                        Consiglia
-                      </Button>
-                      <Button className="bg-transparent text-secondary border-0 me-2">
-                        <ChatText className="mb-1 fs-6 me-1" />
-                        Commenta
-                      </Button>
-                      <Button className="bg-transparent text-secondary border-0 me-2">
-                        <Share className="mb-1 fs-6 me-1" />
-                        Diffondi il post
-                      </Button>
-                      <Button className="bg-transparent text-secondary border-0 me-2">
-                        <SendFill className="mb-1 fs-6 me-1" />
-                        Invia
-                      </Button>
+                      <Container className="d-flex flex-column">
+                        <Card.Title>
+                          {post.user.name} {post.user.surname}
+                        </Card.Title>
+                        <Card.Text>{post.user.title}</Card.Text>
+                      </Container>
+                      {myProfile._id === post.user._id && (
+                        <PencilFill
+                          onClick={() => {
+                            setShow(true);
+                            // dispatch(getMyBeatifulPost(post._id));
+                            setTesto({ text: post.text });
+                            setPostaID(post._id);
+                          }}
+                        />
+                      )}
                     </Container>
-                  </Card.Body>
-                </Card>
-              </>
+                  </div>
+                </Card.Body>
+                <Card.Body>
+                  <Card.Text>{post.text}</Card.Text>
+                  <hr />
+                  <Container className="d-flex">
+                    <Button className="bg-transparent text-secondary border-0 me-2">
+                      <HandThumbsUp className="mb-1 fs-6 me-1" />
+                      Consiglia
+                    </Button>
+                    <Button className="bg-transparent text-secondary border-0 me-2">
+                      <ChatText className="mb-1 fs-6 me-1" />
+                      Commenta
+                    </Button>
+                    <Button className="bg-transparent text-secondary border-0 me-2">
+                      <Share className="mb-1 fs-6 me-1" />
+                      Diffondi il post
+                    </Button>
+                    <Button className="bg-transparent text-secondary border-0 me-2">
+                      <SendFill className="mb-1 fs-6 me-1" />
+                      Invia
+                    </Button>
+                  </Container>
+                </Card.Body>
+              </Card>
             ))
           )}
         </Col>
