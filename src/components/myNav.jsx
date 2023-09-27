@@ -29,7 +29,7 @@ const MyNav = () => {
   }, []);
 
   return (
-    <Navbar className={`bg-body-tertiary media ${isActive ? `active` : ``}`}>
+    <Navbar className={`bg-light media ${isActive ? `active` : ``}`}>
       <Container id="nav-container" className="d-flex align-items-center text-secondary ">
         <div className={isActive ? "d-flex w-100" : "d-flex"}>
           <Navbar.Brand href="/" className=" me-2 d-flex">
@@ -139,7 +139,7 @@ const MyNav = () => {
                 width="20"
                 height="20"
                 fill="currentColor"
-                className={isActive ? "d-none" : "bi bi-chat-dots-fill ms40px"}
+                className={isActive ? "d-none" : "bi bi-chat-dots-fill ms40px "}
                 viewBox="0 0 16 16"
               >
                 <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
@@ -263,7 +263,7 @@ const MyNav = () => {
                 className={
                   isActive
                     ? "d-none"
-                    : "d-none d-md-block border border-0 bg-body-tertiary  px-0 text-secondary text-truncate ms-2"
+                    : "d-none d-md-block border border-0 bg-light  px-0 text-secondary text-truncate ms-2"
                 }
               >
                 per le aziende

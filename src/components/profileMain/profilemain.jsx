@@ -19,7 +19,7 @@ import { useEffect } from "react";
 const ProfileMain = () => {
   return (
     <>
-      <Container>
+      <Container className="mt-4">
         <Row className="justify-content-center">
           <Col xs={12} md={8}>
             <ProfileHero />
@@ -39,7 +39,7 @@ const ProfileMain = () => {
               <Hobbies />
             </Container>
           </Col>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={3} className="px-0">
             <Aside />
           </Col>
         </Row>

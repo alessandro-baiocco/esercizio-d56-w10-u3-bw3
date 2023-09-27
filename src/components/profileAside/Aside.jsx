@@ -51,32 +51,38 @@ const Aside = () => {
       <div className="p-4 mb-2 rounded cardLinkedln ">
         <div className="d-flex justify-content-between">
           <div>
-            <span className="fs-4">Lingua del profilo</span>
-            <p>italiano</p>
+            <span className="fs-5" style={{ fontWeight: "600" }}>
+              Lingua del profilo
+            </span>
+            <p className="opacity-50">Italiano</p>
           </div>
           <Link to={"#"}>
-            <i className="bi bi-pencil fs-3"></i>
+            <i className="bi bi-pencil fs-5"></i>
           </Link>
         </div>
         <hr />
         <div className="d-flex justify-content-between">
           <div>
-            <span className="fs-4">Public profile & URL</span>
-            <p>www.linkedin.com</p>
+            <span className="fs-5" style={{ fontWeight: "600" }}>
+              Public profile & URL
+            </span>
+            <p className="opacity-50">www.linkedin.com</p>
           </div>
           <Link to={"#"}>
-            <i className="bi bi-pencil fs-3"></i>
+            <i className="bi bi-pencil fs-5"></i>
           </Link>
         </div>
       </div>
-      <section className=" cardLinkedln p-4">
-        <div className="fs-6 fw-bold">Altri profili consultati</div>
+      <section className=" cardLinkedln p-4 pb-1 rounded">
+        <div className="fs-6 fw-bold">
+          <span style={{ fontWeight: "600" }}>Altri profili consultati</span>
+        </div>
         <div>
           <ul className="ps-0">
             {people.slice(0, 2).map((person) => (
               <CardAside card={person} key={person._id} />
             ))}
-            <div className="text-center">
+            <div className="text-center mt-1 ">
               <Link to={"/"} className="textNone">
                 Mostra tutto
               </Link>
@@ -84,17 +90,19 @@ const Aside = () => {
           </ul>
         </div>
       </section>
-      <section className=" cardLinkedln my-2 p-4">
+      <section className=" cardLinkedln my-2 p-4 pb-1 rounded">
         <div>
-          <h4 className="fs-6 fw-bold">Persone che potresti conoscere</h4>
-          <p className="mb-0">Dalla tua azienda</p>
+          <h4 className="fs-6" style={{ fontWeight: "600" }}>
+            Persone che potresti conoscere
+          </h4>
+          <p className="mb-0 opacity-75">Dalla tua azienda</p>
         </div>
         <div>
           <ul className="ps-0">
             {people.slice(0, 5).map((person) => (
               <CardAside card={person} key={person._id} />
             ))}
-            <div className="text-center">
+            <div className="text-center mt-1">
               <Link to={"/"} className="textNone">
                 Mostra tutto
               </Link>
@@ -102,10 +110,12 @@ const Aside = () => {
           </ul>
         </div>
       </section>
-      <section className=" cardLinkedln p-4">
+      <section className=" cardLinkedln p-4 pb-1 rounded">
         <div>
-          <h4 className="fs-6 fw-bold">Potebbero interessarti</h4>
-          <p>Pagine per te</p>
+          <h4 className="fs-6" style={{ fontWeight: "600" }}>
+            Potebbero interessarti
+          </h4>
+          <p className="opacity-75">Pagine per te</p>
         </div>
         <div>
           <ul className="ps-0">
@@ -177,7 +187,7 @@ const Aside = () => {
                 </div>
               </li>
             </div>
-            <div className="text-center">
+            <div className="text-center mt-1">
               <Link to={"/"} className="textNone">
                 Mostra tutto
               </Link>
