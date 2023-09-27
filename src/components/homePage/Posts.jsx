@@ -53,9 +53,9 @@ const Posts = () => {
             <Spinner variant="success"></Spinner>
           ) : (
             posts &&
-            postReversed.map((post) => (
+            postReversed.map((post, i) => (
               <>
-                <Card className="mb-2">
+                <Card className="mb-2" key={`post-${i}`}>
                   <Card.Body>
                     <div className="d-flex">
                       <div>
