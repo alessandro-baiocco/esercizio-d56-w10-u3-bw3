@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import SecondaryFooter from "../footer/SecondaryFooter";
-import { CaretDown } from "react-bootstrap-icons";
+import { CaretDown, ChevronCompactDown } from "react-bootstrap-icons";
 import { getPostsFetch } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,8 +18,8 @@ const SideBarRight = () => {
   return (
     <div>
       <section>
-        <div className="border border-tertiary rounded bg-white p-2">
-          <div className="d-flex justify-content-between fs-6 fw-bold mb-2">
+        <div className="border border-tertiary rounded bg-white p-3">
+          <div className="d-flex justify-content-between fs-6  mb-2" style={{ fontWeight: "600" }}>
             LinkedIn Notizie
             <span>
               <i className="bi bi-info-square-fill"></i>
@@ -40,9 +40,9 @@ const SideBarRight = () => {
               ))
             )}
           </ul>
-          <Button className="btn btn-light fs-6">
+          <Button className="btn ms-3 btn-light opacity-75" style={{ fontSize: "14px" }}>
             Show more
-            <CaretDown />
+            <ChevronCompactDown className="fs-5 ms-2" />
           </Button>
         </div>
       </section>
