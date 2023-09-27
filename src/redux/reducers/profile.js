@@ -1,4 +1,4 @@
-import { GET_MY_PROFILE, IMAGE_MY_PROFILE } from "../action";
+import { GET_MY_PROFILE } from "../action";
 
 const initialState = {
   content: null,
