@@ -93,7 +93,7 @@ const MyNav = () => {
         </div>
         {!isActive && (
           <Nav className="me-auto d-none d-sm-flex">
-            <Nav.Link to="/" className="mx-2 widthIconNavBar">
+            <Nav.Link href="/" className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
