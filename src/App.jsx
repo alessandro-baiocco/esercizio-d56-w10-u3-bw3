@@ -8,7 +8,7 @@ import ProfileMain from "./components/profileMain/ProfileMain";
 import SideBarLeft from "./components/homePage/SideBarLeft";
 import SideBarRight from "./components/homePage/SideBarRight";
 import Posts from "./components/homePage/Posts";
-import PostaUnPost from "./components/PostaUnPost";
+import PostaUnPost from "./components/homePage/PostaUnPost";
 
 function App() {
   return (

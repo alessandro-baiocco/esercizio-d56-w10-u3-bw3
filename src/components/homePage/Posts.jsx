@@ -2,15 +2,20 @@ import { useEffect } from "react";
 import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsFetch } from "../../redux/action";
-import { ChatText, HandThumbsUp, SendFill, Share } from "react-bootstrap-icons";
+import { CaretDownFill, ChatText, HandThumbsUp, SendFill, Share } from "react-bootstrap-icons";
 import SideBarLeft from "./SideBarLeft";
 import SideBarRight from "./SideBarRight";
+import PostaUnPost from "./PostaUnPost";
 
 const Posts = () => {
   const posts = useSelector((state) => state.getPosts.content);
   const loading = useSelector((state) => state.loadingProfile.content);
   const dispatch = useDispatch();
-  const postsSliced = posts.slice(0, 15);
+  const postsSliced = posts.slice(-15);
+  const postReversed = postsSliced.reverse();
+  //   const postsForLoop = for(let i = 0; i<16; i++ ){
+
+  //   }
 
   useEffect(() => {
     dispatch(getPostsFetch());
@@ -24,11 +29,22 @@ const Posts = () => {
         </Col>
 
         <Col xs="6">
+          <PostaUnPost />
+          <div className="d-flex">
+            <hr style={{ width: "40%" }} />
+
+            <div>
+              <p className="mb-0 py-1 ps-2 text-secondary" style={{ fontSize: "13px" }}>
+                Seleziona la visulizzazione dei feed: <strong>Piu' rilevanti per primi</strong>
+                <CaretDownFill className="ms-1" />
+              </p>
+            </div>
+          </div>
           {loading ? (
             <Spinner variant="success"></Spinner>
           ) : (
             posts &&
-            postsSliced.map((post) => (
+            postReversed.map((post) => (
               <>
                 {console.log(post)}
                 <Card className="mb-2">

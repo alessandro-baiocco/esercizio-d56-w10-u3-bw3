@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_MY_PROFILE, myProfilePage } from "../redux/action";
+import { GET_MY_PROFILE, myProfilePage } from "../../redux/action";
 
 const PostaUnPost = () => {
   const dispatch = useDispatch();
@@ -17,30 +17,33 @@ const PostaUnPost = () => {
   return (
     <>
       {myProfileImage && (
-        <Container className="cardLinkedln d-none d-sm-block" width={"50%"}>
-          <Container fluid className="d-flex">
-            <Row>
-              <Col xs={2}>
+        <Container className="cardLinkedln d-none d-sm-block mb-2 rounded " width={"50%"}>
+          <Container fluid className="d-flex py-3 px-0">
+            <Container className="d-flex px-0">
+              <Container style={{ width: "12%" }}>
                 <img src={myProfileImage.image} alt="" className="rounded-circle" width={"50px"} height={"50px"} />
-              </Col>
-              <Col xs={8}>
-                <Button className="bg-transparent rounded-pill btn-light ms-3 border border-dark" onClick={setShow}>
-                  cosa stai pensando?
+              </Container>
+              <Container className="w-100 my-auto">
+                <Button
+                  className="bg-transparent rounded-pill btn-light border-secondary w-100 text-start text-secondary py-2  "
+                  onClick={setShow}
+                >
+                  <span>Avvia un post</span>
                 </Button>
-              </Col>
-            </Row>
+              </Container>
+            </Container>
           </Container>
-          <Row className="d-flex justify-content-center">
-            <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-image"></i> contenuto multimediale
-            </Col>
-            <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-calendar3"></i> Evento
-            </Col>
-            <Col xs={6} md={6} lg={4}>
-              <i class="bi bi-newspaper"></i> scrivi un'articolo
-            </Col>
-          </Row>
+          <Container className="d-flex flex-wrap justify-content-between r py-2 text-secondary">
+            <p>
+              <i className="bi bi-image text-primary"></i> Contenuto multimediale
+            </p>
+            <p>
+              <i className="bi bi-calendar3 text-warning"></i> Evento
+            </p>
+            <p className="mx-auto mx-lg-0">
+              <i class="bi bi-newspaper text-danger"></i> Scrivi un'articolo
+            </p>
+          </Container>
         </Container>
       )}
 
