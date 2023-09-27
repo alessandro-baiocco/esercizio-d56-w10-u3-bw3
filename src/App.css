@@ -83,12 +83,19 @@
 #basic-nav-dropdown {
   padding-top: 0px;
 }
+
+#logoMiniFooter {
+  font-size: 0.8rem;
+}
+
 .miniFooter {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
+  color: gray;
 }
 .marginMiniFooter {
   margin: 0.4rem 0.8rem;
@@ -119,4 +126,9 @@
   .svgNotifiche {
     margin-left: 0px !important;
   }
+}
+
+#sideBarRightList {
+  font-size: 0.8rem;
+  line-height: 3px;
 }
