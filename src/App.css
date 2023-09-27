@@ -17,6 +17,17 @@
   bottom: 4px;
 }
 
+.widthIconNavBar {
+  width: 80px;
+}
+.widthIconNavBar2 {
+  width: 100px;
+}
+
+.ms40px {
+  margin-left: 40px;
+}
+
 /* Home Page */
 
 .mtNegative {
@@ -90,5 +101,22 @@
 @media screen and (max-width: 991px) {
   #nav-container {
     width: 100%;
+  }
+  .media {
+    padding-right: 10%;
+  }
+}
+@media screen and (max-width: 766px) {
+  .widthIconNavBar {
+    width: 40px;
+  }
+  .widthIconNavBar2 {
+    width: 40px;
+  }
+  .ms40px {
+    margin-left: 0px;
+  }
+  .svgNotifiche {
+    margin-left: 0px !important;
   }
 }
