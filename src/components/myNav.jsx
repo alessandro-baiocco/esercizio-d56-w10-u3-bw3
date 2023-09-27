@@ -32,7 +32,7 @@ const MyNav = () => {
     <Navbar className={`bg-light media ${isActive ? `active` : ``}`}>
       <Container id="nav-container" className="d-flex align-items-center text-secondary ">
         <div className={isActive ? "d-flex w-100" : "d-flex"}>
-          <Navbar.Brand href="/" className=" me-2 d-flex">
+          <Navbar.Brand to="/" className=" me-2 d-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -93,7 +93,7 @@ const MyNav = () => {
         </div>
         {!isActive && (
           <Nav className="me-auto d-none d-sm-flex">
-            <Nav.Link href="/" className="mx-2 widthIconNavBar">
+            <Nav.Link to="/" className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -106,7 +106,7 @@ const MyNav = () => {
               </svg>
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}>Home</p>
             </Nav.Link>
-            <Nav.Link href="#link" className="mx-2 widthIconNavBar">
+            <Nav.Link to="#link" className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -119,7 +119,7 @@ const MyNav = () => {
               </svg>
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}>Rete </p>
             </Nav.Link>
-            <Nav.Link href="#link" className="mx-2 widthIconNavBar">
+            <Nav.Link to="#link" className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -133,7 +133,7 @@ const MyNav = () => {
               </svg>
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}> Lavoro </p>
             </Nav.Link>
-            <Nav.Link href="#link" className="mx-2 pt-1 widthIconNavBar2">
+            <Nav.Link to="#link" className="mx-2 pt-1 widthIconNavBar2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -147,7 +147,7 @@ const MyNav = () => {
 
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}>Messaggistica</p>
             </Nav.Link>
-            <Nav.Link href="#link" className="mx-2 pt-1 widthIconNavBar">
+            <Nav.Link to="#link" className="mx-2 pt-1 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -188,7 +188,7 @@ const MyNav = () => {
                   isActive ? "d-none" : "d-none d-md-block pt-0 pe-3 border-end widthIconNavBar widthIconNavBar"
                 }
               >
-                <NavDropdown.Item href="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
+                <NavDropdown.Item to="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
                   <div>
                     <Link to={"/profile/me"}>
                       <svg
@@ -219,13 +219,13 @@ const MyNav = () => {
                 </button>
                 <NavDropdown.Divider />
                 <p className="fw-bold ms-3">ACCOUNT</p>
-                <NavDropdown.Item href="#action/3.2">
+                <NavDropdown.Item to="#action/3.2">
                   <p className="mb-0">Impostazioni e privacy</p>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Item to="#action/3.3">
                   <p className="mb-0">Guida</p>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">
+                <NavDropdown.Item to="#action/3.4">
                   {" "}
                   <p className="mb-0">Lingua</p>
                 </NavDropdown.Item>
