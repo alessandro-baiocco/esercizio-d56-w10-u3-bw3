@@ -17,6 +17,11 @@ const getPosts = (state = initialState, action) => {
         ...state,
         content: [...state.content, action.payload],
       };
+    case DELETE_MY_POST:
+      return {
+        ...state,
+        content: action.payload,
+      };
 
     default:
       return state;
