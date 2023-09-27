@@ -31,7 +31,7 @@ const SideBarLeft = () => {
         <div className="d-flex border-bottom justify-content-between">
           <Container className="my-3">
             <div className="textNone fs-6">Collegamenti</div>
-            <div className="fw-semibold" style={{ "font-size": "small" }}>
+            <div className="fw-semibold" style={{ fontSize: "small" }}>
               Espandi la tua rete
             </div>
           </Container>
