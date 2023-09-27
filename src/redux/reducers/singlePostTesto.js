@@ -1,12 +1,12 @@
-import { GET_MY_PROFILE } from "../action";
+import { GET_SINGLE_POST } from "../action";
 
 const initialState = {
   content: null,
 };
 
-const myProfileResult = (state = initialState, action) => {
+const singlePostText = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MY_PROFILE:
+    case GET_SINGLE_POST:
       return {
         ...state,
         content: action.payload,
@@ -17,4 +17,4 @@ const myProfileResult = (state = initialState, action) => {
   }
 };
 
-export default myProfileResult;
+export default singlePostText;

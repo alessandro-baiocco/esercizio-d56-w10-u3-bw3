@@ -108,6 +108,7 @@ const ProfileHero = (props) => {
                     onClick={(e) => {
                       dispatch(myProfileImage(myProfile._id, profileImg));
                       e.preventDefault();
+                      handleClose3();
                     }}
                   >
                     Salva Modifiche
