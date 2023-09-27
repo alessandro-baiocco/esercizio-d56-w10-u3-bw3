@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import CardAside from "./CardAside";
 
-const Aside = () => {
+const Aside = (props) => {
   const [people, setPeople] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const url = "https://striveschool-api.herokuapp.com/api/profile/";
@@ -100,7 +100,7 @@ const Aside = () => {
         <div>
           <ul className="ps-0">
             {people.slice(0, 5).map((person) => (
-              <CardAside card={person} key={person._id} />
+              <CardAside card={person} key={person._id} userId={person._id} />
             ))}
             <div className="text-center mt-1">
               <Link to={"/"} className="textNone">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, Button, Card, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { EDIT_MY_PROFILE, myProfileImage, myProfilePage, myProfilePageMod } from "../../redux/action";
 
 const ProfileHero = (props) => {
@@ -10,21 +10,27 @@ const ProfileHero = (props) => {
   const [status, setStatus] = useState(null);
   const [alert, setAlert] = useState(true);
   const [profileImg, setProfileImage] = useState(null);
+  const urlParam = useParams();
+  const dispatch = useDispatch();
 
   const handleClose = () => setShow(false);
   const handleClose3 = () => setShow3(false);
   const handleShow = () => {
     setShow(true);
-    setStatus(myProfile);
+    setStatus(props.myProfile);
   };
   const handleShow3 = () => {
     setShow3(true);
   };
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(myProfilePage());
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   if (urlParam !== "me") {
+  //     dispatch(myProfilePage(urlParam.userId));
+  //   } else {
+  //     dispatch(myProfilePage());
+  //   }
+  // }, []);
 
   const handleChange = (propertyName, propertyValue) => {
     if (propertyName !== "image") {
@@ -34,7 +40,7 @@ const ProfileHero = (props) => {
     }
   };
 
-  const myProfile = useSelector((state) => state.profile.content);
+  // const myProfile = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const error = useSelector((state) => state.errorProfileMain.content);
 
@@ -57,7 +63,7 @@ const ProfileHero = (props) => {
         </Container>
       )}
 
-      {myProfile?.name && (
+      {props.myProfile?.name && (
         <Container>
           <Card>
             <Card.Img
@@ -68,7 +74,7 @@ const ProfileHero = (props) => {
             />
             <Card.Body>
               <img
-                src={myProfile && myProfile.image}
+                src={props.myProfile && props.myProfile.image}
                 alt=""
                 style={{
                   position: "absolute",
@@ -86,7 +92,7 @@ const ProfileHero = (props) => {
                   <Modal.Title>Modifica Presentazione</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  {myProfile?.name && (
+                  {props.myProfile?.name && (
                     <Form>
                       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <input
@@ -106,7 +112,7 @@ const ProfileHero = (props) => {
                   <Button
                     variant="primary"
                     onClick={(e) => {
-                      dispatch(myProfileImage(myProfile._id, profileImg));
+                      dispatch(myProfileImage(props.myProfile._id, profileImg));
                       e.preventDefault();
                       handleClose3();
                     }}
@@ -124,10 +130,10 @@ const ProfileHero = (props) => {
               <Container fluid className="d-flex justify-content-between mt-4">
                 <Container className="flex-grow-1">
                   <Card.Title className="mt-4 fw-bold">
-                    {myProfile?.name} {myProfile?.surname}
+                    {props.myProfile?.name} {props.myProfile?.surname}
                   </Card.Title>
                   <p className="mb-1">Diploma presso qualcosa</p>
-                  <Card.Title className="fw-light fs-6">{myProfile?.area}</Card.Title>
+                  <Card.Title className="fw-light fs-6">{props.myProfile?.area}</Card.Title>
                 </Container>
                 <Container className="d-none d-md-flex flex-column align-items-end">
                   <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
@@ -200,7 +206,7 @@ const ProfileHero = (props) => {
               <Modal.Title>Modifica Presentazione</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              {myProfile?.name && (
+              {props.myProfile?.name && (
                 <Form>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Nome*</Form.Label>
