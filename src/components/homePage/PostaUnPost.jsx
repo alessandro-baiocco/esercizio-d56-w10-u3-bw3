@@ -4,25 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GET_MY_PROFILE, myProfilePage, postMyNewBeatifulPost } from "../../redux/action";
 
-const PostaUnPost = () => {
+const PostaUnPost = (props) => {
   const dispatch = useDispatch();
-  const myProfileImage = useSelector((state) => state.profile.content);
+
   const [show, setShow] = useState(false);
   const [handleClose, setHandleClose] = useState(false);
   const [testo, setTesto] = useState(null);
 
-  useEffect(() => {
-    dispatch(myProfilePage());
-  }, []);
-
   return (
     <>
-      {myProfileImage && (
+      {props.image && (
         <Container className="cardLinkedln d-none d-sm-block mb-2 rounded " width={"50%"}>
           <Container fluid className="d-flex py-3 px-0">
             <Container className="d-flex px-0">
               <Container style={{ width: "12%" }}>
-                <img src={myProfileImage.image} alt="" className="rounded-circle" width={"50px"} height={"50px"} />
+                <img src={props.image} alt="" className="rounded-circle" width={"50px"} height={"50px"} />
               </Container>
               <Container className="w-100 my-auto">
                 <Button

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsFetch } from "../../redux/action";
+import { getPostsFetch, myProfilePage } from "../../redux/action";
 import { CaretDownFill, ChatText, HandThumbsUp, SendFill, Share } from "react-bootstrap-icons";
 import SideBarLeft from "./SideBarLeft";
 import SideBarRight from "./SideBarRight";
@@ -13,12 +13,16 @@ const Posts = () => {
   const dispatch = useDispatch();
   const postsSliced = posts.slice(-15);
   const postReversed = postsSliced.reverse();
+  const myProfile = useSelector((state) => state.profile.content);
   //   const postsForLoop = for(let i = 0; i<16; i++ ){
 
   //   }
 
   useEffect(() => {
     dispatch(getPostsFetch());
+  }, []);
+  useEffect(() => {
+    dispatch(myProfilePage());
   }, []);
 
   return (
@@ -29,7 +33,7 @@ const Posts = () => {
         </Col>
 
         <Col xs="6">
-          <PostaUnPost />
+          {myProfile ? <PostaUnPost image={myProfile.image} /> : ""}
           <div className="d-flex">
             <hr style={{ width: "40%" }} />
 
