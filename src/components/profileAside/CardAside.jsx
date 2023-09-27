@@ -12,13 +12,13 @@ const CardAside = ({ card }) => {
           <div className="d-flex flex-column ms-3">
             <div className="fw-bold">{card.name}</div>
             <div>{card.title}</div>
-            <Button className="buttonAside rounded-pill">
+            <Button className="buttonAside rounded-pill border-secondary py-1 mt-1 text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 data-supported-dps="16x16"
                 fill="currentColor"
-                className="mercado-match"
+                className="mercado-match mb-1"
                 width="16"
                 height="16"
                 focusable="false"

@@ -80,11 +80,20 @@
   color: rgb(55, 54, 54);
   width: 110px;
 }
+
+.buttonAside:hover {
+  background: lightgray;
+  color: rgb(55, 54, 54);
+  width: 110px;
+  border: 1.5px solid lightgray;
+}
+
 .textNone {
   text-decoration: none;
   color: black;
   opacity: 75%;
 }
+
 #basic-nav-dropdown {
   padding-top: 0px;
 }
