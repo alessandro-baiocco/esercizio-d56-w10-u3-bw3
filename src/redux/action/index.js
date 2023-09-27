@@ -173,8 +173,8 @@ export const getPostsFetch = () => {
   };
 };
 
-export const postMyNewBeatifulPost = () => {
-  return async (dispatch, getState, text) => {
+export const postMyNewBeatifulPost = (text) => {
+  return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST, {
       method: "POST",
       body: JSON.stringify(text),
