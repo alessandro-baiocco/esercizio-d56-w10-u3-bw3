@@ -2,7 +2,16 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Modal, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyBeatifulPost, getPostsFetch, myProfilePage, putMyBeatifulPost } from "../../redux/action";
-import { CaretDownFill, ChatText, HandThumbsUp, PencilFill, SendFill, Share } from "react-bootstrap-icons";
+import {
+  CaretDownFill,
+  ChatText,
+  HandThumbsUp,
+  PencilFill,
+  SendFill,
+  Share,
+  Trash2Fill,
+  TrashFill,
+} from "react-bootstrap-icons";
 import SideBarLeft from "./SideBarLeft";
 import SideBarRight from "./SideBarRight";
 import PostaUnPost from "./PostaUnPost";
@@ -75,14 +84,17 @@ const Posts = () => {
                         <Card.Text>{post.user.title}</Card.Text>
                       </Container>
                       {myProfile._id === post.user._id && (
-                        <PencilFill
-                          onClick={() => {
-                            setShow(true);
-                            // dispatch(getMyBeatifulPost(post._id));
-                            setTesto({ text: post.text });
-                            setPostaID(post._id);
-                          }}
-                        />
+                        <>
+                          <TrashFill className="text-danger me-3" />
+                          <PencilFill
+                            onClick={() => {
+                              setShow(true);
+                              // dispatch(getMyBeatifulPost(post._id));
+                              setTesto({ text: post.text });
+                              setPostaID(post._id);
+                            }}
+                          />
+                        </>
                       )}
                     </Container>
                   </div>
