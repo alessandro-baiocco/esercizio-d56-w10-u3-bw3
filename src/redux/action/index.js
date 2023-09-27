@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 const URL = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
+const URL3 = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLDIPOST = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLDILIDIA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 
@@ -16,6 +17,8 @@ export const MY_NEW_POST = "MY_NEW_POST";
 export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
 export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
+export const GET_POSTS = "GET_POSTS";
+export const GET_SINGLE_POST = "GET_SINGLE_POST";
 
 //! Profile page fetch
 export const myProfilePage = () => {
@@ -152,13 +155,27 @@ export const deleteMyExperiences = (myProfile, myExpId) => {
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
-      //! Experiences profile page method PUT
     }
   };
 };
 
-export const postMyNewBeatifulPost = () => {
-  return async (dispatch, getState, text) => {
+export const getPostsFetch = () => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URL3, {
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: GET_POSTS, payload: data });
+      dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+    }
+  };
+};
+
+export const postMyNewBeatifulPost = (text) => {
+  return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST, {
       method: "POST",
       body: JSON.stringify(text),
@@ -170,6 +187,23 @@ export const postMyNewBeatifulPost = () => {
     if (response.ok) {
       const data = await response.json();
       dispatch({ type: MY_NEW_POST, payload: data });
+    }
+  };
+};
+
+export const putMyBeatifulPost = (postId, text) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIPOST + postId, {
+      method: "PUT",
+      body: JSON.stringify(text),
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      // const data = await response.json();
+      // dispatch({ type: GET_SINGLE_POST, payload: data });
     }
   };
 };

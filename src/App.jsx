@@ -6,8 +6,8 @@ import LinkedinFooter from "./components/footer/LinkedinFooter";
 import MyNav from "./components/myNav";
 import ProfileMain from "./components/profileMain/ProfileMain";
 import SideBarLeft from "./components/homePage/SideBarLeft";
-import SideBarRight from "./components/homePage/SideBarRight";
-import PostaUnPost from "./components/PostaUnPost";
+
+import Posts from "./components/homePage/Posts";
 
 function App() {
   return (
@@ -15,8 +15,7 @@ function App() {
       <BrowserRouter>
         <MyNav />
         <Routes>
-          <Route path="/" element={<SideBarLeft />} />
-          <Route path="/input" element={<PostaUnPost />} />
+          <Route path="/" element={<Posts />} />
           <Route path="/profile/me" element={<ProfileMain />} />
           <Route path="/profile/me" element={<LinkedinFooter />} />
         </Routes>
