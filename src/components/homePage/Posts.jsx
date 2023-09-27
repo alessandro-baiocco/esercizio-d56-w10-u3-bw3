@@ -166,9 +166,6 @@ const Posts = () => {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
-          <Button variant="danger" onClick={() => setShow(false)}>
-            CANCEL?
-          </Button>
 
           <Button
             variant="primary"
