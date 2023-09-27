@@ -84,7 +84,7 @@ const SideBarLeft = () => {
           <div>Hastag seguiti</div>
         </Link>
       </div>
-      <SideBarRight />
+      {/* <SideBarRight /> */}
     </div>
   );
 };
