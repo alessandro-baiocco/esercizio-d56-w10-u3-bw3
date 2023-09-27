@@ -9,7 +9,7 @@ const SideBarRight = () => {
           <div className="d-flex justify-content-between">
             LinkedIn Notizie{" "}
             <span>
-              <i class="bi bi-info-square-fill"></i>
+              <i className="bi bi-info-square-fill"></i>
             </span>
           </div>
           <ul>

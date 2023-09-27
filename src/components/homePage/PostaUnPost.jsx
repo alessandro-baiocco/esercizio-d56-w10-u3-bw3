@@ -38,7 +38,7 @@ const PostaUnPost = (props) => {
               <i className="bi bi-calendar3 text-warning"></i> Evento
             </p>
             <p className="mx-auto mx-lg-0">
-              <i class="bi bi-newspaper text-danger"></i> Scrivi un'articolo
+              <i className="bi bi-newspaper text-danger"></i> Scrivi un'articolo
             </p>
           </Container>
         </Container>

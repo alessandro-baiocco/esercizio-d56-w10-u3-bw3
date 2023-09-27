@@ -49,7 +49,7 @@ const SideBarLeft = () => {
           </div>
         </div>
         <div>
-          <i class="bi bi-bookmark-fill"></i>
+          <i className="bi bi-bookmark-fill"></i>
           <span className="ms-3">I miei elementi</span>
         </div>
       </div>
@@ -63,13 +63,13 @@ const SideBarLeft = () => {
           </Link>
           <Link to={""}>
             <div>
-              <li-icon aria-hidden="true" type="add" class="artdeco-button__icon" size="small">
+              <li-icon aria-hidden="true" type="add" className="artdeco-button__icon" size="small">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                   data-supported-dps="16x16"
                   fill="currentColor"
-                  class="mercado-match"
+                  className="mercado-match"
                   width="16"
                   height="16"
                   focusable="false"
