@@ -16,6 +16,7 @@ export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 export const MY_NEW_POST = "MY_NEW_POST";
 export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
+export const DELETE_MY_POST = "DELETE_MY_EXPERIENCES";
 export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
@@ -26,7 +27,7 @@ export const myProfilePage = () => {
     try {
       const response = await fetch(URL + "me", {
         headers: {
-          team: "team-4",
+          // team: "team-4",
           Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
       });
@@ -123,7 +124,6 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
       },
     });
     if (response.ok) {
-      dispatch({ type: POST_MY_EXPERIENCES, payload: status });
       const formData = new FormData();
       formData.append("experience", statusImage.image);
       const data = await response.json();
@@ -137,6 +137,8 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
         },
       });
       if (imgresponse.ok) {
+        dispatch({ type: POST_MY_EXPERIENCES, payload: status });
+        dispatch(myExperiencesFetch(myProfile));
         console.log("andato a buon fine");
       }
     }
@@ -145,6 +147,7 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
 
 export const deleteMyExperiences = (myProfile, myExpId) => {
   return async (dispatch, getState) => {
+    // try {
     const response = await fetch(URL + myProfile._id + "/experiences/" + myExpId, {
       method: "DELETE",
       headers: {
@@ -156,6 +159,12 @@ export const deleteMyExperiences = (myProfile, myExpId) => {
       const data = await response.json();
       dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
     }
+    // } catch (error) {
+    //   console.log(error);
+    // } finally {
+    //   console.log("error");
+    //   dispatch(myExperiencesFetch(myProfile));
+    // }
   };
 };
 
@@ -196,6 +205,21 @@ export const putMyBeatifulPost = (postId, text) => {
     const response = await fetch(URLDIPOST + postId, {
       method: "PUT",
       body: JSON.stringify(text),
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      // const data = await response.json();
+      // dispatch({ type: GET_SINGLE_POST, payload: data });
+    }
+  };
+};
+export const deleteMyBeatifulPost = (postId) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLDIPOST + postId, {
+      method: "DELETE",
       headers: {
         Authorization: process.env.REACT_APP_AUTHORIZATION,
         "Content-Type": "application/json",

@@ -169,7 +169,6 @@ const EsperienzaProfile = () => {
                 onClick={(e) => {
                   dispatch(postMyNewExperience(myProfile._id, status, statusImg));
                   e.preventDefault();
-                  myExperiencesFetch();
                   handleClose2();
                 }}
               >
@@ -299,9 +298,11 @@ const EsperienzaProfile = () => {
             <Button
               variant="primary"
               onClick={(e) => {
-                dispatch(myExperiencePageMod(myProfile._id, status));
+                dispatch(myExperiencePageMod(myProfile._id, status._id));
                 e.preventDefault();
-                myExperiencesFetch(myProfile?._id);
+                setTimeout(() => {
+                  myExperiencesFetch(myProfile?._id);
+                }, 1500);
               }}
             >
               Save Changes
