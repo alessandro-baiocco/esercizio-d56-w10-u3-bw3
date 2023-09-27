@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Modal, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getMyBeatifulPost, getPostsFetch, myProfilePage, putMyBeatifulPost } from "../../redux/action";
+import {
+  deleteMyBeatifulPost,
+  getMyBeatifulPost,
+  getPostsFetch,
+  myProfilePage,
+  putMyBeatifulPost,
+} from "../../redux/action";
 import {
   CaretDownFill,
   ChatText,
@@ -85,11 +91,18 @@ const Posts = () => {
                       </Container>
                       {myProfile._id === post.user._id && (
                         <>
-                          <TrashFill className="text-danger me-3" />
+                          <TrashFill
+                            className="text-danger me-3"
+                            onClick={(e) => {
+                              dispatch(deleteMyBeatifulPost(post._id));
+                              dispatch(getPostsFetch());
+                              e.preventDefault();
+                            }}
+                          />
                           <PencilFill
                             onClick={() => {
                               setShow(true);
-                              // dispatch(getMyBeatifulPost(post._id));
+
                               setTesto({ text: post.text });
                               setPostaID(post._id);
                             }}
@@ -161,6 +174,7 @@ const Posts = () => {
             variant="primary"
             onClick={(e) => {
               dispatch(putMyBeatifulPost(postaId, testo));
+              dispatch(getPostsFetch());
 
               e.preventDefault();
               setShow(false);

@@ -1,4 +1,4 @@
-import { GET_POSTS, MY_NEW_POST } from "../action";
+import { DELETE_MY_POST, GET_POSTS, MY_NEW_POST } from "../action";
 
 const initialState = {
   content: [],
