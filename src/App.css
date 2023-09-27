@@ -36,6 +36,11 @@
 .borderUser {
   border: 2px solid white;
 }
+.imgHome {
+  width: 100%;
+  height: 56.25px;
+  object-fit: cover;
+}
 
 /* Footer section  */
 

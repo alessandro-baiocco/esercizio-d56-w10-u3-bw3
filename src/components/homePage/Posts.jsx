@@ -31,9 +31,9 @@ const Posts = () => {
   }, []);
 
   return (
-    <Container className="d-flex">
+    <Container className="d-flex mt-4">
       <Row>
-        <Col xs="3">
+        <Col xs="2">
           <SideBarLeft />
         </Col>
 
