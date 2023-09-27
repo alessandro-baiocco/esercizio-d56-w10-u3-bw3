@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_MY_PROFILE, myProfilePage } from "../redux/action";
+import { GET_MY_PROFILE, myProfilePage, postMyNewBeatifulPost } from "../redux/action";
 
 const PostaUnPost = () => {
   const dispatch = useDispatch();
@@ -71,6 +71,7 @@ const PostaUnPost = () => {
             variant="primary"
             onClick={(e) => {
               //   dispatch(postMyNewPost(myProfile._id, status, statusImg));
+              dispatch(postMyNewBeatifulPost(testo));
               e.preventDefault();
 
               setShow(false);
