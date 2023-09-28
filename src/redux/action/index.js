@@ -242,32 +242,44 @@ export const deleteMyBeatifulPost = (postId) => {
 
 export const getJobsFetch = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URLJOBS, {
-      headers: {
-        Authorization: process.env.REACT_APP_AUTHORIZATION,
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      const results = await data.data;
-      dispatch({ type: GET_JOBS, payload: results });
-      // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+    try {
+      const response = await fetch(URLJOBS, {
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const results = await data.data;
+        dispatch({ type: GET_JOBS, payload: results });
+        // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };
 };
 
 export const getCompanyJobsFetch = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URLCOMPANYJOBS + randomString, {
-      headers: {
-        Authorization: process.env.REACT_APP_AUTHORIZATION,
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      const results = await data.data;
-      dispatch({ type: GET_JOBS_BY_COMPANY, payload: results });
-      // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+    try {
+      const response = await fetch(URLCOMPANYJOBS + randomString, {
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const results = await data.data;
+        dispatch({ type: GET_JOBS_BY_COMPANY, payload: results });
+        // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };
 };

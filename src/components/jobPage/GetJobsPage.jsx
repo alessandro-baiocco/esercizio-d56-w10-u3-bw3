@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, ListGroup, Placeholder, Row, Spinner } from "react-bootstrap";
 import { HandThumbsDown, HandThumbsUp } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getJobsFetch } from "../../redux/action";
@@ -10,6 +10,7 @@ import CompanyJobs from "./GetCompanyJobs";
 
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
+  const isLoading = useSelector((state) => state.loadingProfile.content);
   const dispatch = useDispatch();
   const [search, setSearch] = useState();
 
@@ -32,7 +33,12 @@ const GetJobsPage = () => {
                 Sulla base del tuo profilo e della tua cronologia delle ricerche
               </p>
             </ListGroup.Item>
-            {jobs &&
+            {isLoading ? (
+              <div className="text-center mt-3">
+                <Spinner variant="success" />
+              </div>
+            ) : (
+              jobs &&
               jobs
                 .filter((job) => job.title.toLowerCase().includes(""))
                 .map((job) => (
@@ -63,7 +69,8 @@ const GetJobsPage = () => {
                       </div>
                     </div>
                   </ListGroup.Item>
-                ))}
+                ))
+            )}
           </ListGroup>
         </Col>
         <Col xs="3">
