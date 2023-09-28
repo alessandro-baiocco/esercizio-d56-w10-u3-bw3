@@ -133,9 +133,7 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
       const data = await response.json();
       const imgresponse = await fetch(URL + myProfile + "/experiences/" + data._id + "/picture", {
         method: "POST",
-
         body: formData,
-
         headers: {
           Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
@@ -187,7 +185,7 @@ export const getPostsFetch = () => {
   };
 };
 
-export const postMyNewBeatifulPost = (text) => {
+export const postMyNewBeatifulPost = (text, image = "") => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST, {
       method: "POST",
@@ -199,7 +197,20 @@ export const postMyNewBeatifulPost = (text) => {
     });
     if (response.ok) {
       const data = await response.json();
-      dispatch({ type: MY_NEW_POST, payload: data });
+      const formData = new FormData();
+      formData.append("post", image.image);
+      const imgresponse = await fetch(URLDIPOST + data._id, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (imgresponse.ok) {
+        const dataImg = await imgresponse.json();
+        data.image = await dataImg.image;
+        dispatch({ type: MY_NEW_POST, payload: data });
+      }
     }
   };
 };

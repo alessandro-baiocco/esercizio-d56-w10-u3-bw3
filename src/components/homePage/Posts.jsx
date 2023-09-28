@@ -74,7 +74,7 @@ const Posts = () => {
                   <div className="d-flex">
                     <div>
                       <img
-                        src={post.user.image}
+                        src={post.user?.image ? post.user.image : myProfile.image}
                         alt=""
                         width={"70px"}
                         height={"70px"}
@@ -85,11 +85,12 @@ const Posts = () => {
                     <Container className="d-flex">
                       <Container className="d-flex flex-column">
                         <Card.Title>
-                          {post.user.name} {post.user.surname}
+                          {post.user?.name ? post.user.name : myProfile.name}{" "}
+                          {post.user?.surname ? post.user.surname : myProfile.surname}
                         </Card.Title>
-                        <Card.Text>{post.user.title}</Card.Text>
+                        <Card.Text>{post.user?.title ? post.user.title : myProfile.title}</Card.Text>
                       </Container>
-                      {myProfile._id === post.user._id && (
+                      {myProfile._id === post.user?._id && (
                         <>
                           <TrashFill
                             className="text-danger me-3"
@@ -99,6 +100,7 @@ const Posts = () => {
                               e.preventDefault();
                             }}
                           />
+
                           <PencilFill
                             onClick={() => {
                               setShow(true);
@@ -114,6 +116,9 @@ const Posts = () => {
                 </Card.Body>
                 <Card.Body>
                   <Card.Text>{post.text}</Card.Text>
+                  <Container className="p-0">
+                    {post.image ? <img src={post.image} alt="" width={"80px"} /> : ""}
+                  </Container>
                   <hr />
                   <Container className="d-flex">
                     <Button className="bg-transparent text-secondary border-0 me-2">

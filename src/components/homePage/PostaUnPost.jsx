@@ -9,6 +9,7 @@ const PostaUnPost = (props) => {
   const [show, setShow] = useState(false);
   const [handleClose, setHandleClose] = useState(false);
   const [testo, setTesto] = useState(null);
+  const [image, setImage] = useState({ image: "" });
 
   return (
     <>
@@ -58,6 +59,10 @@ const PostaUnPost = (props) => {
                 onChange={(e) => setTesto({ text: e.target.value })}
                 placeholder="di cosa vuoi parlare?"
               />
+              <Form.Group>
+                <Form.Label>VUOI METTERCI QUALCOSA?</Form.Label>
+                <input type="file" accept="image/*" onChange={(e) => setImage({ image: e.target.files[0] })} />
+              </Form.Group>
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -70,8 +75,8 @@ const PostaUnPost = (props) => {
             variant="primary"
             onClick={(e) => {
               //   dispatch(postMyNewPost(myProfile._id, status, statusImg));
-              dispatch(postMyNewBeatifulPost(testo));
-              dispatch(getPostsFetch());
+              dispatch(postMyNewBeatifulPost(testo, image));
+              // dispatch(getPostsFetch());
               e.preventDefault();
               setShow(false);
               setTesto("");
