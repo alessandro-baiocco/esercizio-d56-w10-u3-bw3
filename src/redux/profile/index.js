@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import myProfileResult from "../reducers/profile";
-import myProfileEdit from "../reducers/EditProfile";
+
 import stopLoadingProfile from "../reducers/loadingProfileMain";
 import myExperiences from "../reducers/Experinces";
 import errorProfileMain from "../reducers/errorProfile";
@@ -9,10 +9,12 @@ import myProfileImage from "../reducers/profImage";
 import getPosts from "../reducers/GetPosts";
 import singlePostText from "../reducers/singlePostTesto";
 import getJobs from "../reducers/GetJobsReducer";
+import jobsQuery from "../reducers/SearchJobQuery";
+import jobsSearch from "../reducers/JobList";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
-  editProfile: myProfileEdit,
+
   myExperiences: myExperiences,
   loadingProfile: stopLoadingProfile,
   errorProfileMain: errorProfileMain,
@@ -21,6 +23,8 @@ const rootReducer = combineReducers({
   getPosts: getPosts,
   getSinglePost: singlePostText,
   getJobs: getJobs,
+  jobsQuery: jobsQuery,
+  jobSearch: jobsSearch,
 });
 
 export const profileResult = configureStore({

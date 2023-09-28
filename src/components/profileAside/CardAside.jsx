@@ -18,7 +18,7 @@ const CardAside = ({ card }) => {
           </div>
           <div className="d-flex flex-column ms-3">
             <div className="fw-bold">
-              <Link to={`/profile/${card._id}`} onClick={() => dispatch(myProfilePage(urlParam.userId))}>
+              <Link to={`/profile/${card._id}`} onClick={() => dispatch(myProfilePage(card._id))}>
                 {card.name}
               </Link>
             </div>

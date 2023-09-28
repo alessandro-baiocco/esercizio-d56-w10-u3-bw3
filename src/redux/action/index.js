@@ -5,6 +5,7 @@ const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL3 = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLDIPOST = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLJOBS = "https://strive-benchmark.herokuapp.com/api/jobs?category=writing&limit=10";
+const URLSEARCHJOBS = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
 const URLCOMPANYJOBS = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
 const URLDILIDIA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
 const companyArr = ["sport", "web", "parrot"];
@@ -27,6 +28,7 @@ export const GET_SINGLE_POST = "GET_SINGLE_POST";
 export const GET_JOBS = "GET_JOBS";
 export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
 export const GET_JOBS_BY_COMPANY = "GET_JOBS_BY_COMPANY";
+export const JOB_SEARCH = "JOB_SEARCH";
 
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
@@ -40,7 +42,8 @@ export const myProfilePage = (userId = "me") => {
       });
       if (response.ok) {
         const data = await response.json();
-        dispatch({ type: GET_MY_PROFILE, payload: data });
+        console.log(data);
+        dispatch({ type: EDIT_MY_PROFILE, payload: data });
         dispatch(myExperiencesFetch(data._id));
       } else {
         dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
@@ -118,7 +121,8 @@ export const myProfileImage = (myProfileId, profileImg) => {
       },
     });
     if (response.ok) {
-      dispatch({ type: IMAGE_MY_PROFILE, payload: profileImg });
+      const dataImg = await response.json();
+      dispatch({ type: IMAGE_MY_PROFILE, payload: dataImg.image });
     }
   };
 };
@@ -313,5 +317,27 @@ export const getCompanyJobsFetch = () => {
 export const jobquery = (query) => {
   return (dispatch, getState) => {
     dispatch({ type: SEARCH_JOB_QUERY, payload: query });
+  };
+};
+
+export const jobSearch = (query) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(URLSEARCHJOBS + query + "&limit=40", {
+        headers: {
+          Authorization: process.env.REACT_APP_AUTHORIZATION,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const results = await data.data;
+        dispatch({ type: JOB_SEARCH, payload: results });
+        // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+    }
   };
 };

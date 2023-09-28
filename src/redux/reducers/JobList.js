@@ -1,12 +1,12 @@
-import { EDIT_MY_PROFILE } from "../action";
+import { JOB_SEARCH } from "../action";
 
 const initialState = {
   content: null,
 };
 
-const myProfileEdit = (state = initialState, action) => {
+const jobsSearch = (state = initialState, action) => {
   switch (action.type) {
-    case EDIT_MY_PROFILE:
+    case JOB_SEARCH:
       return {
         ...state,
         content: action.payload,
@@ -17,4 +17,4 @@ const myProfileEdit = (state = initialState, action) => {
   }
 };
 
-export default myProfileEdit;
+export default jobsSearch;
