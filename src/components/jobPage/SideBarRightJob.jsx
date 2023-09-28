@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SideBarRightJob = () => {
   return (
-    <div className="w-75 " style={{ marginLeft: "80px" }}>
+    <div>
       <section className="rounded-3 cardLinkedln p-3">
         <ul className="p-0">
           <li className="fw-semibold textNoneLi pt-3 ">
