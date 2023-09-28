@@ -3,7 +3,7 @@ import { Card, Col, Container, Form, Nav, NavDropdown, Navbar, Row } from "react
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { SEARCH_JOB_QUERY } from "../redux/action";
+import { SEARCH_JOB_QUERY, jobSearch } from "../redux/action";
 
 const MyNav = () => {
   const [show, setShow] = useState(false);
@@ -66,6 +66,7 @@ const MyNav = () => {
             onSubmit={(e) => {
               e.preventDefault();
               dispatch({ type: SEARCH_JOB_QUERY, payload: search });
+              dispatch(jobSearch(search));
               navigate("/jobs/Search");
             }}
             className="d-flex align-items-center me-auto w-100"
