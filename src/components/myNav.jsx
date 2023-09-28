@@ -102,7 +102,7 @@ const MyNav = () => {
         </div>
         {!isActive && (
           <Nav className="me-auto d-none d-sm-flex">
-            <Nav.Link href="/" className="mx-2 widthIconNavBar">
+            <Nav.Link onClick={() => navigate("/")} className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -128,7 +128,7 @@ const MyNav = () => {
               </svg>
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}>Rete </p>
             </Nav.Link>
-            <Nav.Link to="#link" className="mx-2 widthIconNavBar">
+            <Nav.Link onClick={() => navigate("/jobs")} className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
