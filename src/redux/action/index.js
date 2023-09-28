@@ -28,7 +28,7 @@ export const GET_JOBS = "GET_JOBS";
 export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
 export const GET_JOBS_BY_COMPANY = "GET_JOBS_BY_COMPANY";
 
-//! Profile page fetch
+//! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
   return async (dispatch, getState) => {
     try {
@@ -55,7 +55,7 @@ export const myProfilePage = (userId = "me") => {
   };
 };
 
-//! Profile page method PUT fetch
+//! Profile page method PUT fetch---------------------------------------------------------------------------------------------------------------
 export const myProfilePageMod = (e, param) => {
   e.preventDefault();
   return async (dispatch, getState) => {
@@ -74,7 +74,7 @@ export const myProfilePageMod = (e, param) => {
   };
 };
 
-//! Experiences profile page fetch
+//! Experiences profile page fetch-------------------------------------------------------------------------------------------------------------------------
 export const myExperiencesFetch = (myProfile) => {
   return async (dispatch, getState) => {
     const response = await fetch(URL + myProfile + "/experiences", {
@@ -104,6 +104,8 @@ export const myExperiencePageMod = (myProfile, experiences) => {
     }
   };
 };
+
+//imagine profilo fetch -------------------------------------------------------------------------------------------------------------------------
 export const myProfileImage = (myProfileId, profileImg) => {
   const formData = new FormData();
   formData.append("profile", profileImg.image);
@@ -120,6 +122,8 @@ export const myProfileImage = (myProfileId, profileImg) => {
     }
   };
 };
+
+//posta le exp ----------------------------------------------------------------------------------------------------------------------------
 
 export const postMyNewExperience = (myProfile, status, statusImage) => {
   return async (dispatch, getState) => {
@@ -151,6 +155,7 @@ export const postMyNewExperience = (myProfile, status, statusImage) => {
   };
 };
 
+// CANCEL ? le exp --------------------------------------------------------------------------------------------------------------------------
 export const deleteMyExperiences = (myProfile, myExpId) => {
   return async (dispatch, getState) => {
     // try {
@@ -174,6 +179,7 @@ export const deleteMyExperiences = (myProfile, myExpId) => {
   };
 };
 
+//becca le exp ----------------------------------------------------------------------------------------------------------------------
 export const getPostsFetch = () => {
   return async (dispatch, getState) => {
     const response = await fetch(URL3, {
@@ -189,6 +195,7 @@ export const getPostsFetch = () => {
   };
 };
 
+//posta i miei bellisimi post -----------------------------------------------------------------------------------------------------------------
 export const postMyNewBeatifulPost = (text, image = "") => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST, {
@@ -219,6 +226,8 @@ export const postMyNewBeatifulPost = (text, image = "") => {
   };
 };
 
+// modifica i miei bellissimi post---------------------------------------------------------------------------------------------
+
 export const putMyBeatifulPost = (postId, text) => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST + postId, {
@@ -235,6 +244,8 @@ export const putMyBeatifulPost = (postId, text) => {
     }
   };
 };
+
+// cancella i miei bellissimi post (no , ti prego non farlo)----------------------------------------------------------------------------------------
 export const deleteMyBeatifulPost = (postId) => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST + postId, {
@@ -251,6 +262,7 @@ export const deleteMyBeatifulPost = (postId) => {
   };
 };
 
+//  get lavoro (barbone)----------------------------------------------------------------------------------------------------------------
 export const getJobsFetch = () => {
   return async (dispatch, getState) => {
     const response = await fetch(URLJOBS, {
@@ -267,6 +279,7 @@ export const getJobsFetch = () => {
   };
 };
 
+//get compagnia --------------------------------------------------------------------------------------------------------------------
 export const getCompanyJobsFetch = () => {
   return async (dispatch, getState) => {
     const response = await fetch(URLCOMPANYJOBS + randomString, {
@@ -282,6 +295,8 @@ export const getCompanyJobsFetch = () => {
     }
   };
 };
+
+//ricerca del lavoro-----------------------------------------------------------------------------------------------------------------
 
 export const jobquery = (query) => {
   return (dispatch, getState) => {
