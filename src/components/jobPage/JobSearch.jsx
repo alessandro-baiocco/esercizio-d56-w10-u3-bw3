@@ -13,18 +13,13 @@ const JobSearch = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(jobSearch());
+    dispatch(jobSearch(jobQuery));
   }, []);
 
   return (
     <Container className="d-flex mt-3">
-      <Col xs="6">
-        {JobSearch &&
-          JobSearch.filter((job) => job.title.toLowerCase().includes(jobQuery)).map((job) => <JobList job={job} />)}
-      </Col>
-      <Col xs="6">
-        <JobsListDescription />
-      </Col>
+      <Col xs="6">{JobSearch && JobSearch.map((job) => <JobList job={job} />)}</Col>
+      <Col xs="6">{JobSearch && <JobsListDescription job={JobSearch} />}</Col>
     </Container>
   );
 };

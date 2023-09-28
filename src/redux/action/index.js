@@ -318,10 +318,10 @@ export const jobquery = (query) => {
   };
 };
 
-export const jobSearch = () => {
+export const jobSearch = (query) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(URLSEARCHJOBS + "web", {
+      const response = await fetch(URLSEARCHJOBS + query + "&limit=40", {
         headers: {
           Authorization: process.env.REACT_APP_AUTHORIZATION,
         },
