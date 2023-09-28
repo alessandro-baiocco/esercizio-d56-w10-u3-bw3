@@ -44,7 +44,7 @@ export const myProfilePage = (userId = "me") => {
         const data = await response.json();
         console.log(data);
         dispatch({ type: EDIT_MY_PROFILE, payload: data });
-        // dispatch(myExperiencesFetch(data._id));
+        dispatch(myExperiencesFetch(data._id));
       } else {
         dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
         throw new Error();

@@ -18,8 +18,6 @@ const MyNav = () => {
     setIsActive((current) => !current);
   };
 
-  const dispatch = useDispatch();
-
   const width2 = () => {
     if (window.innerWidth < 992) {
       setIsActive(false);

@@ -43,6 +43,7 @@ const ProfileHero = (props) => {
   // const myProfile = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const error = useSelector((state) => state.errorProfileMain.content);
+  const exp = useSelector((state) => state.myExperiences?.content.slice(0, 2));
 
   return (
     <>
@@ -136,8 +137,15 @@ const ProfileHero = (props) => {
                   <p className="mb-1">Diploma presso qualcosa</p>
                   <Card.Title className="fw-light fs-6">{props.myProfile?.area}</Card.Title>
                 </Container>
-                <Container className="d-none d-md-flex flex-column align-items-end">
-                  <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
+                <Container className="d-none d-md-flex flex-column ">
+                  {exp &&
+                    exp.map((exp) => (
+                      <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-2 my-2">
+                        <img src={exp.image} alt="" width={"40px"} height={"40px"} style={{ objectFit: "cover" }} />
+                        <p className="ms-2">{exp.company}</p>
+                      </Container>
+                    ))}
+                  {/* <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
                     <img
                       src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
                       alt=""
@@ -145,16 +153,7 @@ const ProfileHero = (props) => {
                       height={"40px"}
                     />
                     <p className="ms-2">volkswagen</p>
-                  </Container>
-                  <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
-                    <img
-                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-                      alt=""
-                      width={"40px"}
-                      height={"40px"}
-                    />
-                    <p className="ms-2">volkswagen</p>
-                  </Container>
+                  </Container> */}
                 </Container>
               </Container>
               <Link to="/profile/" className="d-block ps-4">
