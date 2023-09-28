@@ -110,6 +110,7 @@
   justify-content: center;
   font-size: 0.8rem;
   color: gray;
+  padding-left: 0;
 }
 .marginMiniFooter {
   margin: 0.4rem 0.8rem;

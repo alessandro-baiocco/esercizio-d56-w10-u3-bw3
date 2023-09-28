@@ -3,16 +3,16 @@ import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { HandThumbsDown, HandThumbsUp } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getJobsFetch } from "../../redux/action";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SecondaryFooter from "../footer/SecondaryFooter";
 import SideBarRightJob from "./SideBarRightJob";
+import SideBarLeft from "../homePage/SideBarLeft";
+import CompanyJobs from "./GetCompanyJobs";
 
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
   const dispatch = useDispatch();
   const [search, setSearch] = useState();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getJobsFetch());
@@ -25,6 +25,7 @@ const GetJobsPage = () => {
           <SideBarRightJob />
         </Col>
         <Col xs="6">
+          <CompanyJobs />
           <ListGroup>
             <ListGroup.Item className="p-4">
               <h5 className="mb-0">Consigliato per te</h5>
