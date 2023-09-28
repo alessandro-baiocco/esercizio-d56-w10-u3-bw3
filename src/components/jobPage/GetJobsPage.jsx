@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getJobsFetch } from "../../redux/action";
 import { Link, useNavigate } from "react-router-dom";
 import SecondaryFooter from "../footer/SecondaryFooter";
+import SideBarRightJob from "./SideBarRightJob";
 
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
@@ -19,6 +20,9 @@ const GetJobsPage = () => {
   return (
     <Container className="mt-3">
       <Row className="justify-content-center">
+        <Col xs="3">
+          <SideBarRightJob />
+        </Col>
         <Col xs="6">
           <ListGroup>
             <ListGroup.Item className="p-4">

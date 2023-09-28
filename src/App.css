@@ -114,6 +114,15 @@
 .marginMiniFooter {
   margin: 0.4rem 0.8rem;
 }
+
+.buttonJob {
+  background-color: var(--color-background-none);
+  color: #0a66c2;
+  box-shadow: inset 0 0 0 1px var(--color-action);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 @media screen and (min-with: 991px) {
   #nav-container {
     width: 75%;
