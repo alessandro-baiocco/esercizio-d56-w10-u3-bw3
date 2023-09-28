@@ -4,6 +4,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { myProfilePage } from "../redux/action";
+import { SEARCH_JOB_QUERY, jobSearch } from "../redux/action";
+
 const MyNav = () => {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
@@ -15,6 +17,8 @@ const MyNav = () => {
   const HandleSearch = () => {
     setIsActive((current) => !current);
   };
+
+  const dispatch = useDispatch();
 
   const width2 = () => {
     if (window.innerWidth < 992) {
@@ -60,7 +64,15 @@ const MyNav = () => {
               <path d="M21.41 18.59l-5.27-5.28A6.83 6.83 0 0017 10a7 7 0 10-7 7 6.83 6.83 0 003.31-.86l5.28 5.27a2 2 0 002.82-2.82zM5 10a5 5 0 115 5 5 5 0 01-5-5z"></path>
             </svg>
           </Navbar.Brand>
-          <Form className="d-flex align-items-center me-auto w-100">
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              dispatch({ type: SEARCH_JOB_QUERY, payload: search });
+              dispatch(jobSearch(search));
+              navigate("/jobs/Search");
+            }}
+            className="d-flex align-items-center me-auto w-100"
+          >
             <div className="text-secondary">
               {" "}
               <svg
@@ -83,7 +95,6 @@ const MyNav = () => {
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
-                navigate("/jobs");
               }}
             />
           </Form>
