@@ -22,6 +22,7 @@ export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
 export const GET_JOBS = "GET_JOBS";
+export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
 
 //! Profile page fetch
 export const myProfilePage = (userId = "me") => {
@@ -248,5 +249,11 @@ export const getJobsFetch = () => {
       dispatch({ type: GET_JOBS, payload: results });
       // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
+  };
+};
+
+export const jobquery = (query) => {
+  return (dispatch, getState) => {
+    dispatch({ type: SEARCH_JOB_QUERY, payload: query });
   };
 };
