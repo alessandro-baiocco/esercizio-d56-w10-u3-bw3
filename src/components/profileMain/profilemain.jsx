@@ -15,14 +15,29 @@ import Lenguages from "./Lenguages";
 import Aside from "../profileAside/Aside";
 import LinkedinFooter from "../footer/LinkedinFooter";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { myProfilePage } from "../../redux/action";
+import { useParams } from "react-router";
 
 const ProfileMain = () => {
+  const urlParam = useParams();
+  const myProfile = useSelector((state) => state.profile.content);
+  const experiences = useSelector((state) => state.myExperiences.content);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (urlParam !== "me") {
+      dispatch(myProfilePage(urlParam.userId));
+    } else {
+      dispatch(myProfilePage());
+    }
+  }, []);
   return (
     <>
-      <Container>
+      <Container className="mt-4">
         <Row className="justify-content-center">
           <Col xs={12} md={8}>
-            <ProfileHero />
+            <ProfileHero myProfile={myProfile} />
             <Container className="my-2">
               <SuggestedForYou />
               <Analyses />
@@ -30,7 +45,7 @@ const ProfileMain = () => {
             </Container>
             <Informazioni />
             <ProfileAttivita />
-            <EsperienzaProfile />
+            <EsperienzaProfile experiences={experiences} />
             <FormazioneProfile />
             <Container>
               <Licenses />
@@ -39,8 +54,8 @@ const ProfileMain = () => {
               <Hobbies />
             </Container>
           </Col>
-          <Col xs={12} md={4}>
-            <Aside />
+          <Col xs={12} md={3} className="px-0">
+            <Aside myProfile={myProfile} />
           </Col>
         </Row>
       </Container>

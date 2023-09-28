@@ -4,8 +4,8 @@ import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteMyExperiences, myExperiencePageMod, myExperiencesFetch, postMyNewExperience } from "../../redux/action";
 
-const EsperienzaProfile = () => {
-  const experiences = useSelector((state) => state.myExperiences.content);
+const EsperienzaProfile = (props) => {
+  // const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const myProfile = useSelector((state) => state.profile.content);
   const [status, setStatus] = useState({
@@ -28,7 +28,7 @@ const EsperienzaProfile = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow = (i) => {
     setShow(true);
-    setStatus(experiences[i]);
+    setStatus(props.experiences[i]);
   };
   const handleShow2 = (i) => {
     setShow2(true);
@@ -40,11 +40,11 @@ const EsperienzaProfile = () => {
   //   }
   // }, [experiences]);
 
-  useEffect(() => {
-    if (myProfile) {
-      dispatch(myExperiencesFetch(myProfile?._id));
-    }
-  }, [myProfile]);
+  // useEffect(() => {
+  //   if (myProfile) {
+  //     dispatch(myExperiencesFetch(myProfile?._id));
+  //   }
+  // }, [myProfile]);
 
   const handleChange = (propertyName, propertyValue) => {
     if (propertyName !== "image") {
@@ -185,7 +185,7 @@ const EsperienzaProfile = () => {
             </Container>
           </Container>
         ) : (
-          experiences.map((experience, i) => (
+          props.experiences.map((experience, i) => (
             <Container className="d-flex" key={`exp-${i}`}>
               <Container style={{ width: "fit-content" }} className="p-0">
                 <img src={experience.image} alt="" width={"48px"} height={"48px"} />
@@ -194,8 +194,8 @@ const EsperienzaProfile = () => {
                 <p className="mb-0 fw-bold">{experience.role}</p>
                 <p className="mb-0">{experience.company}</p>
                 <p className="mb-0 fw-light">{experience.description}</p>
-                <p className="mb-0 fw-light">{experience.startDate.slice(0, 10)}</p>
-                <p className="mb-0 fw-light">{experience.endDate.slice(0, 10)}</p>
+                <p className="mb-0 fw-light">{experience && experience.startDate?.slice(0, 10)}</p>
+                <p className="mb-0 fw-light">{experience && experience.endDate?.slice(0, 10)}</p>
               </Container>
               <i
                 className="mx-2 bi bi-pencil mt-1"
@@ -211,7 +211,7 @@ const EsperienzaProfile = () => {
             <Modal.Title>Modifica Esperienze</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {experiences && (
+            {props.experiences && (
               <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label>Titolo*</Form.Label>

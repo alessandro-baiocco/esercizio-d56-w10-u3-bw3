@@ -22,10 +22,10 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
 
 //! Profile page fetch
-export const myProfilePage = () => {
+export const myProfilePage = (userId = "me") => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(URL + "me", {
+      const response = await fetch(URL + userId, {
         headers: {
           // team: "team-4",
           Authorization: process.env.REACT_APP_AUTHORIZATION,
@@ -34,6 +34,7 @@ export const myProfilePage = () => {
       if (response.ok) {
         const data = await response.json();
         dispatch({ type: GET_MY_PROFILE, payload: data });
+        dispatch(myExperiencesFetch(data._id));
       } else {
         dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
         throw new Error();

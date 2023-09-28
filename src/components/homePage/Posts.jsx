@@ -48,11 +48,11 @@ const Posts = () => {
   return (
     <Container className="d-flex mt-4">
       <Row>
-        <Col xs="2">
+        <Col xs="3" className="my-3">
           <SideBarLeft />
         </Col>
 
-        <Col xs="6">
+        <Col xs="6" className="my-3">
           {myProfile ? <PostaUnPost image={myProfile.image} /> : <Spinner variant="success"></Spinner>}
           <div className="d-flex">
             <hr style={{ width: "40%" }} />
@@ -139,7 +139,7 @@ const Posts = () => {
           )}
         </Col>
 
-        <Col xs="3">
+        <Col xs="3" className="my-3">
           <SideBarRight />
         </Col>
       </Row>
@@ -165,9 +165,6 @@ const Posts = () => {
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
-          </Button>
-          <Button variant="danger" onClick={() => setShow(false)}>
-            CANCEL?
           </Button>
 
           <Button

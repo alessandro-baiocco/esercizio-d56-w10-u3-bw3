@@ -1,7 +1,14 @@
 import { Button } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { myProfilePage } from "../../redux/action";
+// onClick={dispatch(myProfilePage(urlParam.userId))
 
 const CardAside = ({ card }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const urlParam = useParams();
   return (
     <div className="borderAside pb-4 pt-4">
       <li key={card._id} className="textNoneLi">
@@ -10,15 +17,19 @@ const CardAside = ({ card }) => {
             <Image src={card.image} roundedCircle width={"50px"} />
           </div>
           <div className="d-flex flex-column ms-3">
-            <div className="fw-bold">{card.name}</div>
+            <div className="fw-bold">
+              <Link to={`/profile/${card._id}`} onClick={() => dispatch(myProfilePage(urlParam.userId))}>
+                {card.name}
+              </Link>
+            </div>
             <div>{card.title}</div>
-            <Button className="buttonAside rounded-pill">
+            <Button className="buttonAside rounded-pill border-secondary py-1 mt-1 text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 data-supported-dps="16x16"
                 fill="currentColor"
-                className="mercado-match"
+                className="mercado-match mb-1"
                 width="16"
                 height="16"
                 focusable="false"
