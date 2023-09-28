@@ -6,6 +6,7 @@ import { getJobsFetch } from "../../redux/action";
 import { Link } from "react-router-dom";
 import SecondaryFooter from "../footer/SecondaryFooter";
 import SideBarLeft from "../homePage/SideBarLeft";
+import CompanyJobs from "./GetCompanyJobs";
 
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
@@ -23,6 +24,7 @@ const GetJobsPage = () => {
           <SideBarLeft />
         </Col>
         <Col xs="5">
+          <CompanyJobs />
           <ListGroup>
             <ListGroup.Item className="p-4">
               <h5 className="mb-0">Consigliato per te</h5>
