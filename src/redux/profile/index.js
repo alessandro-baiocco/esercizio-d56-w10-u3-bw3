@@ -8,6 +8,7 @@ import myExperiencesEdit from "../reducers/EditExperiences";
 import myProfileImage from "../reducers/profImage";
 import getPosts from "../reducers/GetPosts";
 import singlePostText from "../reducers/singlePostTesto";
+import getJobs from "../reducers/GetJobsReducer";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   profImage: myProfileImage,
   getPosts: getPosts,
   getSinglePost: singlePostText,
+  getJobs: getJobs,
 });
 
 export const profileResult = configureStore({
