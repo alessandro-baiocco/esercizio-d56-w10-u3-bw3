@@ -1,6 +1,6 @@
 import { Image } from "react-bootstrap";
 
-const JobsList = () => {
+const JobList = (props) => {
   return (
     <div className="d-flex">
       <div>
@@ -11,8 +11,8 @@ const JobsList = () => {
         ></Image>
       </div>
       <div className="ms-3">
-        <h3>Titolo job</h3>
-        <p>Company</p>
+        <h3>{props.job.title}</h3>
+        <p></p>
         <p>Location</p>
         <div className="d-flex">
           <span>Promosso</span>
@@ -34,4 +34,4 @@ const JobsList = () => {
     </div>
   );
 };
-export default JobsList;
+export default JobList;
