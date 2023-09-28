@@ -1,11 +1,12 @@
-import { current } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Form, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const MyNav = () => {
   const [show, setShow] = useState(false);
+  const [search, setSearch] = useState("");
 
+  const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [isActive, setIsActive] = useState(false);
@@ -76,6 +77,11 @@ const MyNav = () => {
               type="text"
               placeholder="cerca"
               className={isActive ? "d-block" : "d-block d-sm-none d-lg-block"}
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                navigate("/jobs");
+              }}
             />
           </Form>
         </div>
