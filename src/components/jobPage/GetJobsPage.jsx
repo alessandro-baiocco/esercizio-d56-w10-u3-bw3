@@ -3,14 +3,13 @@ import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { HandThumbsDown, HandThumbsUp } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getJobsFetch } from "../../redux/action";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SecondaryFooter from "../footer/SecondaryFooter";
+import SideBarLeft from "../homePage/SideBarLeft";
 
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
   const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getJobsFetch());
@@ -19,7 +18,10 @@ const GetJobsPage = () => {
   return (
     <Container className="mt-3">
       <Row className="justify-content-center">
-        <Col xs="6">
+        <Col xs="2">
+          <SideBarLeft />
+        </Col>
+        <Col xs="5">
           <ListGroup>
             <ListGroup.Item className="p-4">
               <h5 className="mb-0">Consigliato per te</h5>
