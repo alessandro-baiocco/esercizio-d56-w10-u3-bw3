@@ -5,7 +5,10 @@ const URL2 = "https://striveschool-api.herokuapp.com/api/profile/";
 const URL3 = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLDIPOST = "https://striveschool-api.herokuapp.com/api/posts/";
 const URLJOBS = "https://strive-benchmark.herokuapp.com/api/jobs?category=writing&limit=10";
+const URLCOMPANYJOBS = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
 const URLDILIDIA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+const companyArr = ["sport", "web", "parrot"];
+const randomString = companyArr[Math.floor(Math.random() * companyArr.length)];
 
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
@@ -23,6 +26,7 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
 export const GET_JOBS = "GET_JOBS";
 export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
+export const GET_JOBS_BY_COMPANY = "GET_JOBS_BY_COMPANY";
 
 //! Profile page fetch
 export const myProfilePage = (userId = "me") => {
@@ -247,6 +251,22 @@ export const getJobsFetch = () => {
       const data = await response.json();
       const results = await data.data;
       dispatch({ type: GET_JOBS, payload: results });
+      // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
+    }
+  };
+};
+
+export const getCompanyJobsFetch = () => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URLCOMPANYJOBS + randomString, {
+      headers: {
+        Authorization: process.env.REACT_APP_AUTHORIZATION,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const results = await data.data;
+      dispatch({ type: GET_JOBS_BY_COMPANY, payload: results });
       // dispatch({ type: STOP_LOADING_PROFILE, payload: false });
     }
   };

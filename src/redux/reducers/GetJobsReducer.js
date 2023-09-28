@@ -1,7 +1,8 @@
-import { GET_JOBS } from "../action";
+import { GET_JOBS, GET_JOBS_BY_COMPANY } from "../action";
 
 const initialState = {
   content: [],
+  company: null,
 };
 
 const getJobs = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const getJobs = (state = initialState, action) => {
       return {
         ...state,
         content: action.payload,
+      };
+    case GET_JOBS_BY_COMPANY:
+      return {
+        ...state,
+        company: action.payload,
       };
     default:
       return state;
