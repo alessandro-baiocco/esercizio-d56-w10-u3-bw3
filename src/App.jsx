@@ -8,6 +8,7 @@ import ProfileMain from "./components/profileMain/ProfileMain";
 
 import Posts from "./components/homePage/Posts";
 import GetJobsPage from "./components/jobPage/GetJobsPage";
+import JobSearch from "./components/jobPage/JobSearch";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/myprofile/" element={<LinkedinFooter />} />
           <Route path="/profile/:userId" element={<ProfileMain />} />
           <Route path="/jobs" element={<GetJobsPage />} />
+          <Route path="/jobs/Search" element={<JobSearch />} />
         </Routes>
       </BrowserRouter>
     </div>
