@@ -40,8 +40,9 @@ export const myProfilePage = (userId = "me") => {
       });
       if (response.ok) {
         const data = await response.json();
-        dispatch({ type: GET_MY_PROFILE, payload: data });
-        dispatch(myExperiencesFetch(data._id));
+        console.log(data);
+        dispatch({ type: EDIT_MY_PROFILE, payload: data });
+        // dispatch(myExperiencesFetch(data._id));
       } else {
         dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
         throw new Error();
@@ -118,7 +119,8 @@ export const myProfileImage = (myProfileId, profileImg) => {
       },
     });
     if (response.ok) {
-      dispatch({ type: IMAGE_MY_PROFILE, payload: profileImg });
+      const dataImg = await response.json();
+      dispatch({ type: IMAGE_MY_PROFILE, payload: dataImg.image });
     }
   };
 };

@@ -86,7 +86,7 @@ const ProfileHero = (props) => {
                 }}
                 onClick={() => handleShow3()}
               />
-              {/* ----------------------- */}
+              {/* ----------------------- ------------------------------------------------------------------*/}
               <Modal show={show3} onHide={handleClose3}>
                 <Modal.Header closeButton>
                   <Modal.Title>Modifica Presentazione</Modal.Title>
@@ -122,8 +122,9 @@ const ProfileHero = (props) => {
                 </Modal.Footer>
               </Modal>
 
-              {/* ----------------------- */}
-              <Container className="my-1 d-flex justify-content-end">
+              {/* ----------------------------------------------------------------------- */}
+              <Container className="my-1 d-flex justify-content-end" height={"30px"}>
+                <p style={{ color: "white" }}>p</p>
                 <i className="bi bi-arrow-90deg-right fs-3 mx-3 d-md-none"></i>
                 {urlParam.userId ? "" : <i className="bi bi-pencil fs-5" onClick={handleShow}></i>}
               </Container>

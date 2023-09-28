@@ -1,4 +1,4 @@
-import { GET_MY_PROFILE } from "../action";
+import { EDIT_MY_PROFILE, GET_MY_PROFILE, IMAGE_MY_PROFILE } from "../action";
 
 const initialState = {
   content: null,
@@ -10,6 +10,16 @@ const myProfileResult = (state = initialState, action) => {
       return {
         ...state,
         content: action.payload,
+      };
+    case EDIT_MY_PROFILE:
+      return {
+        ...state,
+        content: action.payload,
+      };
+    case IMAGE_MY_PROFILE:
+      return {
+        ...state,
+        content: { ...state.content, image: action.payload },
       };
 
     default:
