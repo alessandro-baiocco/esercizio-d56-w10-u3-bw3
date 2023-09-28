@@ -162,7 +162,7 @@ const MyNav = () => {
             </Nav.Link>
 
             <div className="d-flex flex-column py-2">
-              <Link to={"/profile/me"}>
+              <Link to={"/myprofile"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -190,7 +190,7 @@ const MyNav = () => {
               >
                 <NavDropdown.Item to="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
                   <div>
-                    <Link to={"/profile/me"}>
+                    <Link to={"/myprofile"}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="50"

@@ -125,7 +125,7 @@ const ProfileHero = (props) => {
               {/* ----------------------- */}
               <Container className="my-1 d-flex justify-content-end">
                 <i className="bi bi-arrow-90deg-right fs-3 mx-3 d-md-none"></i>
-                <i className="bi bi-pencil fs-5" onClick={handleShow}></i>
+                {urlParam.userId ? "" : <i className="bi bi-pencil fs-5" onClick={handleShow}></i>}
               </Container>
               <Container fluid className="d-flex justify-content-between mt-4">
                 <Container className="flex-grow-1">
@@ -185,7 +185,7 @@ const ProfileHero = (props) => {
                       <span>Mostra dettagli</span>
                     </Link>
                   </Container>
-                  <i className="bi bi-pencil mt-2"></i>
+                  {urlParam.userId ? "" : <i className="bi bi-pencil mt-2"></i>}
                 </Container>
                 <Container className="d-none d-md-flex flex-column p-2">
                   <p className="m-0 fw-bold">Fai sapere che stai facendo selezione e attrai</p>

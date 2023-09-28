@@ -15,8 +15,8 @@ function App() {
         <MyNav />
         <Routes>
           <Route path="/" element={<Posts />} />
-          <Route path="/profile/me" element={<ProfileMain />} />
-          <Route path="/profile/me" element={<LinkedinFooter />} />
+          <Route path="/myprofile/" element={<ProfileMain />} />
+          <Route path="/myprofile/" element={<LinkedinFooter />} />
           <Route path="/profile/:userId" element={<ProfileMain />} />
         </Routes>
       </BrowserRouter>
