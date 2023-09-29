@@ -11,11 +11,12 @@ import singlePostText from "../reducers/singlePostTesto";
 import getJobs from "../reducers/GetJobsReducer";
 import jobsQuery from "../reducers/SearchJobQuery";
 import jobsSearch from "../reducers/JobList";
-import favouriteJob from "../reducers/FavouriteJob";
-import notFavouriteJob from "../reducers/NotFavourite";
+
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
+import favouriteJob from "../reducers/FavouriteJob";
+import notFavouriteJob from "../reducers/NotFavourite";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,

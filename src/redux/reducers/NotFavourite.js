@@ -1,4 +1,4 @@
-import { FAVOURITE_JOB, NOT_FAVOURITE_JOB, REMOVE_FAVOURITE_JOB, REMOVE_NOT_FAVOURITE_JOB } from "../action";
+import { NOT_FAVOURITE_JOB, REMOVE_NOT_FAVOURITE_JOB } from "../action";
 
 const initialState = {
   content: [],

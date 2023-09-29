@@ -38,7 +38,7 @@ const MyNav = () => {
     <Navbar className={`bg-light media  ${isActive ? `active` : ``}`}>
       <Container id="nav-container" className="d-flex align-items-center text-secondary" style={{ height: "45px" }}>
         <div className={isActive ? "d-flex w-100" : "d-flex"}>
-          <Navbar.Brand to="/" className=" me-2 d-flex">
+          <Navbar.Brand className=" me-2 d-flex" onClick={() => navigate("/")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
