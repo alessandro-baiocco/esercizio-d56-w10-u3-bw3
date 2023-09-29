@@ -110,7 +110,7 @@ const MyNav = () => {
           </svg>
         </div>
         {!isActive && (
-          <Nav className="me-auto pt-2 d-none d-sm-flex gap-2">
+          <Nav className="mx-auto pt-2 d-none d-sm-flex gap-2">
             <Nav.Link onClick={() => navigate("/")} className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
