@@ -143,7 +143,7 @@ const ProfileHero = (props) => {
                 </Container>
                 <Container className="d-none d-md-flex flex-column" style={{ width: "38%" }}>
                   {exp &&
-                    exp.map((exp) => (
+                    exp.slice(0, 2).map((exp) => (
                       <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-2 my-2">
                         <img src={exp.image} alt="" width={"32px"} height={"32px"} style={{ objectFit: "cover" }} />
                         <p className="ms-2">{exp.company}</p>
