@@ -42,8 +42,8 @@ const GetJobsPage = () => {
               jobs &&
               jobs
                 .filter((job) => job.title.toLowerCase().includes(""))
-                .map((job) => (
-                  <ListGroup.Item className="p-4">
+                .map((job, i) => (
+                  <ListGroup.Item className="p-4" key={"job-" + i}>
                     <div className="d-flex">
                       <div>
                         <img src="https://placehold.co/50x50" alt="" />
