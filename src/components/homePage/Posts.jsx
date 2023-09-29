@@ -34,6 +34,7 @@ const Posts = () => {
   const [show, setShow] = useState(false);
   const [imgForModal, setImgForModal] = useState("");
   const [imgModal, setImgModal] = useState(false);
+  const [textForModal, setTextForModal] = useState(false);
   const [testo, setTesto] = useState({ text: "" });
   const [postaId, setPostaID] = useState("");
 
@@ -145,6 +146,7 @@ const Posts = () => {
                           width={"80px"}
                           onClick={() => {
                             setImgForModal(post?.image);
+                            setTextForModal(post?.text);
                             setImgModal(true);
                           }}
                         />
@@ -225,10 +227,11 @@ const Posts = () => {
       <Modal show={imgModal} onHide={() => setImgModal(false)}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
+          <p>{textForModal}</p>
           <img src={imgForModal} alt="" className="img-fluid" />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setImgForModal(false)}>
+          <Button variant="secondary" onClick={() => setImgModal(false)}>
             Close
           </Button>
         </Modal.Footer>

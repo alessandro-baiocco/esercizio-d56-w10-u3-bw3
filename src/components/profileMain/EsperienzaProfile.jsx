@@ -172,6 +172,15 @@ const EsperienzaProfile = (props) => {
                   dispatch(postMyNewExperience(myProfile._id, status, statusImg));
                   e.preventDefault();
                   handleClose2();
+                  setStatus({
+                    area: "",
+                    company: "",
+                    description: "",
+                    endDate: "",
+                    role: "",
+                    startDate: "",
+                    image: null,
+                  });
                 }}
               >
                 AGGIUNGI

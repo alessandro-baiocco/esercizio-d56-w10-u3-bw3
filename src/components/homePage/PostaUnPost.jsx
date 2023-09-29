@@ -46,7 +46,7 @@ const PostaUnPost = (props) => {
 
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>POST ZONE</Modal.Title>
+          <Modal.Title style={{ fontSize: "20px" }}>Avvia un post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -57,21 +57,22 @@ const PostaUnPost = (props) => {
                 rows={3}
                 value={testo?.text}
                 onChange={(e) => setTesto({ text: e.target.value })}
-                placeholder="di cosa vuoi parlare?"
+                placeholder="Di cosa vuoi parlare?"
               />
-              <Form.Group>
-                <Form.Label>VUOI METTERCI QUALCOSA?</Form.Label>
+              <Form.Group className="d-flex flex-column">
+                <Form.Label className="mt-2">Allega una immagine</Form.Label>
                 <input type="file" accept="image/*" onChange={(e) => setImage({ image: e.target.files[0] })} />
               </Form.Group>
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
+          <Button className="rounded-pill" variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
 
           <Button
+            className="rounded-pill"
             variant="primary"
             onClick={(e) => {
               //   dispatch(postMyNewPost(myProfile._id, status, statusImg));
@@ -82,7 +83,7 @@ const PostaUnPost = (props) => {
               setTesto("");
             }}
           >
-            POSTA IL POST
+            Posta il post
           </Button>
         </Modal.Footer>
       </Modal>

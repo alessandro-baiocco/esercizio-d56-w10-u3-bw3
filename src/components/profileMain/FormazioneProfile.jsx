@@ -11,7 +11,7 @@ const FormazioneProfile = () => {
           <i className="mx-2 bi bi-pencil "></i>
         </Container>
         <Container className="d-flex px-0">
-          <Container style={{ width: "fit-content" }} className="p-0">
+          <Container style={{ width: "fit-content", objectFit: "cover" }} className="p-0">
             <img
               src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               alt=""
