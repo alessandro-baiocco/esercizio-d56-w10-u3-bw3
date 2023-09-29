@@ -120,7 +120,7 @@ const Posts = () => {
                     {post.image ? <img src={post.image} alt="" width={"80px"} /> : ""}
                   </Container>
                   <hr />
-                  <Container className="d-flex">
+                  <Container className="d-flex justify-content-between">
                     <Button className="bg-transparent text-secondary border-0 me-2">
                       <HandThumbsUp className="mb-1 fs-6 me-1" />
                       Consiglia

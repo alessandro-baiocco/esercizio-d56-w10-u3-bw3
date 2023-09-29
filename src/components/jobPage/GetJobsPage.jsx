@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { Col, Container, ListGroup, Placeholder, Row, Spinner } from "react-bootstrap";
-import { HandThumbsDown, HandThumbsUp } from "react-bootstrap-icons";
+import { HandThumbsDown, HandThumbsDownFill, HandThumbsUp, HandThumbsUpFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getJobsFetch } from "../../redux/action";
+import {
+  FAVOURITE_JOB,
+  NOT_FAVOURITE_JOB,
+  REMOVE_FAVOURITE_JOB,
+  REMOVE_NOT_FAVOURITE_JOB,
+  getJobsFetch,
+} from "../../redux/action";
 import { Link } from "react-router-dom";
 import SecondaryFooter from "../footer/SecondaryFooter";
 import SideBarRightJob from "./SideBarRightJob";
@@ -12,6 +18,8 @@ import CompanyJobs from "./GetCompanyJobs";
 const GetJobsPage = () => {
   const jobs = useSelector((state) => state.getJobs.content);
   const isLoading = useSelector((state) => state.loadingProfile.content);
+  const isFavourite = useSelector((state) => state.favouriteJob.content);
+  const isntFavourite = useSelector((state) => state.notFavouriteJob.content);
   const dispatch = useDispatch();
   const [search, setSearch] = useState();
 
@@ -65,8 +73,34 @@ const GetJobsPage = () => {
                         </p>
                       </div>
                       <div className="d-flex ms-auto gap-3">
-                        <HandThumbsUp className="fs-5" />
-                        <HandThumbsDown className="fs-5" />
+                        {isFavourite.includes(job._id) ? (
+                          <HandThumbsUpFill
+                            className="fs-5 text-danger"
+                            onClick={() => dispatch({ type: REMOVE_FAVOURITE_JOB, payload: job._id })}
+                          />
+                        ) : (
+                          <HandThumbsUp
+                            className="fs-5"
+                            onClick={() => {
+                              dispatch({ type: FAVOURITE_JOB, payload: job._id });
+                              dispatch({ type: REMOVE_NOT_FAVOURITE_JOB, payload: job._id });
+                            }}
+                          />
+                        )}
+                        {isntFavourite.includes(job._id) ? (
+                          <HandThumbsDownFill
+                            className="fs-5 text-danger"
+                            onClick={() => dispatch({ type: REMOVE_NOT_FAVOURITE_JOB, payload: job._id })}
+                          />
+                        ) : (
+                          <HandThumbsDown
+                            className="fs-5"
+                            onClick={() => {
+                              dispatch({ type: NOT_FAVOURITE_JOB, payload: job._id });
+                              dispatch({ type: REMOVE_FAVOURITE_JOB, payload: job._id });
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                   </ListGroup.Item>

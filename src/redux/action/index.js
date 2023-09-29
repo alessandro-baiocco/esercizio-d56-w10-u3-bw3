@@ -29,6 +29,10 @@ export const GET_JOBS = "GET_JOBS";
 export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
 export const GET_JOBS_BY_COMPANY = "GET_JOBS_BY_COMPANY";
 export const JOB_SEARCH = "JOB_SEARCH";
+export const FAVOURITE_JOB = "FAVOURITE_JOB";
+export const REMOVE_FAVOURITE_JOB = "REMOVE_FAVOURITE_JOB";
+export const NOT_FAVOURITE_JOB = "NOT_FAVOURITE_JOB";
+export const REMOVE_NOT_FAVOURITE_JOB = "REMOVE_NOT_FAVOURITE_JOB";
 
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
