@@ -38,6 +38,7 @@ export const SELECTED_JOB = "SELECTED_JOB";
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
   return async (dispatch, getState) => {
+    dispatch({ type: ERROR_PROFILE_MAIN, payload: false });
     try {
       const response = await fetch(URL + userId, {
         headers: {
