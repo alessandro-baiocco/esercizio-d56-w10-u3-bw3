@@ -33,6 +33,7 @@ export const FAVOURITE_JOB = "FAVOURITE_JOB";
 export const REMOVE_FAVOURITE_JOB = "REMOVE_FAVOURITE_JOB";
 export const NOT_FAVOURITE_JOB = "NOT_FAVOURITE_JOB";
 export const REMOVE_NOT_FAVOURITE_JOB = "REMOVE_NOT_FAVOURITE_JOB";
+export const SELECTED_JOB = "SELECTED_JOB";
 
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {

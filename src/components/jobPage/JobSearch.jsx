@@ -16,7 +16,7 @@ const JobSearch = (props) => {
     dispatch(jobSearch(jobQuery));
   }, []);
 
-  const [selectedJob, setSelectedJob] = useState(null);
+  const [selectedJob, setSelectedJob] = useState(false);
 
   const handleJob = (job) => {
     setSelectedJob(job);
@@ -28,13 +28,13 @@ const JobSearch = (props) => {
         {JobSearch &&
           JobSearch.map((job) => (
             <div key={job.id} onClick={() => handleJob(job)}>
-              <JobList job={job} />
+              <JobList job={job} selectedJob={selectedJob} />
             </div>
           ))}
       </Col>
       <Col xs="none" md="7" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
         {selectedJob ? (
-          <JobsListDescription job={selectedJob} />
+          <JobsListDescription job={selectedJob} selectedJob={selectedJob} />
         ) : (
           <h3 className="ps-5">Scegli un'offerta per vedere la descrizione</h3>
         )}
