@@ -1,8 +1,9 @@
-import { Image } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
+import { XLg } from "react-bootstrap-icons";
 
 const JobList = (props) => {
   return (
-    <div className="d-flex cardLinkedln my-2 p-2">
+    <Container className="d-flex cardLinkedln my-2 p-2">
       <div>
         <Image
           src={
@@ -17,11 +18,14 @@ const JobList = (props) => {
         <p>{props.job.candidate_required_location}</p>
         <div className="d-flex">
           <span>
-            Promosso <i class="bi bi-linkedin text-primary"></i> Candidatura semplice{" "}
+            Promosso <i className="bi bi-linkedin text-primary"></i> Candidatura semplice{" "}
           </span>
         </div>
       </div>
-    </div>
+      <div className="ms-auto mt-1">
+        <XLg />
+      </div>
+    </Container>
   );
 };
 export default JobList;

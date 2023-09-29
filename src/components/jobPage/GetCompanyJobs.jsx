@@ -38,8 +38,8 @@ const CompanyJobs = () => {
           </>
         ) : (
           companyJobs &&
-          companyJobs.slice(0, 3).map((companyJob) => (
-            <ListGroup.Item>
+          companyJobs.slice(0, 3).map((companyJob, i) => (
+            <ListGroup.Item key={"listItem-" + i}>
               <div className="d-flex flex-column">
                 <p className="mb-0" style={{ fontWeight: "600", fontSize: "14px" }}>
                   {companyJob.company_name}

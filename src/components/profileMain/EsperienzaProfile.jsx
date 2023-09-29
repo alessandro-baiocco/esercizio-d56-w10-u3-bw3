@@ -188,7 +188,7 @@ const EsperienzaProfile = (props) => {
           props.experiences.map((experience, i) => (
             <Container className="d-flex" key={`exp-${i}`}>
               <Container style={{ width: "fit-content" }} className="p-0">
-                <img src={experience.image} alt="" width={"48px"} height={"48px"} />
+                <img src={experience.image} alt="" width={"48px"} height={"48px"} style={{ objectFit: "cover" }} />
               </Container>
               <Container className="mb-3">
                 <p className="mb-0 fw-bold">{experience.role}</p>

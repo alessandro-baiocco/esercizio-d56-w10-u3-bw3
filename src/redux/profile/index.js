@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import myProfileResult from "../reducers/profile";
-import myProfileEdit from "../reducers/EditProfile";
+
 import stopLoadingProfile from "../reducers/loadingProfileMain";
 import myExperiences from "../reducers/Experinces";
 import errorProfileMain from "../reducers/errorProfile";
@@ -11,10 +11,14 @@ import singlePostText from "../reducers/singlePostTesto";
 import getJobs from "../reducers/GetJobsReducer";
 import jobsQuery from "../reducers/SearchJobQuery";
 import jobsSearch from "../reducers/JobList";
+import favouriteJob from "../reducers/FavouriteJob";
+import notFavouriteJob from "../reducers/NotFavourite";
+import persistReducer from "redux-persist/es/persistReducer";
+import storage from "redux-persist/lib/storage";
+import persistStore from "redux-persist/es/persistStore";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
-  editProfile: myProfileEdit,
   myExperiences: myExperiences,
   loadingProfile: stopLoadingProfile,
   errorProfileMain: errorProfileMain,
@@ -25,9 +29,17 @@ const rootReducer = combineReducers({
   getJobs: getJobs,
   jobsQuery: jobsQuery,
   jobSearch: jobsSearch,
+  favouriteJob: favouriteJob,
+  notFavouriteJob: notFavouriteJob,
 });
 
+const persistConfig = { key: "root", storage };
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const profileResult = configureStore({
-  //reducer
-  reducer: rootReducer,
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });
+
+export const persistor = persistStore(profileResult);

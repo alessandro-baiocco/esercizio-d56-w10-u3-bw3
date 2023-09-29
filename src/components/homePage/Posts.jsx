@@ -90,7 +90,7 @@ const Posts = () => {
                         </Card.Title>
                         <Card.Text>{post.user?.title ? post.user.title : myProfile.title}</Card.Text>
                       </Container>
-                      {myProfile._id === post.user?._id && (
+                      {(myProfile._id === post.user?._id || post.user?._id === undefined) && (
                         <>
                           <TrashFill
                             className="text-danger me-3"
@@ -120,7 +120,7 @@ const Posts = () => {
                     {post.image ? <img src={post.image} alt="" width={"80px"} /> : ""}
                   </Container>
                   <hr />
-                  <Container className="d-flex">
+                  <Container className="d-flex justify-content-between">
                     <Button className="bg-transparent text-secondary border-0 me-2">
                       <HandThumbsUp className="mb-1 fs-6 me-1" />
                       Consiglia

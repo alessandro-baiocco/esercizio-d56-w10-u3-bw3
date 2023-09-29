@@ -29,6 +29,10 @@ export const GET_JOBS = "GET_JOBS";
 export const SEARCH_JOB_QUERY = "SEARCH_JOB_QUERY";
 export const GET_JOBS_BY_COMPANY = "GET_JOBS_BY_COMPANY";
 export const JOB_SEARCH = "JOB_SEARCH";
+export const FAVOURITE_JOB = "FAVOURITE_JOB";
+export const REMOVE_FAVOURITE_JOB = "REMOVE_FAVOURITE_JOB";
+export const NOT_FAVOURITE_JOB = "NOT_FAVOURITE_JOB";
+export const REMOVE_NOT_FAVOURITE_JOB = "REMOVE_NOT_FAVOURITE_JOB";
 
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
@@ -42,7 +46,8 @@ export const myProfilePage = (userId = "me") => {
       });
       if (response.ok) {
         const data = await response.json();
-        dispatch({ type: GET_MY_PROFILE, payload: data });
+        console.log(data);
+        dispatch({ type: EDIT_MY_PROFILE, payload: data });
         dispatch(myExperiencesFetch(data._id));
       } else {
         dispatch({ type: ERROR_PROFILE_MAIN, payload: true });
@@ -120,7 +125,8 @@ export const myProfileImage = (myProfileId, profileImg) => {
       },
     });
     if (response.ok) {
-      dispatch({ type: IMAGE_MY_PROFILE, payload: profileImg });
+      const dataImg = await response.json();
+      dispatch({ type: IMAGE_MY_PROFILE, payload: dataImg.image });
     }
   };
 };
