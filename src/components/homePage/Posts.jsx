@@ -52,11 +52,11 @@ const Posts = () => {
     <>
       <Container className="d-flex mt-4">
         <Row>
-          <Col xs="3" className="my-3">
+          <Col xs="12" md="4" lg="3" className="my-3">
             <SideBarLeft />
           </Col>
 
-          <Col xs="6" className="my-3">
+          <Col xs="12" md="8" lg="6" className="my-3">
             {myProfile ? (
               <PostaUnPost image={myProfile.image} profile={myProfile} />
             ) : (
@@ -177,7 +177,7 @@ const Posts = () => {
             )}
           </Col>
 
-          <Col xs="3" className="my-3">
+          <Col xs="none" lg="3" className="my-3">
             <SideBarRight />
           </Col>
         </Row>
