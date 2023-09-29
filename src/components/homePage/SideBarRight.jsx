@@ -35,7 +35,7 @@ const SideBarRight = () => {
               postsSliced.map((post, i) => (
                 <li id="sideBarRightList" key={`li-${i}`}>
                   <div>
-                    <h6 style={{ height: "18px", overflow: "hidden" }}> {post.text}</h6>
+                    <h6 style={{ height: "20px", overflow: "hidden" }}> {post.text}</h6>
                     <p className="text-secondary"> . {post.createdAt.slice(0, 10)} </p>
                   </div>
                 </li>
