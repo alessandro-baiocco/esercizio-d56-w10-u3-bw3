@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Form, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
+import { Card, Col, Container, Form, Image, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { myProfilePage } from "../redux/action";
 import { SEARCH_JOB_QUERY, jobSearch } from "../redux/action";
@@ -33,6 +33,7 @@ const MyNav = () => {
     };
   }, []);
 
+  const profile = useSelector((state) => state.profile?.content);
   const dispatch = useDispatch();
   return (
     <Navbar className={`bg-light media  ${isActive ? `active` : ``}`}>
@@ -209,28 +210,17 @@ const MyNav = () => {
                 <NavDropdown.Item to="#action/3.1" className="d-flex justify-content-between ps-0 pt-0">
                   <div>
                     <Link to={"/myprofile"} onClick={() => dispatch(myProfilePage())}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="50"
-                        height="50"
-                        fill="currentColor"
-                        className="bi bi-person-circle -none d-sm-block pb-0 mb-0 ms-2 text-secondary pt-0"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path
-                          fillRule="evenodd"
-                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                        />
-                      </svg>
+                      <Image src={profile?.image} width={"50px"} height={"50px"} className="rounded-circle ms-2 mt-1" />
                     </Link>
                   </div>
-                  <div className="d-flex flex-column">
-                    <h5>NOME COGNOME</h5>
-                    <p>
-                      ruolo occupato - <br /> altre informazioni
-                    </p>
-                  </div>
+                  <Link to={"/myprofile"} className="text-decoration-none text-dark">
+                    <div className="d-flex flex-column">
+                      <h5>
+                        {profile?.name} {profile?.surname}
+                      </h5>
+                      <p>{profile?.title}</p>
+                    </div>
+                  </Link>
                 </NavDropdown.Item>
                 <button className="border border-primary bg-white rounded-pill text-primary  w-100">
                   visualizza profilo

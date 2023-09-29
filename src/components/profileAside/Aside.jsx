@@ -47,7 +47,6 @@ const Aside = (props) => {
     return spinner;
   }
 
-  console.log(people);
   return (
     <>
       <div className="p-4 mb-2 rounded cardLinkedln ">
