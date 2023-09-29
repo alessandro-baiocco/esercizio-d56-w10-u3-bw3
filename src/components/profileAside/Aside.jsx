@@ -35,8 +35,10 @@ const Aside = (props) => {
 
   const spinner = (
     <Container style={{ marginTop: "48px" }}>
-      <Container className="d-flex justify-content-center cardLinkedln py-5">
-        <Spinner animation="grow" variant="info" />
+      <Container className=" cardLinkedln py-5">
+        <div class="line">
+          <div class="inner"></div>
+        </div>
       </Container>
     </Container>
   );
