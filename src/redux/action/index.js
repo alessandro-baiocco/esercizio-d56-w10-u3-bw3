@@ -33,6 +33,7 @@ export const FAVOURITE_JOB = "FAVOURITE_JOB";
 export const REMOVE_FAVOURITE_JOB = "REMOVE_FAVOURITE_JOB";
 export const NOT_FAVOURITE_JOB = "NOT_FAVOURITE_JOB";
 export const REMOVE_NOT_FAVOURITE_JOB = "REMOVE_NOT_FAVOURITE_JOB";
+export const SELECTED_JOB = "SELECTED_JOB";
 
 //! Profile page fetch------------------------------------------------------------------------------------------------------------------
 export const myProfilePage = (userId = "me") => {
@@ -107,7 +108,8 @@ export const myExperiencePageMod = (myProfile, experiences) => {
       },
     });
     if (response.ok) {
-      dispatch({ type: EDIT_MY_EXPERIENCES, payload: experiences });
+      dispatch({ type: DELETE_MY_EXPERIENCES, payload: experiences._id });
+      dispatch({ type: POST_MY_EXPERIENCES, payload: experiences });
     }
   };
 };
@@ -204,7 +206,7 @@ export const getPostsFetch = () => {
 };
 
 //posta i miei bellisimi post -----------------------------------------------------------------------------------------------------------------
-export const postMyNewBeatifulPost = (text, image = "") => {
+export const postMyNewBeatifulPost = (text, image = "", user) => {
   return async (dispatch, getState) => {
     const response = await fetch(URLDIPOST, {
       method: "POST",
@@ -226,8 +228,14 @@ export const postMyNewBeatifulPost = (text, image = "") => {
         },
       });
       if (imgresponse.ok) {
+        console.log("user", user, data, text);
         const dataImg = await imgresponse.json();
         data.image = await dataImg.image;
+        data.user = {};
+        data.user.name = user.name;
+        data.user.surname = user.surname;
+        data.user.image = user.image;
+        data.user.title = user.title;
         dispatch({ type: MY_NEW_POST, payload: data });
       }
     }

@@ -223,3 +223,7 @@
     transform: scalex(0.3);
   }
 }
+
+.jobSelectedClass {
+  background-color: #d7e9fb;
+}

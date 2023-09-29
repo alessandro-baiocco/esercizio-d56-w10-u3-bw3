@@ -1,4 +1,4 @@
-import { GET_MY_EXPERIENCES } from "../action";
+import { EDIT_MY_EXPERIENCES, GET_MY_EXPERIENCES } from "../action";
 import { DELETE_MY_EXPERIENCES } from "../action";
 import { POST_MY_EXPERIENCES } from "../action";
 

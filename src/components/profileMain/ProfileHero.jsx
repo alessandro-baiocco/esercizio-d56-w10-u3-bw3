@@ -44,7 +44,7 @@ const ProfileHero = (props) => {
   // const myProfile = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const error = useSelector((state) => state.errorProfileMain.content);
-  const exp = useSelector((state) => state.myExperiences?.content.slice(0, 2));
+  const exp = useSelector((state) => state.myExperiences?.content);
 
   return (
     <>

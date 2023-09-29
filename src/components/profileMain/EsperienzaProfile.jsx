@@ -8,6 +8,8 @@ const EsperienzaProfile = (props) => {
   // const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const myProfile = useSelector((state) => state.profile.content);
+  const [exp, setExp] = useState(null);
+
   const [status, setStatus] = useState({
     area: "",
     company: "",
@@ -200,6 +202,8 @@ const EsperienzaProfile = (props) => {
               <i
                 className="mx-2 bi bi-pencil mt-1"
                 onClick={() => {
+                  setExp(experience);
+
                   handleShow(i);
                 }}
               ></i>
@@ -298,14 +302,14 @@ const EsperienzaProfile = (props) => {
             <Button
               variant="primary"
               onClick={(e) => {
-                dispatch(myExperiencePageMod(myProfile._id, status._id));
+                dispatch(myExperiencePageMod(myProfile._id, status));
                 e.preventDefault();
-                setTimeout(() => {
-                  myExperiencesFetch(myProfile?._id);
-                }, 1500);
+                // setTimeout(() => {
+                //   myExperiencesFetch(myProfile?._id);
+                // }, 1500);
               }}
             >
-              Save Changes
+              Salva cambiamenti
             </Button>
           </Modal.Footer>
         </Modal>
