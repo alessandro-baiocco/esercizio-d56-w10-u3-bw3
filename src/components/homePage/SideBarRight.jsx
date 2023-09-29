@@ -36,7 +36,10 @@ const SideBarRight = () => {
                 <li id="sideBarRightList" key={`li-${i}`}>
                   <div>
                     <h6 style={{ height: "20px", overflow: "hidden" }}> {post.text}</h6>
-                    <p className="text-secondary"> . {post.createdAt.slice(0, 10)} </p>
+                    <p className="text-secondary">
+                      {" "}
+                      {post.createdAt.slice(0, 10)} - {Math.floor(Math.random() * 300)} lettori
+                    </p>
                   </div>
                 </li>
               ))
