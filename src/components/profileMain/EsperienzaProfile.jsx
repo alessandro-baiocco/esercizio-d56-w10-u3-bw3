@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMyExperiences, myExperiencePageMod, myExperiencesFetch, postMyNewExperience } from "../../redux/action";
+import { deleteMyExperiences, myExperiencePageMod, postMyNewExperience } from "../../redux/action";
 
 const EsperienzaProfile = (props) => {
   // const experiences = useSelector((state) => state.myExperiences.content);
