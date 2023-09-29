@@ -26,8 +26,8 @@ const JobSearch = (props) => {
     <Container className="d-flex mt-3" style={{ height: "calc(100vh - 104px)", overflow: "auto" }}>
       <Col xs="12" md="5" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
         {JobSearch &&
-          JobSearch.map((job) => (
-            <div key={job.id} onClick={() => handleJob(job)}>
+          JobSearch.map((job, index) => (
+            <div key={index} onClick={() => handleJob(job)}>
               <JobList job={job} selectedJob={selectedJob} />
             </div>
           ))}
