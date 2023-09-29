@@ -27,7 +27,9 @@ const SideBarRight = () => {
           </div>
           <ul>
             {loading ? (
-              <Spinner variant="success"></Spinner>
+              <div class="line">
+                <div class="inner"></div>
+              </div>
             ) : (
               posts &&
               postsSliced.map((post, i) => (

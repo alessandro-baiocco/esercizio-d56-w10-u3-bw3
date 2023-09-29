@@ -12,6 +12,7 @@ import {
   CaretDownFill,
   ChatText,
   HandThumbsUp,
+  Linkedin,
   PencilFill,
   SendFill,
   Share,
@@ -54,9 +55,11 @@ const Posts = () => {
 
         <Col xs="6" className="my-3">
           {myProfile ? (
-            <PostaUnPost image={myProfile.image} profile={myProfile} />
+            <PostaUnPost image={myProfile.image} />
           ) : (
-            <Spinner variant="success"></Spinner>
+            <div class="line">
+              <div class="inner"></div>
+            </div>
           )}
           <div className="d-flex">
             <hr style={{ width: "40%" }} />
@@ -69,7 +72,12 @@ const Posts = () => {
             </div>
           </div>
           {loading ? (
-            <Spinner variant="success"></Spinner>
+            <div className="text-center">
+              <Linkedin className="fontIcon"></Linkedin>
+              <div class="line">
+                <div class="inner"></div>
+              </div>
+            </div>
           ) : (
             posts &&
             postReversed.map((post, i) => (
@@ -130,7 +138,7 @@ const Posts = () => {
                     {post.image ? <img src={post.image} alt="" width={"80px"} /> : ""}
                   </Container>
                   <hr />
-                  <Container className="d-flex">
+                  <Container className="d-flex justify-content-between">
                     <Button className="bg-transparent text-secondary border-0 me-2">
                       <HandThumbsUp className="mb-1 fs-6 me-1" />
                       Consiglia

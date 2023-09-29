@@ -35,10 +35,10 @@ const MyNav = () => {
 
   const dispatch = useDispatch();
   return (
-    <Navbar className={`bg-light media ${isActive ? `active` : ``}`}>
-      <Container id="nav-container" className="d-flex align-items-center text-secondary ">
+    <Navbar className={`bg-light media  ${isActive ? `active` : ``}`}>
+      <Container id="nav-container" className="d-flex align-items-center text-secondary" style={{ height: "45px" }}>
         <div className={isActive ? "d-flex w-100" : "d-flex"}>
-          <Navbar.Brand to="/" className=" me-2 d-flex">
+          <Navbar.Brand className=" me-2 d-flex" onClick={() => navigate("/")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -78,7 +78,7 @@ const MyNav = () => {
                 width="20"
                 height="20"
                 fill="currentColor"
-                className="bi bi-search d-lg-none"
+                className="bi bi-search d-lg-none me-2"
                 viewBox="0 0 16 16"
                 onClick={() => HandleSearch()}
               >
@@ -110,14 +110,14 @@ const MyNav = () => {
           </svg>
         </div>
         {!isActive && (
-          <Nav className="me-auto d-none d-sm-flex">
+          <Nav className="me-auto pt-2 d-none d-sm-flex gap-2">
             <Nav.Link onClick={() => navigate("/")} className="mx-2 widthIconNavBar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="currentColor"
-                className={isActive ? "d-none" : "bi bi-house-door-fill d-none d-sm-block ms-2"}
+                className={isActive ? "d-none" : "bi bi-house-door-fill d-none d-sm-block mx-auto"}
                 viewBox="0 0 16 16"
               >
                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
@@ -130,7 +130,7 @@ const MyNav = () => {
                 width="20"
                 height="20"
                 fill="currentColor"
-                className={isActive ? "d-none" : "bi bi-people-fill d-none d-sm-block  ms-1"}
+                className={isActive ? "d-none" : "bi bi-people-fill d-none d-sm-block  mx-auto"}
                 viewBox="0 0 16 16"
               >
                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -143,7 +143,7 @@ const MyNav = () => {
                 width="20"
                 height="20"
                 fill="currentColor"
-                className={isActive ? "d-none" : "bi bi-briefcase-fill d-none d-sm-block  ms-2"}
+                className={isActive ? "d-none" : "bi bi-briefcase-fill d-none d-sm-block mx-auto"}
                 viewBox="0 0 16 16"
               >
                 <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
@@ -151,7 +151,7 @@ const MyNav = () => {
               </svg>
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}> Lavoro </p>
             </Nav.Link>
-            <Nav.Link to="#link" className="mx-2 pt-1 widthIconNavBar2">
+            <Nav.Link to="#link" className="mx-0 pt-1 widthIconNavBar2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -187,7 +187,7 @@ const MyNav = () => {
                   height="20"
                   fill="currentColor"
                   className={
-                    isActive ? "d-none" : "bi bi-person-circle d-none d-sm-block  pb-0 mb-0 ms-2 text-secondary"
+                    isActive ? "d-none" : "bi bi-person-circle d-none d-sm-block  pb-0 mb-0 mx-2 text-secondary"
                   }
                   viewBox="0 0 16 16"
                 >
@@ -281,10 +281,10 @@ const MyNav = () => {
                 className={
                   isActive
                     ? "d-none"
-                    : "d-none d-md-block border border-0 bg-light  px-0 text-secondary text-truncate ms-2"
+                    : "d-none d-md-block border border-0 bg-light  px-0 text-secondary text-truncate mx-2"
                 }
               >
-                per le aziende
+                Per le aziende
               </button>
               <Offcanvas show={show} onHide={handleClose} placement={`end`}>
                 <Offcanvas.Header closeButton>
