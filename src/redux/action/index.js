@@ -217,27 +217,29 @@ export const postMyNewBeatifulPost = (text, image = "", user) => {
     });
     if (response.ok) {
       const data = await response.json();
-      const formData = new FormData();
-      formData.append("post", image.image);
-      const imgresponse = await fetch(URLDIPOST + data._id, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: process.env.REACT_APP_AUTHORIZATION,
-        },
-      });
-      if (imgresponse.ok) {
-        console.log("user", user, data, text);
-        const dataImg = await imgresponse.json();
-        data.image = await dataImg.image;
-        data.user = {
-          name: user.name,
-          surname: user.surname,
-          image: user.image,
-          title: user.title,
-        };
-        console.log(data.user);
-
+      data.user = {
+        name: user.name,
+        surname: user.surname,
+        image: user.image,
+        title: user.title,
+      };
+      if (image !== "") {
+        const formData = new FormData();
+        formData.append("post", image.image);
+        const imgresponse = await fetch(URLDIPOST + data._id, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: process.env.REACT_APP_AUTHORIZATION,
+          },
+        });
+        if (imgresponse.ok) {
+          console.log("user", user, data, text);
+          const dataImg = await imgresponse.json();
+          data.image = await dataImg.image;
+        }
+        dispatch({ type: MY_NEW_POST, payload: data });
+      } else {
         dispatch({ type: MY_NEW_POST, payload: data });
       }
     }
