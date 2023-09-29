@@ -137,11 +137,11 @@ const ProfileHero = (props) => {
                   <p className="mb-1">Diploma presso qualcosa</p>
                   <Card.Title className="fw-light fs-6">{props.myProfile?.area}</Card.Title>
                 </Container>
-                <Container className="d-none d-md-flex flex-column ">
+                <Container className="d-none d-md-flex flex-column" style={{ width: "38%" }}>
                   {exp &&
                     exp.map((exp) => (
                       <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-2 my-2">
-                        <img src={exp.image} alt="" width={"40px"} height={"40px"} style={{ objectFit: "cover" }} />
+                        <img src={exp.image} alt="" width={"32px"} height={"32px"} style={{ objectFit: "cover" }} />
                         <p className="ms-2">{exp.company}</p>
                       </Container>
                     ))}
