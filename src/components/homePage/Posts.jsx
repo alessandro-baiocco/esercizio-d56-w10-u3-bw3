@@ -228,7 +228,7 @@ const Posts = () => {
           <img src={imgForModal} alt="" className="img-fluid" />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setImgForModal(false)}>
+          <Button variant="secondary" onClick={() => setImgModal(false)}>
             Close
           </Button>
         </Modal.Footer>
