@@ -16,6 +16,7 @@ import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
 import favouriteJob from "../reducers/FavouriteJob";
 import notFavouriteJob from "../reducers/NotFavourite";
+import jobSelected from "../reducers/isJobSelected";
 
 const rootReducer = combineReducers({
   profile: myProfileResult,
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   jobSearch: jobsSearch,
   favouriteJob: favouriteJob,
   notFavouriteJob: notFavouriteJob,
+  selectedJob: jobSelected,
 });
 
 const persistConfig = { key: "root", storage };
