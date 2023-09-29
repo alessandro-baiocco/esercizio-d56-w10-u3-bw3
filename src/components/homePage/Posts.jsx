@@ -55,7 +55,7 @@ const Posts = () => {
 
         <Col xs="6" className="my-3">
           {myProfile ? (
-            <PostaUnPost image={myProfile.image} />
+            <PostaUnPost image={myProfile.image} profile={myProfile} />
           ) : (
             <div class="line">
               <div class="inner"></div>

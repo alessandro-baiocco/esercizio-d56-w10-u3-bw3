@@ -302,7 +302,7 @@ const EsperienzaProfile = (props) => {
             <Button
               variant="primary"
               onClick={(e) => {
-                dispatch(myExperiencePageMod(myProfile._id, status._id));
+                dispatch(myExperiencePageMod(myProfile._id, status));
                 e.preventDefault();
                 // setTimeout(() => {
                 //   myExperiencesFetch(myProfile?._id);

@@ -230,11 +230,14 @@ export const postMyNewBeatifulPost = (text, image = "", user) => {
         console.log("user", user, data, text);
         const dataImg = await imgresponse.json();
         data.image = await dataImg.image;
-        data.user = {};
-        data.user.name = user.name;
-        data.user.surname = user.surname;
-        data.user.image = user.image;
-        data.user.title = user.title;
+        data.user = {
+          name: user.name,
+          surname: user.surname,
+          image: user.image,
+          title: user.title,
+        };
+        console.log(data.user);
+
         dispatch({ type: MY_NEW_POST, payload: data });
       }
     }
