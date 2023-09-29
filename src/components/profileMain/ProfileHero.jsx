@@ -43,7 +43,7 @@ const ProfileHero = (props) => {
   // const myProfile = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const error = useSelector((state) => state.errorProfileMain.content);
-  const exp = useSelector((state) => state.myExperiences?.content.slice(0, 2));
+  const exp = useSelector((state) => state.myExperiences?.content);
 
   return (
     <>
@@ -139,8 +139,12 @@ const ProfileHero = (props) => {
                 </Container>
                 <Container className="d-none d-md-flex flex-column ">
                   {exp &&
-                    exp.map((exp) => (
-                      <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-2 my-2">
+                    exp?.slice(0, 2).map((exp, i) => (
+                      <Container
+                        style={{ maxWidth: "fit-content" }}
+                        className="d-flex justify-content-end mx-2 my-2"
+                        key={i}
+                      >
                         <img src={exp.image} alt="" width={"40px"} height={"40px"} style={{ objectFit: "cover" }} />
                         <p className="ms-2">{exp.company}</p>
                       </Container>

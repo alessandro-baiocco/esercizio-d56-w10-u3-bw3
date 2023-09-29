@@ -53,7 +53,11 @@ const Posts = () => {
         </Col>
 
         <Col xs="6" className="my-3">
-          {myProfile ? <PostaUnPost image={myProfile.image} /> : <Spinner variant="success"></Spinner>}
+          {myProfile ? (
+            <PostaUnPost image={myProfile.image} profile={myProfile} />
+          ) : (
+            <Spinner variant="success"></Spinner>
+          )}
           <div className="d-flex">
             <hr style={{ width: "40%" }} />
 
@@ -71,48 +75,54 @@ const Posts = () => {
             postReversed.map((post, i) => (
               <Card className="mb-2" key={`post-${i}`}>
                 <Card.Body>
-                  <div className="d-flex">
-                    <div>
-                      <img
-                        src={post.user?.image ? post.user.image : myProfile.image}
-                        alt=""
-                        width={"70px"}
-                        height={"70px"}
-                        className="rounded-circle"
-                        style={{ objectFit: "cover" }}
-                      />
-                    </div>
-                    <Container className="d-flex">
-                      <Container className="d-flex flex-column">
-                        <Card.Title>
-                          {post.user?.name ? post.user.name : myProfile.name}{" "}
-                          {post.user?.surname ? post.user.surname : myProfile.surname}
-                        </Card.Title>
-                        <Card.Text>{post.user?.title ? post.user.title : myProfile.title}</Card.Text>
+                  {post.user && (
+                    <div className="d-flex">
+                      <div>
+                        <img
+                          src={
+                            post.user?.image
+                              ? post.user.image
+                              : "https://media.istockphoto.com/id/1409661663/vector/computer-bug-icon-with-circuit.jpg?s=612x612&w=0&k=20&c=MOCdcUXHEI9jHV5qKWVZNGre97ofZRr5qGLugpcT6yQ="
+                          }
+                          alt=""
+                          width={"70px"}
+                          height={"70px"}
+                          className="rounded-circle"
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                      <Container className="d-flex">
+                        <Container className="d-flex flex-column">
+                          <Card.Title>
+                            {post.user?.name ? post.user.name : "non è stato possibile reperire il nome utente"}{" "}
+                            {post.user?.surname ? post.user.surname : ""}
+                          </Card.Title>
+                          <Card.Text>{post.user?.title ? post.user.title : "bug"}</Card.Text>
+                        </Container>
+                        {(myProfile._id === post.user?._id || post.user?._id === undefined) && (
+                          <>
+                            <TrashFill
+                              className="text-danger me-3"
+                              onClick={(e) => {
+                                dispatch(deleteMyBeatifulPost(post._id));
+                                dispatch(getPostsFetch());
+                                e.preventDefault();
+                              }}
+                            />
+
+                            <PencilFill
+                              onClick={() => {
+                                setShow(true);
+
+                                setTesto({ text: post.text });
+                                setPostaID(post._id);
+                              }}
+                            />
+                          </>
+                        )}
                       </Container>
-                      {(myProfile._id === post.user?._id || post.user?._id === undefined) && (
-                        <>
-                          <TrashFill
-                            className="text-danger me-3"
-                            onClick={(e) => {
-                              dispatch(deleteMyBeatifulPost(post._id));
-                              dispatch(getPostsFetch());
-                              e.preventDefault();
-                            }}
-                          />
-
-                          <PencilFill
-                            onClick={() => {
-                              setShow(true);
-
-                              setTesto({ text: post.text });
-                              setPostaID(post._id);
-                            }}
-                          />
-                        </>
-                      )}
-                    </Container>
-                  </div>
+                    </div>
+                  )}
                 </Card.Body>
                 <Card.Body>
                   <Card.Text>{post.text}</Card.Text>

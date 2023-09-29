@@ -4,7 +4,6 @@ import myProfileResult from "../reducers/profile";
 import stopLoadingProfile from "../reducers/loadingProfileMain";
 import myExperiences from "../reducers/Experinces";
 import errorProfileMain from "../reducers/errorProfile";
-import myExperiencesEdit from "../reducers/EditExperiences";
 import myProfileImage from "../reducers/profImage";
 import getPosts from "../reducers/GetPosts";
 import singlePostText from "../reducers/singlePostTesto";
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
   myExperiences: myExperiences,
   loadingProfile: stopLoadingProfile,
   errorProfileMain: errorProfileMain,
-  editExperience: myExperiencesEdit,
   profImage: myProfileImage,
   getPosts: getPosts,
   getSinglePost: singlePostText,
