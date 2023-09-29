@@ -176,7 +176,6 @@ export const deleteMyExperiences = (myProfile, myExpId) => {
       },
     });
     if (response.ok) {
-      const data = await response.json();
       dispatch({ type: DELETE_MY_EXPERIENCES, payload: myExpId });
     }
     // } catch (error) {
