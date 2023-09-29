@@ -210,15 +210,17 @@ const MyNav = () => {
                 <NavDropdown.Item to="#action/3.1" className="d-flex ps-0 pt-0">
                   <div>
                     <Link to={"/myprofile"} onClick={() => dispatch(myProfilePage())}>
-                      <Image src={profile?.image} width={"50px"} height={"50px"} className="rounded-circle ms-2 mt-1" />
+                      <Image src={profile?.image} width={"50px"} height={"50px"} className="rounded-circle " />
                     </Link>
                   </div>
                   <Link to={"/myprofile"} className="text-decoration-none text-dark">
-                    <div className="d-flex flex-column">
-                      <h5>
+                    <div className="d-flex flex-column ms-2">
+                      <h5 className="mb-0" style={{ fontSize: "18px" }}>
                         {profile?.name} {profile?.surname}
                       </h5>
-                      <p>{profile?.title}</p>
+                      <p className="mb-0 opacity-75" style={{ fontSize: "16px" }}>
+                        {profile?.title}
+                      </p>
                     </div>
                   </Link>
                 </NavDropdown.Item>
@@ -226,38 +228,33 @@ const MyNav = () => {
                   Visualizza profilo
                 </button>
                 <NavDropdown.Divider />
-                <NavDropdown.Item to="#action/3.2">
+                <NavDropdown.Item to="#action/3.2" className="p-2">
                   <p className="mb-1" style={{ fontSize: "15px", fontWeight: "500" }}>
                     Account
                   </p>
-                  <p className="mb-0 opacity-75" style={{ fontSize: "13px" }}>
+                  <p className="mb-1 opacity-75" style={{ fontSize: "13px" }}>
                     Impostazioni e privacy
                   </p>
-                </NavDropdown.Item>
-                <NavDropdown.Item to="#action/3.3">
-                  <p className="mb-0 opacity-75" style={{ fontSize: "13px" }}>
+                  <p className="mb-1 opacity-75" style={{ fontSize: "13px" }}>
                     Guida
                   </p>
-                </NavDropdown.Item>
-                <NavDropdown.Item to="#action/3.4">
-                  <p className="mb-0 opacity-75" style={{ fontSize: "13px" }}>
+                  <p className="mb-1 opacity-75" style={{ fontSize: "13px" }}>
                     Lingua
                   </p>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item>
+                <NavDropdown.Item className="p-2">
                   <p className="mb-1" style={{ fontSize: "15px", fontWeight: "500" }}>
                     Gestisci
                   </p>
-                  <p className="mb-0 opacity-75 " style={{ fontSize: "13px" }}>
+                  <p className="mb-1 opacity-75 " style={{ fontSize: "13px" }}>
                     Post e attività
                   </p>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <p className="mb-0 opacity-75 " style={{ fontSize: "13px" }}>
+                  <p className="mb-1 opacity-75 " style={{ fontSize: "13px" }}>
                     Account per la pubblicazione di off...
                   </p>
                 </NavDropdown.Item>
+
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
                   <p className="mb-0 opacity-75" style={{ fontSize: "13px" }}>
