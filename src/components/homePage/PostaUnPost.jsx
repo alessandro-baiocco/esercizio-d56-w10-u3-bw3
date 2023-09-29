@@ -75,7 +75,7 @@ const PostaUnPost = (props) => {
             variant="primary"
             onClick={(e) => {
               //   dispatch(postMyNewPost(myProfile._id, status, statusImg));
-              dispatch(postMyNewBeatifulPost(testo, image));
+              dispatch(postMyNewBeatifulPost(testo, image, props.profile));
               // dispatch(getPostsFetch());
               e.preventDefault();
               setShow(false);
