@@ -3,6 +3,7 @@ import { Alert, Button, Card, Container, Form, Modal, Spinner } from "react-boot
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { EDIT_MY_PROFILE, myProfileImage, myProfilePage, myProfilePageMod } from "../../redux/action";
+import { Linkedin } from "react-bootstrap-icons";
 
 const ProfileHero = (props) => {
   const [show, setShow] = useState(false);
@@ -48,10 +49,13 @@ const ProfileHero = (props) => {
   return (
     <>
       {loading && (
-        <Container className="my-5">
-          <Container className="d-flex justify-content-center cardLinkedln py-5">
-            <Spinner animation="grow" variant="info" />
-          </Container>
+        <Container className="my-5 cardLinkedln py-5">
+          <div className="text-center">
+            <Linkedin className="fontIcon"></Linkedin>
+            <div class="line">
+              <div class="inner"></div>
+            </div>
+          </div>
         </Container>
       )}
 
