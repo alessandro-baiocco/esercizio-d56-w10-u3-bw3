@@ -18,10 +18,10 @@ const JobSearch = (props) => {
 
   return (
     <Container className="d-flex mt-3" style={{ height: "calc(100vh - 104px)", overflow: "auto" }}>
-      <Col xs="6" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
+      <Col xs="5" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
         {JobSearch && JobSearch.map((job) => <JobList job={job} />)}
       </Col>
-      <Col xs="6" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
+      <Col xs="7" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
         {JobSearch && <JobsListDescription job={JobSearch} />}
       </Col>
     </Container>
