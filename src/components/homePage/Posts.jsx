@@ -90,7 +90,7 @@ const Posts = () => {
                         </Card.Title>
                         <Card.Text>{post.user?.title ? post.user.title : myProfile.title}</Card.Text>
                       </Container>
-                      {myProfile._id === post.user?._id && (
+                      {(myProfile._id === post.user?._id || post.user?._id === undefined) && (
                         <>
                           <TrashFill
                             className="text-danger me-3"
