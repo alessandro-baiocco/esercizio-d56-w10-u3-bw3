@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const SideBarRight = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.getPosts.content);
-  const postsSliced = posts.slice(-5);
+  const postsSliced = posts.slice(-5).reverse();
   const loading = useSelector((state) => state.loadingProfile.content);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const SideBarRight = () => {
                     <h6 style={{ height: "20px", overflow: "hidden" }}> {post.text}</h6>
                     <p className="text-secondary">
                       {" "}
-                      {post.createdAt.slice(0, 10)} - {Math.floor(Math.random() * 300)} lettori
+                      {post.createdAt.slice(0, 10)} | {Math.floor(Math.random() * 300)} lettori
                     </p>
                   </div>
                 </li>

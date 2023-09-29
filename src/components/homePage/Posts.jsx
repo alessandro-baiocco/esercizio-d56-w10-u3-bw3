@@ -138,12 +138,13 @@ const Posts = () => {
                   </Card.Body>
                   <Card.Body>
                     <Card.Text>{post.text}</Card.Text>
-                    <Container className="p-0">
+                    <Container className="p-0 d-flex justify-content-center">
                       {post.image ? (
                         <img
                           src={post.image}
                           alt=""
-                          width={"80px"}
+                          width={"400px"}
+                          style={{ objectFit: "cover" }}
                           onClick={() => {
                             setImgForModal(post?.image);
                             setTextForModal(post?.text);
