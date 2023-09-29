@@ -21,7 +21,7 @@ export const GET_MY_EXPERIENCES = "GET_MY_EXPERIENCES";
 export const MY_NEW_POST = "MY_NEW_POST";
 export const EDIT_MY_EXPERIENCES = "EDIT_MY_EXPERIENCES";
 export const DELETE_MY_EXPERIENCES = "DELETE_MY_EXPERIENCES";
-export const DELETE_MY_POST = "DELETE_MY_EXPERIENCES";
+export const DELETE_MY_POST = "DELETE_MY_POST";
 export const POST_MY_EXPERIENCES = "POST_MY_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
@@ -217,27 +217,29 @@ export const postMyNewBeatifulPost = (text, image = "", user) => {
     });
     if (response.ok) {
       const data = await response.json();
-      const formData = new FormData();
-      formData.append("post", image.image);
-      const imgresponse = await fetch(URLDIPOST + data._id, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: process.env.REACT_APP_AUTHORIZATION,
-        },
-      });
-      if (imgresponse.ok) {
-        console.log("user", user, data, text);
-        const dataImg = await imgresponse.json();
-        data.image = await dataImg.image;
-        data.user = {
-          name: user.name,
-          surname: user.surname,
-          image: user.image,
-          title: user.title,
-        };
-        console.log(data.user);
-
+      data.user = {
+        name: user.name,
+        surname: user.surname,
+        image: user.image,
+        title: user.title,
+      };
+      if (image !== "") {
+        const formData = new FormData();
+        formData.append("post", image.image);
+        const imgresponse = await fetch(URLDIPOST + data._id, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: process.env.REACT_APP_AUTHORIZATION,
+          },
+        });
+        if (imgresponse.ok) {
+          console.log("user", user, data, text);
+          const dataImg = await imgresponse.json();
+          data.image = await dataImg.image;
+        }
+        dispatch({ type: MY_NEW_POST, payload: data });
+      } else {
         dispatch({ type: MY_NEW_POST, payload: data });
       }
     }
