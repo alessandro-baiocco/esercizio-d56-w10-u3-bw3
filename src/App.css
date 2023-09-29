@@ -227,3 +227,7 @@
 .jobSelectedClass {
   background-color: #d7e9fb;
 }
+
+.dropdown-menu {
+  padding: 5px;
+}
