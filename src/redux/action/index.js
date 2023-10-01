@@ -48,7 +48,7 @@ export const myProfilePage = (userId = "me") => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+
         dispatch({ type: EDIT_MY_PROFILE, payload: data });
         dispatch(myExperiencesFetch(data._id));
       } else {
@@ -68,7 +68,6 @@ export const myProfilePage = (userId = "me") => {
 export const myProfilePageMod = (e, param) => {
   e.preventDefault();
   return async (dispatch, getState) => {
-    console.log(param);
     const response = await fetch(URL2, {
       method: "PUT",
       body: JSON.stringify(param),
@@ -235,7 +234,6 @@ export const postMyNewBeatifulPost = (text, image = "", user) => {
           },
         });
         if (imgresponse.ok) {
-          console.log("user", user, data, text);
           const dataImg = await imgresponse.json();
           data.image = await dataImg.image;
         }

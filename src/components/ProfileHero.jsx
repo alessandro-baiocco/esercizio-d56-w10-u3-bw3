@@ -21,7 +21,6 @@ const ProfileHero = (props) => {
 
   const handleChange = (propertyName, propertyValue) => {
     setStatus({ ...status, [propertyName]: propertyValue });
-    console.log(status, propertyName, propertyValue);
   };
 
   const myProfile = useSelector((state) => state.profile.content);
