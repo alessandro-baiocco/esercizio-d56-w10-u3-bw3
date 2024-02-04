@@ -336,6 +336,7 @@ export const jobquery = (query) => {
   };
 };
 
+//ricerca più precisa ----------------------------------------------------------------------------------------------------------
 export const jobSearch = (query) => {
   return async (dispatch, getState) => {
     try {

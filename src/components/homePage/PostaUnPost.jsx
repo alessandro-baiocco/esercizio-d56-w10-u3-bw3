@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-
-import { GET_MY_PROFILE, getPostsFetch, myProfilePage, postMyNewBeatifulPost } from "../../redux/action";
+import { useState } from "react";
+import { Button, Container, Form, Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { postMyNewBeatifulPost } from "../../redux/action";
 const PostaUnPost = (props) => {
   const dispatch = useDispatch();
-
   const [show, setShow] = useState(false);
-  const [handleClose, setHandleClose] = useState(false);
   const [testo, setTesto] = useState(null);
   const [image, setImage] = useState({ image: "" });
 

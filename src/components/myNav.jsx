@@ -9,6 +9,7 @@ import { SEARCH_JOB_QUERY, jobSearch } from "../redux/action";
 const MyNav = () => {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
+  const myProfile = useSelector((state) => state.profile.content);
 
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
@@ -179,28 +180,20 @@ const MyNav = () => {
               <p className={isActive ? "d-none" : "mb-0 d-none d-md-block"}> Notifiche </p>
             </Nav.Link>
 
-            <div className="d-flex flex-column py-2">
+            <div className="d-flex flex-column pb-2 pt-1">
               <Link to={"/myprofile"} onClick={() => dispatch(myProfilePage())}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                  className={
-                    isActive ? "d-none" : "bi bi-person-circle d-none d-sm-block  pb-0 mb-0 mx-2 text-secondary"
-                  }
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                <Container style={{ width: "25px", height: "25px" }} className="p-0 m-0 ps-2">
+                  <img
+                    src={myProfile.image}
+                    alt="your profile"
+                    style={{ width: "25px", height: "25px" }}
+                    className="rounded-circle"
                   />
-                </svg>
+                </Container>
               </Link>
 
               <NavDropdown
-                title="tu"
+                title="Tu"
                 id="basic-nav-dropdown"
                 className={
                   isActive ? "d-none" : "d-none d-md-block pt-0 pe-3 border-end widthIconNavBar widthIconNavBar"

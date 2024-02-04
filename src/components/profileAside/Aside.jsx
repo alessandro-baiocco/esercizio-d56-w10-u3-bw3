@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Container, Spinner } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import CardAside from "./CardAside";
@@ -8,7 +8,9 @@ const Aside = (props) => {
   const [people, setPeople] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const url = "https://striveschool-api.herokuapp.com/api/profile/";
+  // eslint-disable-next-line no-unused-vars
   const URLDIRISERVA = "https://barbie-linkedin.cyclic.cloud/api/profile/";
+  const randNumb = Math.floor(Math.random() * 100);
 
   const fetchAside = async () => {
     try {
@@ -36,8 +38,8 @@ const Aside = (props) => {
   const spinner = (
     <Container style={{ marginTop: "48px" }}>
       <Container className=" cardLinkedln py-5">
-        <div class="line">
-          <div class="inner"></div>
+        <div className="line">
+          <div className="inner"></div>
         </div>
       </Container>
     </Container>
@@ -81,7 +83,7 @@ const Aside = (props) => {
         </div>
         <div>
           <ul className="ps-0">
-            {people.slice(0, 2).map((person) => (
+            {people.slice(randNumb, randNumb + 2).map((person) => (
               <CardAside card={person} key={person._id} />
             ))}
             <div className="text-center mt-1 ">
