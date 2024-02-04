@@ -149,15 +149,6 @@ const ProfileHero = (props) => {
                         <p className="ms-2">{exp.company}</p>
                       </Container>
                     ))}
-                  {/* <Container style={{ maxWidth: "fit-content" }} className="d-flex justify-content-end mx-0 my-2">
-                    <img
-                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-                      alt=""
-                      width={"40px"}
-                      height={"40px"}
-                    />
-                    <p className="ms-2">volkswagen</p>
-                  </Container> */}
                 </Container>
               </Container>
               <Link to="/profile/" className="d-block ps-4">

@@ -1,14 +1,13 @@
 import { Button } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { myProfilePage } from "../../redux/action";
 // onClick={dispatch(myProfilePage(urlParam.userId))
 
 const CardAside = ({ card }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const urlParam = useParams();
+
   return (
     <div className="borderAside pb-4 pt-4">
       <li key={card._id} className="textNoneLi">

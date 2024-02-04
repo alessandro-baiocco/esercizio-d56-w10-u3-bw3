@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Container, Form, Modal, Spinner } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,6 @@ const EsperienzaProfile = (props) => {
   // const experiences = useSelector((state) => state.myExperiences.content);
   const loading = useSelector((state) => state.loadingProfile?.content);
   const myProfile = useSelector((state) => state.profile.content);
-  const [exp, setExp] = useState(null);
 
   const [status, setStatus] = useState({
     area: "",
@@ -195,7 +194,7 @@ const EsperienzaProfile = (props) => {
               <Spinner animation="grow" variant="info" />
             </Container>
           </Container>
-        ) : (
+        ) : props.experiences[0] ? (
           props.experiences.map((experience, i) => (
             <Container className="d-flex" key={`exp-${i}`}>
               <Container style={{ width: "fit-content" }} className="p-0">
@@ -211,13 +210,16 @@ const EsperienzaProfile = (props) => {
               <i
                 className="mx-2 bi bi-pencil mt-1"
                 onClick={() => {
-                  setExp(experience);
-
                   handleShow(i);
                 }}
               ></i>
             </Container>
           ))
+        ) : (
+          <Container>
+            {" "}
+            <p>qui non ci sono esperienze</p>
+          </Container>
         )}
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
