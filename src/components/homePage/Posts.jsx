@@ -61,8 +61,8 @@ const Posts = () => {
             {myProfile ? (
               <PostaUnPost image={myProfile.image} profile={myProfile} />
             ) : (
-              <div class="line">
-                <div class="inner"></div>
+              <div className="line">
+                <div className="inner"></div>
               </div>
             )}
             <div className="d-flex">
@@ -78,8 +78,8 @@ const Posts = () => {
             {loading ? (
               <div className="text-center">
                 <Linkedin className="fontIcon"></Linkedin>
-                <div class="line">
-                  <div class="inner"></div>
+                <div className="line">
+                  <div className="inner"></div>
                 </div>
               </div>
             ) : (

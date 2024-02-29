@@ -185,7 +185,7 @@ const MyNav = () => {
               <Link to={"/myprofile"} onClick={() => dispatch(myProfilePage())}>
                 <Container style={{ width: "25px", height: "25px" }} className="p-0 m-0 ps-2">
                   <img
-                    src={myProfile.image}
+                    src={myProfile?.image}
                     alt="your profile"
                     style={{ width: "25px", height: "25px" }}
                     className="rounded-circle"
