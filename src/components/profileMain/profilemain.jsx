@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { myProfilePage } from "../../redux/action";
 import { useParams } from "react-router";
 
-const ProfileMain = () => {
+const Profilemain = () => {
   const urlParam = useParams();
   const myProfile = useSelector((state) => state.profile.content);
   const experiences = useSelector((state) => state.myExperiences.content);
@@ -64,4 +64,4 @@ const ProfileMain = () => {
     </>
   );
 };
-export default ProfileMain;
+export default Profilemain;

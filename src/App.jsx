@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LinkedinFooter from "./components/footer/LinkedinFooter";
 import MyNav from "./components/myNav";
-import ProfileMain from "./components/profileMain/ProfileMain";
+import ProfileMain from "./components/profileMain/Profilemain";
 
 import Posts from "./components/homePage/Posts";
 import GetJobsPage from "./components/jobPage/GetJobsPage";
